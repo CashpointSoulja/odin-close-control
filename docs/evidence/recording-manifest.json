@@ -1,0 +1,404 @@
+{
+  "baseUrl": "http://127.0.0.1:8787",
+  "evidenceType": "local demonstration",
+  "desktopResolution": [
+    1440,
+    900
+  ],
+  "portraitResolution": [
+    1080,
+    1920
+  ],
+  "desktopIsCropped": false,
+  "credit": "Ayo Ahmed | Independent synthetic concept",
+  "narration": "Synthetic narration; all records fictional.",
+  "scenes": [
+    {
+      "name": "desktop-seed",
+      "start": 2.829,
+      "note": "Fresh private synthetic session",
+      "voiceStart": 0
+    },
+    {
+      "name": "import-preview",
+      "start": 18.91,
+      "note": "Both CSV files validated by the server before atomic import"
+    },
+    {
+      "name": "after-import",
+      "start": 33.274,
+      "note": "Imported receipt remains unassigned until a human matches it"
+    },
+    {
+      "name": "receipt-match",
+      "start": 47.704,
+      "note": "Explicit selection of Linden Ventures' commitment for the 2,000 GBP receipt"
+    },
+    {
+      "name": "after-match",
+      "start": 62.063,
+      "note": "Principal is reconciled; final legal evidence is still required"
+    },
+    {
+      "name": "legal-metadata",
+      "start": 74.204,
+      "note": "Synthetic final-reference metadata; no real legal document is verified"
+    },
+    {
+      "name": "ready-for-review",
+      "start": 87.745,
+      "note": "Every deterministic blocker resolved; human approval remains required"
+    },
+    {
+      "name": "human-review",
+      "start": 101.634,
+      "note": "Synthetic reviewer explicitly confirms the exact requested current revision"
+    },
+    {
+      "name": "reviewed-packet",
+      "start": 121.205,
+      "note": "Current reviewed data and revision-bound hash can be downloaded"
+    },
+    {
+      "name": "persisted-review",
+      "start": 139.866,
+      "note": "Actual server-backed approved session survives reload"
+    }
+  ],
+  "voiceTiming": {
+    "desktop-seed": {
+      "path": "/workspace/odin-close-control/work/walkthrough/desktop-seed.wav",
+      "duration": 12.485,
+      "cues": [
+        {
+          "text": "Odin Close Control is an independent concept by Ayo Ahmed.",
+          "start": 0.0,
+          "duration": 4.075
+        },
+        {
+          "text": "This synthetic demonstration turns close preparation into an inspectable path: cash, evidence, then an explicit",
+          "start": 4.075,
+          "duration": 7.04
+        },
+        {
+          "text": "human review.",
+          "start": 11.115,
+          "duration": 1.37
+        }
+      ]
+    },
+    "import-preview": {
+      "path": "/workspace/odin-close-control/work/walkthrough/import-preview.wav",
+      "duration": 10.385,
+      "cues": [
+        {
+          "text": "I upload commitments and payment events together.",
+          "start": 0.0,
+          "duration": 3.095
+        },
+        {
+          "text": "The server validates exact amounts and previews the changes.",
+          "start": 3.095,
+          "duration": 3.835
+        },
+        {
+          "text": "Both files are applied atomically to this saved session.",
+          "start": 6.93,
+          "duration": 3.455
+        }
+      ]
+    },
+    "after-import": {
+      "path": "/workspace/odin-close-control/work/walkthrough/after-import.wav",
+      "duration": 9.84,
+      "cues": [
+        {
+          "text": "Aurora still has a two thousand pound receipt without an allocation.",
+          "start": 0.0,
+          "duration": 4.155
+        },
+        {
+          "text": "A receipt does not become funded capital until a human assigns it to the correct",
+          "start": 4.155,
+          "duration": 4.735
+        },
+        {
+          "text": "commitment.",
+          "start": 8.89,
+          "duration": 0.95
+        }
+      ]
+    },
+    "receipt-match": {
+      "path": "/workspace/odin-close-control/work/walkthrough/receipt-match.wav",
+      "duration": 9.545,
+      "cues": [
+        {
+          "text": "I select Linden Ventures for this two thousand pound receipt.",
+          "start": 0.0,
+          "duration": 3.54
+        },
+        {
+          "text": "The account, amount and bank reference stay visible.",
+          "start": 3.54,
+          "duration": 3.37
+        },
+        {
+          "text": "The selection becomes part of the audit trail.",
+          "start": 6.91,
+          "duration": 2.635
+        }
+      ]
+    },
+    "after-match": {
+      "path": "/workspace/odin-close-control/work/walkthrough/after-match.wav",
+      "duration": 9.94,
+      "cues": [
+        {
+          "text": "The principal now reconciles.",
+          "start": 0.0,
+          "duration": 2.49
+        },
+        {
+          "text": "The fee cash is tracked separately using an illustrative fee rule.",
+          "start": 2.49,
+          "duration": 4.115
+        },
+        {
+          "text": "A draft legal reference still blocks a review request.",
+          "start": 6.605,
+          "duration": 3.335
+        }
+      ]
+    },
+    "legal-metadata": {
+      "path": "/workspace/odin-close-control/work/walkthrough/legal-metadata.wav",
+      "duration": 10.28,
+      "cues": [
+        {
+          "text": "I attach final synthetic legal metadata with a document hash.",
+          "start": 0.0,
+          "duration": 3.92
+        },
+        {
+          "text": "This records a human supplied reference.",
+          "start": 3.92,
+          "duration": 2.5
+        },
+        {
+          "text": "It does not verify a real agreement or replace legal judgment.",
+          "start": 6.42,
+          "duration": 3.86
+        }
+      ]
+    },
+    "ready-for-review": {
+      "path": "/workspace/odin-close-control/work/walkthrough/ready-for-review.wav",
+      "duration": 9.74,
+      "cues": [
+        {
+          "text": "Every deterministic blocker is resolved.",
+          "start": 0.0,
+          "duration": 2.955
+        },
+        {
+          "text": "Human attestations and the close request are present.",
+          "start": 2.955,
+          "duration": 3.31
+        },
+        {
+          "text": "The preparer can now request review of this exact revision.",
+          "start": 6.265000000000001,
+          "duration": 3.475
+        }
+      ]
+    },
+    "human-review": {
+      "path": "/workspace/odin-close-control/work/walkthrough/human-review.wav",
+      "duration": 12.46,
+      "cues": [
+        {
+          "text": "The synthetic reviewer inspects the current revision and explicitly confirms it.",
+          "start": 0.0,
+          "duration": 4.65
+        },
+        {
+          "text": "Any relevant later change invalidates that approval.",
+          "start": 4.65,
+          "duration": 3.58
+        },
+        {
+          "text": "Review is a deliberate action, never an automatic financial decision.",
+          "start": 8.23,
+          "duration": 4.23
+        }
+      ]
+    },
+    "reviewed-packet": {
+      "path": "/workspace/odin-close-control/work/walkthrough/reviewed-packet.wav",
+      "duration": 9.6,
+      "cues": [
+        {
+          "text": "The reviewed packet includes the cash ledger, evidence, audit trail and snapshot hash.",
+          "start": 0.0,
+          "duration": 5.45
+        },
+        {
+          "text": "I can download it and verify that the hash matches the exact approved data.",
+          "start": 5.45,
+          "duration": 4.15
+        }
+      ]
+    },
+    "persisted-review": {
+      "path": "/workspace/odin-close-control/work/walkthrough/persisted-review.wav",
+      "duration": 11.38,
+      "cues": [
+        {
+          "text": "The reviewed session survives a reload.",
+          "start": 0.0,
+          "duration": 2.56
+        },
+        {
+          "text": "This is a readiness handoff, with no signatures or transfers.",
+          "start": 2.56,
+          "duration": 4.145
+        },
+        {
+          "text": "I built the concept to make rules, exceptions and human ownership clear.",
+          "start": 6.705,
+          "duration": 4.675
+        }
+      ]
+    }
+  },
+  "packetVerification": {
+    "revision": 6,
+    "snapshotHash": "8da179c3b948b4f011bb8705e874b27ba8300bbf0118fd569168c60f5fb42f1e",
+    "reviewer": "DEMO-REVIEWER-01",
+    "matchedEventId": "DEMO-AURORA-PAY-003",
+    "matchedCommitmentId": "DEMO-AURORA-COM-002",
+    "packetFilename": "DEMO-AURORA-reviewed-revision-6.json",
+    "ledgerFilename": "DEMO-AURORA-cash-ledger-revision-6.csv"
+  },
+  "actionBridges": [
+    {
+      "start": 12.584999999999999,
+      "duration": 6.203771,
+      "cues": [
+        {
+          "text": "I select both CSV files and confirm the synthetic-only scope.",
+          "start": 0,
+          "duration": 6.203771
+        }
+      ],
+      "kind": "action bridge",
+      "name": "desktop-seed"
+    },
+    {
+      "start": 29.395000000000003,
+      "duration": 3.760438,
+      "cues": [
+        {
+          "text": "I apply both files as one validated import.",
+          "start": 0,
+          "duration": 3.760438
+        }
+      ],
+      "kind": "action bridge",
+      "name": "import-preview"
+    },
+    {
+      "start": 43.214000000000006,
+      "duration": 4.365313,
+      "cues": [
+        {
+          "text": "I open the receipt and select Linden's commitment.",
+          "start": 0,
+          "duration": 4.365313
+        }
+      ],
+      "kind": "action bridge",
+      "name": "after-import"
+    },
+    {
+      "start": 57.349000000000004,
+      "duration": 4.600396,
+      "cues": [
+        {
+          "text": "I explicitly confirm this receipt's known commitment account.",
+          "start": 0,
+          "duration": 4.600396
+        }
+      ],
+      "kind": "action bridge",
+      "name": "receipt-match"
+    },
+    {
+      "start": 72.103,
+      "duration": 2.001,
+      "cues": [
+        {
+          "text": "Next, the final synthetic reference.",
+          "start": 0,
+          "duration": 2.001
+        }
+      ],
+      "kind": "action bridge",
+      "name": "after-match"
+    },
+    {
+      "start": 84.58399999999999,
+      "duration": 3.038292,
+      "cues": [
+        {
+          "text": "I attach the final metadata.",
+          "start": 0,
+          "duration": 3.038292
+        }
+      ],
+      "kind": "action bridge",
+      "name": "legal-metadata"
+    },
+    {
+      "start": 97.585,
+      "duration": 3.93275,
+      "cues": [
+        {
+          "text": "I request review and open this snapshot.",
+          "start": 0,
+          "duration": 3.93275
+        }
+      ],
+      "kind": "action bridge",
+      "name": "ready-for-review"
+    },
+    {
+      "start": 114.19399999999999,
+      "duration": 6.881708,
+      "cues": [
+        {
+          "text": "The reviewer approves this snapshot. I open the packet.",
+          "start": 0,
+          "duration": 6.881708
+        }
+      ],
+      "kind": "action bridge",
+      "name": "human-review"
+    },
+    {
+      "start": 130.905,
+      "duration": 8.820958,
+      "cues": [
+        {
+          "text": "I download the packet and ledger, then reload the saved session.",
+          "start": 0,
+          "duration": 8.820958
+        }
+      ],
+      "kind": "action bridge",
+      "name": "reviewed-packet"
+    }
+  ],
+  "renderedDuration": 151.56
+}

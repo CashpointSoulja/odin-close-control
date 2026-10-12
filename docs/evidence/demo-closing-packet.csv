@@ -1,0 +1,5 @@
+"event_id","deal_id","commitment_id","currency","amount_minor","type","parent_event_id","bank_reference","resolution"
+"DEMO-AURORA-PAY-001","DEMO-AURORA","DEMO-AURORA-COM-001","GBP","3000000","settlement","","DEMO-BANK-A001",""
+"DEMO-AURORA-PAY-002","DEMO-AURORA","DEMO-AURORA-COM-002","GBP","1800000","settlement","","DEMO-BANK-A002",""
+"DEMO-AURORA-FEE-001","DEMO-AURORA","DEMO-AURORA-FEE","GBP","50000","settlement","","DEMO-BANK-AF01",""
+"DEMO-AURORA-PAY-003","DEMO-AURORA","DEMO-AURORA-COM-002","GBP","200000","settlement","","DEMO-BANK-A003",""

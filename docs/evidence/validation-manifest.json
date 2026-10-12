@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-10-12T23:32:22.923082+00:00",
+  "workerBuild": {
+    "command": "wrangler deploy --dry-run",
+    "succeeded": true,
+    "totalUploadKiB": "50.21",
+    "gzipKiB": "14.15",
+    "assetFileCount": 14,
+    "bindings": [
+      "DB",
+      "ASSETS"
+    ],
+    "remoteDeployment": false
+  },
+  "sourceSha256": {
+    "public/shared/domain.js": "deab2ce7b6b6f9d34f48a66df55348894f8012bc344d872901222888c7087b9d",
+    "public/app.js": "266a3238cc9db524c219b868490a786cd5dc1e3827b8ef2ba3ed61deffd51649",
+    "src/worker.js": "6c0ab482bb84eb38a3f87100060d2c09315fc8d0387e6429807e16e9328a3d5b",
+    "migrations/0001_sessions.sql": "a9f50756e9bda9af7074150600c1a6061e0a6cfa38ac50d9204c30ed9ec842fc",
+    "wrangler.jsonc": "1f9efcf24f0ba9c5d2652563d63a754be55fc5520a536b888b9759dbb3ace456",
+    "tests/domain.test.js": "867ddf6a54b0cc44f2b2f862329f61547dd46e41bf0b4deb6ec94f68e2136f07",
+    "tests/api.test.js": "c967bc7aa57ed13632b22bf7a90ab53d71436bea1f6eb28fa187943ab7d1b3e9",
+    "package-lock.json": "ed89941eea6cd25367ff97b654c54bd94bd83f80f568d0347e36084e4317f2f0"
+  },
+  "limits": [
+    "Cloudflare authentication is unavailable; remote Workers+D1 was not deployed.",
+    "Operator and reviewer identities are fictional labels within one visitor session.",
+    "Financial/legal/KYC source authority and actual document contents are not verified.",
+    "No real operating-time or savings baseline was measured."
+  ]
+}

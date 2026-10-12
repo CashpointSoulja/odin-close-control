@@ -1,0 +1,19 @@
+{
+  "repository": {
+    "url": "https://github.com/CashpointSoulja/odin-close-control",
+    "status": 200,
+    "freshBrowserContext": true,
+    "signInVisible": true,
+    "readmeVisible": true,
+    "checkedAt": "2026-10-12T23:18:03.800757+00:00",
+    "tlsTrust": "Configured cloud proxy CA public-key pin; no global certificate bypass"
+  },
+  "demo": {
+    "deployed": false,
+    "blocker": "Cloudflare authentication unavailable"
+  },
+  "video": {
+    "published": false,
+    "status": "Final capture correction and whole-timeline review pending"
+  }
+}

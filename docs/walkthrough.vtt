@@ -1,0 +1,153 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.075
+Odin Close Control is an independent concept by Ayo Ahmed.
+
+2
+00:00:04.075 --> 00:00:11.115
+This synthetic demonstration turns close preparation into an inspectable path: cash. evidence. then an explicit
+
+3
+00:00:11.115 --> 00:00:12.485
+human review.
+
+4
+00:00:12.585 --> 00:00:18.789
+I select both CSV files and confirm the synthetic-only scope.
+
+5
+00:00:18.910 --> 00:00:22.005
+I upload commitments and payment events together.
+
+6
+00:00:22.005 --> 00:00:25.840
+The server validates exact amounts and previews the changes.
+
+7
+00:00:25.840 --> 00:00:29.295
+Both files are applied atomically to this saved session.
+
+8
+00:00:29.395 --> 00:00:33.155
+I apply both files as one validated import.
+
+9
+00:00:33.274 --> 00:00:37.429
+Aurora still has a two thousand pound receipt without an allocation.
+
+10
+00:00:37.429 --> 00:00:42.164
+A receipt does not become funded capital until a human assigns it to the correct
+
+11
+00:00:42.164 --> 00:00:43.114
+commitment.
+
+12
+00:00:43.214 --> 00:00:47.579
+I open the receipt and select Linden's commitment.
+
+13
+00:00:47.704 --> 00:00:51.244
+I select Linden Ventures for this two thousand pound receipt.
+
+14
+00:00:51.244 --> 00:00:54.614
+The account. amount and bank reference stay visible.
+
+15
+00:00:54.614 --> 00:00:57.249
+The selection becomes part of the audit trail.
+
+16
+00:00:57.349 --> 00:01:01.949
+I explicitly confirm this receipt's known commitment account.
+
+17
+00:01:02.063 --> 00:01:04.553
+The principal now reconciles.
+
+18
+00:01:04.553 --> 00:01:08.668
+The fee cash is tracked separately using an illustrative fee rule.
+
+19
+00:01:08.668 --> 00:01:12.003
+A draft legal reference still blocks a review request.
+
+20
+00:01:12.103 --> 00:01:14.104
+Next. the final synthetic reference.
+
+21
+00:01:14.204 --> 00:01:18.124
+I attach final synthetic legal metadata with a document hash.
+
+22
+00:01:18.124 --> 00:01:20.624
+This records a human supplied reference.
+
+23
+00:01:20.624 --> 00:01:24.484
+It does not verify a real agreement or replace legal judgment.
+
+24
+00:01:24.584 --> 00:01:27.622
+I attach the final metadata.
+
+25
+00:01:27.745 --> 00:01:30.700
+Every deterministic blocker is resolved.
+
+26
+00:01:30.700 --> 00:01:34.010
+Human attestations and the close request are present.
+
+27
+00:01:34.010 --> 00:01:37.485
+The preparer can now request review of this exact revision.
+
+28
+00:01:37.585 --> 00:01:41.518
+I request review and open this snapshot.
+
+29
+00:01:41.634 --> 00:01:46.284
+The synthetic reviewer inspects the current revision and explicitly confirms it.
+
+30
+00:01:46.284 --> 00:01:49.864
+Any relevant later change invalidates that approval.
+
+31
+00:01:49.864 --> 00:01:54.094
+Review is a deliberate action. never an automatic financial decision.
+
+32
+00:01:54.194 --> 00:02:01.076
+The reviewer approves this snapshot. I open the packet.
+
+33
+00:02:01.205 --> 00:02:06.655
+The reviewed packet includes the cash ledger. evidence. audit trail and snapshot hash.
+
+34
+00:02:06.655 --> 00:02:10.805
+I can download it and verify that the hash matches the exact approved data.
+
+35
+00:02:10.905 --> 00:02:19.726
+I download the packet and ledger. then reload the saved session.
+
+36
+00:02:19.866 --> 00:02:22.426
+The reviewed session survives a reload.
+
+37
+00:02:22.426 --> 00:02:26.571
+This is a readiness handoff. with no signatures or transfers.
+
+38
+00:02:26.571 --> 00:02:31.246
+I built the concept to make rules. exceptions and human ownership clear.

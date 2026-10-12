@@ -1,0 +1,17 @@
+{
+  "capturedAt": "2026-10-12T23:37:13.348275+00:00",
+  "source": "Actual UI packet and ledger downloads saved during the final local recording; each download was revalidated by the real server.",
+  "sameAs": "recording-manifest.json packet verification",
+  "qaSessionIsSeparate": true,
+  "verification": {
+    "revision": 6,
+    "snapshotHash": "8da179c3b948b4f011bb8705e874b27ba8300bbf0118fd569168c60f5fb42f1e",
+    "reviewer": "DEMO-REVIEWER-01",
+    "matchedEventId": "DEMO-AURORA-PAY-003",
+    "matchedCommitmentId": "DEMO-AURORA-COM-002"
+  },
+  "files": {
+    "demo-closing-packet.json": "1032023c9dcc28b5d0768a13d3b26635f96167a924b62c6ec70e7c1d1772a08d",
+    "demo-closing-packet.csv": "fec938505cb8cc6331ffa06fc51f3a673895878f2a12b16a33dde4099e30402a"
+  }
+}

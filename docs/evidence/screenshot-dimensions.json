@@ -1,0 +1,90 @@
+{
+  "after-import.png": {
+    "width": 1440,
+    "height": 2134
+  },
+  "after-match.png": {
+    "width": 1440,
+    "height": 2134
+  },
+  "desktop-reviewed.png": {
+    "width": 1440,
+    "height": 2166
+  },
+  "desktop-seed.png": {
+    "width": 1440,
+    "height": 2050
+  },
+  "desktop-viewport.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "empty-search-results.png": {
+    "width": 1440,
+    "height": 1995
+  },
+  "error-induced-unavailable.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "human-review.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "import-preview.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "invalid-import.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "legal-metadata.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "loading-induced-delay.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "mobile-dialog.png": {
+    "width": 390,
+    "height": 844
+  },
+  "mobile-reviewed.png": {
+    "width": 390,
+    "height": 3363
+  },
+  "mobile-viewport.png": {
+    "width": 390,
+    "height": 844
+  },
+  "persisted-review.png": {
+    "width": 1440,
+    "height": 2166
+  },
+  "ready-for-review.png": {
+    "width": 1440,
+    "height": 2149
+  },
+  "receipt-match.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "repo-signed-out.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "reviewed-packet.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "stale-packet-rejected.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "stale-review-rejected.png": {
+    "width": 1440,
+    "height": 1000
+  }
+}

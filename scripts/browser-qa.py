@@ -162,11 +162,13 @@ def run_workflow(run, include_invalid=True):
     with page.expect_download() as download_info:
         run.click(page.locator("#packet-download"))
     downloaded = download_info.value
+    downloaded.save_as(str(run.directory / "demo-closing-packet.json"))
     packet = json.loads(Path(downloaded.path()).read_text())
     verified = verify_packet(packet)
     with page.expect_download() as ledger_info:
         run.click(page.locator("#ledger-download"))
     ledger = Path(ledger_info.value.path()).read_text()
+    ledger_info.value.save_as(str(run.directory / "demo-closing-packet.csv"))
     ledger_rows = list(csv.DictReader(io.StringIO(ledger)))
     ledger_event = next(row for row in ledger_rows if row["event_id"] == "DEMO-AURORA-PAY-003")
     assert ledger_event["commitment_id"] == "DEMO-AURORA-COM-002" and ledger_event["amount_minor"] == "200000"

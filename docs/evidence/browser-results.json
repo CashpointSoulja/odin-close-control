@@ -120,5 +120,7 @@
   ],
   "pageErrors": [],
   "consoleErrors": [],
-  "apiFailures": []
+  "apiFailures": [],
+  "visualRefreshCapturedAt": "2026-10-12T23:19:11.413104+00:00",
+  "visualRefreshNote": "Refreshed desktop/mobile approved-state screenshots after assignee-label correction; current financial assertions unchanged."
 }

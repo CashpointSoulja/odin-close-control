@@ -1,0 +1,2187 @@
+{
+  "scope": "Full decode validation and still-frame inspection; no claim of continuous playback or audio listening.",
+  "source": "work/walkthrough/desktop-source.webm",
+  "portrait": "work/walkthrough/odin-close-control-walkthrough.mp4",
+  "manifest": "work/walkthrough/recording-manifest.json",
+  "media": {
+    "desktop": {
+      "format": {
+        "duration": "151.560000",
+        "size": "8530744",
+        "bit_rate": "450289",
+        "format_name": "matroska,webm"
+      },
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 1440,
+          "height": 900,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "8:5",
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "avg_frame_rate": "25/1",
+          "nb_frames": null,
+          "duration": null,
+          "sample_rate": null,
+          "channels": null
+        }
+      ],
+      "sha256": "956eb6df6e6cee4c1c680ebd010cb1894996be31b77997ca0409473415e9bb17"
+    },
+    "portrait": {
+      "format": {
+        "duration": "151.560000",
+        "size": "5906363",
+        "bit_rate": "311763",
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2"
+      },
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 1080,
+          "height": 1920,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "9:16",
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "avg_frame_rate": "25/1",
+          "nb_frames": "3789",
+          "duration": "151.560000",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "aac",
+          "width": null,
+          "height": null,
+          "sample_aspect_ratio": null,
+          "display_aspect_ratio": null,
+          "pix_fmt": null,
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "nb_frames": "7106",
+          "duration": "151.560000",
+          "sample_rate": "48000",
+          "channels": 1
+        }
+      ],
+      "sha256": "df247fab514027a4cf6f96ef52fa5dd7bd3806cedbe48154cd783f5d2e6d04c3"
+    }
+  },
+  "fullDecode": {
+    "desktop": {
+      "exitCode": 0,
+      "stderr": ""
+    },
+    "portrait": {
+      "exitCode": 0,
+      "stderr": ""
+    }
+  },
+  "sceneSamples": [
+    {
+      "name": "desktop-seed",
+      "sceneStart": 2.829,
+      "sceneEnd": 18.91,
+      "voiceStart": 0,
+      "voiceDuration": 12.485,
+      "voiceEnd": 12.485,
+      "gapToNextScene": 6.425000000000001,
+      "captionCueCount": 3,
+      "captionCues": [
+        {
+          "text": "Odin Close Control is an independent concept by Ayo Ahmed.",
+          "start": 0.0,
+          "duration": 4.075
+        },
+        {
+          "text": "This synthetic demonstration turns close preparation into an inspectable path: cash, evidence, then an explicit",
+          "start": 4.075,
+          "duration": 7.04
+        },
+        {
+          "text": "human review.",
+          "start": 11.115,
+          "duration": 1.37
+        }
+      ],
+      "frame": 89,
+      "time": 3.56,
+      "path": "work/video-review/corrected-final/scenes/frame-0001.png",
+      "desktopComparison": {
+        "sourceFrame": 89,
+        "sourceTime": 3.56,
+        "sourcePath": "work/video-review/corrected-final/source-scenes/frame-0001.png",
+        "portraitRegion": [
+          0,
+          575,
+          1080,
+          1250
+        ],
+        "meanAbsolutePixelDifferenceRGB": [
+          3.819673525377229,
+          3.8057544581618656,
+          3.9795775034293555
+        ],
+        "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
+      }
+    },
+    {
+      "name": "import-preview",
+      "sceneStart": 18.91,
+      "sceneEnd": 33.274,
+      "voiceStart": 18.91,
+      "voiceDuration": 10.385,
+      "voiceEnd": 29.295,
+      "gapToNextScene": 3.979000000000001,
+      "captionCueCount": 3,
+      "captionCues": [
+        {
+          "text": "I upload commitments and payment events together.",
+          "start": 0.0,
+          "duration": 3.095
+        },
+        {
+          "text": "The server validates exact amounts and previews the changes.",
+          "start": 3.095,
+          "duration": 3.835
+        },
+        {
+          "text": "Both files are applied atomically to this saved session.",
+          "start": 6.93,
+          "duration": 3.455
+        }
+      ],
+      "frame": 491,
+      "time": 19.64,
+      "path": "work/video-review/corrected-final/scenes/frame-0004.png",
+      "desktopComparison": {
+        "sourceFrame": 491,
+        "sourceTime": 19.64,
+        "sourcePath": "work/video-review/corrected-final/source-scenes/frame-0002.png",
+        "portraitRegion": [
+          0,
+          575,
+          1080,
+          1250
+        ],
+        "meanAbsolutePixelDifferenceRGB": [
+          2.908890260631001,
+          2.8741015089163238,
+          3.071659807956104
+        ],
+        "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
+      }
+    },
+    {
+      "name": "after-import",
+      "sceneStart": 33.274,
+      "sceneEnd": 47.704,
+      "voiceStart": 33.274,
+      "voiceDuration": 9.84,
+      "voiceEnd": 43.114000000000004,
+      "gapToNextScene": 4.59,
+      "captionCueCount": 3,
+      "captionCues": [
+        {
+          "text": "Aurora still has a two thousand pound receipt without an allocation.",
+          "start": 0.0,
+          "duration": 4.155
+        },
+        {
+          "text": "A receipt does not become funded capital until a human assigns it to the correct",
+          "start": 4.155,
+          "duration": 4.735
+        },
+        {
+          "text": "commitment.",
+          "start": 8.89,
+          "duration": 0.95
+        }
+      ],
+      "frame": 851,
+      "time": 34.04,
+      "path": "work/video-review/corrected-final/scenes/frame-0007.png",
+      "desktopComparison": {
+        "sourceFrame": 851,
+        "sourceTime": 34.04,
+        "sourcePath": "work/video-review/corrected-final/source-scenes/frame-0003.png",
+        "portraitRegion": [
+          0,
+          575,
+          1080,
+          1250
+        ],
+        "meanAbsolutePixelDifferenceRGB": [
+          3.0260013717421126,
+          2.9845953360768176,
+          3.253246913580247
+        ],
+        "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
+      }
+    },
+    {
+      "name": "receipt-match",
+      "sceneStart": 47.704,
+      "sceneEnd": 62.063,
+      "voiceStart": 47.704,
+      "voiceDuration": 9.545,
+      "voiceEnd": 57.249,
+      "gapToNextScene": 4.814000000000002,
+      "captionCueCount": 3,
+      "captionCues": [
+        {
+          "text": "I select Linden Ventures for this two thousand pound receipt.",
+          "start": 0.0,
+          "duration": 3.54
+        },
+        {
+          "text": "The account, amount and bank reference stay visible.",
+          "start": 3.54,
+          "duration": 3.37
+        },
+        {
+          "text": "The selection becomes part of the audit trail.",
+          "start": 6.91,
+          "duration": 2.635
+        }
+      ],
+      "frame": 1211,
+      "time": 48.44,
+      "path": "work/video-review/corrected-final/scenes/frame-0010.png",
+      "desktopComparison": {
+        "sourceFrame": 1211,
+        "sourceTime": 48.44,
+        "sourcePath": "work/video-review/corrected-final/source-scenes/frame-0004.png",
+        "portraitRegion": [
+          0,
+          575,
+          1080,
+          1250
+        ],
+        "meanAbsolutePixelDifferenceRGB": [
+          2.0314554183813445,
+          1.9686131687242798,
+          2.091698216735254
+        ],
+        "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
+      }
+    },
+    {
+      "name": "after-match",
+      "sceneStart": 62.063,
+      "sceneEnd": 74.204,
+      "voiceStart": 62.063,
+      "voiceDuration": 9.94,
+      "voiceEnd": 72.003,
+      "gapToNextScene": 2.2009999999999916,
+      "captionCueCount": 3,
+      "captionCues": [
+        {
+          "text": "The principal now reconciles.",
+          "start": 0.0,
+          "duration": 2.49
+        },
+        {
+          "text": "The fee cash is tracked separately using an illustrative fee rule.",
+          "start": 2.49,
+          "duration": 4.115
+        },
+        {
+          "text": "A draft legal reference still blocks a review request.",
+          "start": 6.605,
+          "duration": 3.335
+        }
+      ],
+      "frame": 1570,
+      "time": 62.8,
+      "path": "work/video-review/corrected-final/scenes/frame-0013.png",
+      "desktopComparison": {
+        "sourceFrame": 1570,
+        "sourceTime": 62.8,
+        "sourcePath": "work/video-review/corrected-final/source-scenes/frame-0005.png",
+        "portraitRegion": [
+          0,
+          575,
+          1080,
+          1250
+        ],
+        "meanAbsolutePixelDifferenceRGB": [
+          2.9975130315500684,
+          2.948986282578875,
+          3.2202249657064472
+        ],
+        "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
+      }
+    },
+    {
+      "name": "legal-metadata",
+      "sceneStart": 74.204,
+      "sceneEnd": 87.745,
+      "voiceStart": 74.204,
+      "voiceDuration": 10.28,
+      "voiceEnd": 84.484,
+      "gapToNextScene": 3.2610000000000117,
+      "captionCueCount": 3,
+      "captionCues": [
+        {
+          "text": "I attach final synthetic legal metadata with a document hash.",
+          "start": 0.0,
+          "duration": 3.92
+        },
+        {
+          "text": "This records a human supplied reference.",
+          "start": 3.92,
+          "duration": 2.5
+        },
+        {
+          "text": "It does not verify a real agreement or replace legal judgment.",
+          "start": 6.42,
+          "duration": 3.86
+        }
+      ],
+      "frame": 1874,
+      "time": 74.96,
+      "path": "work/video-review/corrected-final/scenes/frame-0016.png",
+      "desktopComparison": {
+        "sourceFrame": 1874,
+        "sourceTime": 74.96,
+        "sourcePath": "work/video-review/corrected-final/source-scenes/frame-0006.png",
+        "portraitRegion": [
+          0,
+          575,
+          1080,
+          1250
+        ],
+        "meanAbsolutePixelDifferenceRGB": [
+          1.7437311385459533,
+          1.655565157750343,
+          1.786650205761317
+        ],
+        "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
+      }
+    },
+    {
+      "name": "ready-for-review",
+      "sceneStart": 87.745,
+      "sceneEnd": 101.634,
+      "voiceStart": 87.745,
+      "voiceDuration": 9.74,
+      "voiceEnd": 97.485,
+      "gapToNextScene": 4.148999999999996,
+      "captionCueCount": 3,
+      "captionCues": [
+        {
+          "text": "Every deterministic blocker is resolved.",
+          "start": 0.0,
+          "duration": 2.955
+        },
+        {
+          "text": "Human attestations and the close request are present.",
+          "start": 2.955,
+          "duration": 3.31
+        },
+        {
+          "text": "The preparer can now request review of this exact revision.",
+          "start": 6.265000000000001,
+          "duration": 3.475
+        }
+      ],
+      "frame": 2212,
+      "time": 88.48,
+      "path": "work/video-review/corrected-final/scenes/frame-0019.png",
+      "desktopComparison": {
+        "sourceFrame": 2212,
+        "sourceTime": 88.48,
+        "sourcePath": "work/video-review/corrected-final/source-scenes/frame-0007.png",
+        "portraitRegion": [
+          0,
+          575,
+          1080,
+          1250
+        ],
+        "meanAbsolutePixelDifferenceRGB": [
+          3.2269958847736624,
+          3.1589917695473253,
+          3.452290809327846
+        ],
+        "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
+      }
+    },
+    {
+      "name": "human-review",
+      "sceneStart": 101.634,
+      "sceneEnd": 121.205,
+      "voiceStart": 101.634,
+      "voiceDuration": 12.46,
+      "voiceEnd": 114.094,
+      "gapToNextScene": 7.110999999999997,
+      "captionCueCount": 3,
+      "captionCues": [
+        {
+          "text": "The synthetic reviewer inspects the current revision and explicitly confirms it.",
+          "start": 0.0,
+          "duration": 4.65
+        },
+        {
+          "text": "Any relevant later change invalidates that approval.",
+          "start": 4.65,
+          "duration": 3.58
+        },
+        {
+          "text": "Review is a deliberate action, never an automatic financial decision.",
+          "start": 8.23,
+          "duration": 4.23
+        }
+      ],
+      "frame": 2560,
+      "time": 102.4,
+      "path": "work/video-review/corrected-final/scenes/frame-0022.png",
+      "desktopComparison": {
+        "sourceFrame": 2560,
+        "sourceTime": 102.4,
+        "sourcePath": "work/video-review/corrected-final/source-scenes/frame-0008.png",
+        "portraitRegion": [
+          0,
+          575,
+          1080,
+          1250
+        ],
+        "meanAbsolutePixelDifferenceRGB": [
+          2.490556927297668,
+          2.42560768175583,
+          2.653622770919067
+        ],
+        "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
+      }
+    },
+    {
+      "name": "reviewed-packet",
+      "sceneStart": 121.205,
+      "sceneEnd": 139.866,
+      "voiceStart": 121.205,
+      "voiceDuration": 9.6,
+      "voiceEnd": 130.805,
+      "gapToNextScene": 9.061000000000016,
+      "captionCueCount": 2,
+      "captionCues": [
+        {
+          "text": "The reviewed packet includes the cash ledger, evidence, audit trail and snapshot hash.",
+          "start": 0.0,
+          "duration": 5.45
+        },
+        {
+          "text": "I can download it and verify that the hash matches the exact approved data.",
+          "start": 5.45,
+          "duration": 4.15
+        }
+      ],
+      "frame": 3049,
+      "time": 121.96,
+      "path": "work/video-review/corrected-final/scenes/frame-0025.png",
+      "desktopComparison": {
+        "sourceFrame": 3049,
+        "sourceTime": 121.96,
+        "sourcePath": "work/video-review/corrected-final/source-scenes/frame-0009.png",
+        "portraitRegion": [
+          0,
+          575,
+          1080,
+          1250
+        ],
+        "meanAbsolutePixelDifferenceRGB": [
+          2.5048587105624143,
+          2.3819272976680383,
+          2.596743484224966
+        ],
+        "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
+      }
+    },
+    {
+      "name": "persisted-review",
+      "sceneStart": 139.866,
+      "sceneEnd": 151.56,
+      "voiceStart": 139.866,
+      "voiceDuration": 11.38,
+      "voiceEnd": 151.246,
+      "gapToNextScene": 0.3139999999999876,
+      "captionCueCount": 3,
+      "captionCues": [
+        {
+          "text": "The reviewed session survives a reload.",
+          "start": 0.0,
+          "duration": 2.56
+        },
+        {
+          "text": "This is a readiness handoff, with no signatures or transfers.",
+          "start": 2.56,
+          "duration": 4.145
+        },
+        {
+          "text": "I built the concept to make rules, exceptions and human ownership clear.",
+          "start": 6.705,
+          "duration": 4.675
+        }
+      ],
+      "frame": 3515,
+      "time": 140.6,
+      "path": "work/video-review/corrected-final/scenes/frame-0028.png",
+      "desktopComparison": {
+        "sourceFrame": 3515,
+        "sourceTime": 140.6,
+        "sourcePath": "work/video-review/corrected-final/source-scenes/frame-0010.png",
+        "portraitRegion": [
+          0,
+          575,
+          1080,
+          1250
+        ],
+        "meanAbsolutePixelDifferenceRGB": [
+          3.416698216735254,
+          3.3376954732510287,
+          3.699039780521262
+        ],
+        "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
+      }
+    }
+  ],
+  "transitionSamples": [
+    {
+      "nextScene": "import-preview",
+      "relativeTime": -0.08,
+      "frame": 471,
+      "time": 18.84,
+      "path": "work/video-review/corrected-final/scenes/frame-0002.png"
+    },
+    {
+      "nextScene": "import-preview",
+      "relativeTime": 0.08,
+      "frame": 475,
+      "time": 19.0,
+      "path": "work/video-review/corrected-final/scenes/frame-0003.png"
+    },
+    {
+      "nextScene": "after-import",
+      "relativeTime": -0.08,
+      "frame": 830,
+      "time": 33.2,
+      "path": "work/video-review/corrected-final/scenes/frame-0005.png"
+    },
+    {
+      "nextScene": "after-import",
+      "relativeTime": 0.08,
+      "frame": 834,
+      "time": 33.36,
+      "path": "work/video-review/corrected-final/scenes/frame-0006.png"
+    },
+    {
+      "nextScene": "receipt-match",
+      "relativeTime": -0.08,
+      "frame": 1191,
+      "time": 47.64,
+      "path": "work/video-review/corrected-final/scenes/frame-0008.png"
+    },
+    {
+      "nextScene": "receipt-match",
+      "relativeTime": 0.08,
+      "frame": 1195,
+      "time": 47.8,
+      "path": "work/video-review/corrected-final/scenes/frame-0009.png"
+    },
+    {
+      "nextScene": "after-match",
+      "relativeTime": -0.08,
+      "frame": 1550,
+      "time": 62.0,
+      "path": "work/video-review/corrected-final/scenes/frame-0011.png"
+    },
+    {
+      "nextScene": "after-match",
+      "relativeTime": 0.08,
+      "frame": 1554,
+      "time": 62.16,
+      "path": "work/video-review/corrected-final/scenes/frame-0012.png"
+    },
+    {
+      "nextScene": "legal-metadata",
+      "relativeTime": -0.08,
+      "frame": 1853,
+      "time": 74.12,
+      "path": "work/video-review/corrected-final/scenes/frame-0014.png"
+    },
+    {
+      "nextScene": "legal-metadata",
+      "relativeTime": 0.08,
+      "frame": 1857,
+      "time": 74.28,
+      "path": "work/video-review/corrected-final/scenes/frame-0015.png"
+    },
+    {
+      "nextScene": "ready-for-review",
+      "relativeTime": -0.08,
+      "frame": 2192,
+      "time": 87.68,
+      "path": "work/video-review/corrected-final/scenes/frame-0017.png"
+    },
+    {
+      "nextScene": "ready-for-review",
+      "relativeTime": 0.08,
+      "frame": 2196,
+      "time": 87.84,
+      "path": "work/video-review/corrected-final/scenes/frame-0018.png"
+    },
+    {
+      "nextScene": "human-review",
+      "relativeTime": -0.08,
+      "frame": 2539,
+      "time": 101.56,
+      "path": "work/video-review/corrected-final/scenes/frame-0020.png"
+    },
+    {
+      "nextScene": "human-review",
+      "relativeTime": 0.08,
+      "frame": 2543,
+      "time": 101.72,
+      "path": "work/video-review/corrected-final/scenes/frame-0021.png"
+    },
+    {
+      "nextScene": "reviewed-packet",
+      "relativeTime": -0.08,
+      "frame": 3028,
+      "time": 121.12,
+      "path": "work/video-review/corrected-final/scenes/frame-0023.png"
+    },
+    {
+      "nextScene": "reviewed-packet",
+      "relativeTime": 0.08,
+      "frame": 3032,
+      "time": 121.28,
+      "path": "work/video-review/corrected-final/scenes/frame-0024.png"
+    },
+    {
+      "nextScene": "persisted-review",
+      "relativeTime": -0.08,
+      "frame": 3495,
+      "time": 139.8,
+      "path": "work/video-review/corrected-final/scenes/frame-0026.png"
+    },
+    {
+      "nextScene": "persisted-review",
+      "relativeTime": 0.08,
+      "frame": 3499,
+      "time": 139.96,
+      "path": "work/video-review/corrected-final/scenes/frame-0027.png"
+    }
+  ],
+  "audioEnergy": {
+    "method": "Decoded the existing AAC stream to mono 48,000 Hz float PCM for mathematical energy checks; no listening claim.",
+    "overall": {
+      "sampleCount": 7275520,
+      "peakAmplitude": 0.8753619194030762,
+      "rmsAmplitude": 0.16515078437300088,
+      "rmsDbFS": -15.642387186280635,
+      "nonzeroSampleCount": 7178175,
+      "clippedSampleCount": 0
+    },
+    "sceneVoiceIntervals": [
+      {
+        "name": "desktop-seed",
+        "kind": "scene",
+        "start": 0,
+        "end": 12.485,
+        "overlapsNextScene": false,
+        "sampleCount": 599280,
+        "peakAmplitude": 0.8411462903022766,
+        "rmsAmplitude": 0.17861486947380356,
+        "rmsDbFS": -14.961647788947761,
+        "nonzeroSampleCount": 599105,
+        "clippedSampleCount": 0
+      },
+      {
+        "name": "import-preview",
+        "kind": "scene",
+        "start": 18.91,
+        "end": 29.295,
+        "overlapsNextScene": false,
+        "sampleCount": 498480,
+        "peakAmplitude": 0.6369197964668274,
+        "rmsAmplitude": 0.16275958419585793,
+        "rmsDbFS": -15.769068566308093,
+        "nonzeroSampleCount": 498330,
+        "clippedSampleCount": 0
+      },
+      {
+        "name": "after-import",
+        "kind": "scene",
+        "start": 33.274,
+        "end": 43.114000000000004,
+        "overlapsNextScene": false,
+        "sampleCount": 472320,
+        "peakAmplitude": 0.6498631238937378,
+        "rmsAmplitude": 0.16488836537843338,
+        "rmsDbFS": -15.656199747049872,
+        "nonzeroSampleCount": 472109,
+        "clippedSampleCount": 0
+      },
+      {
+        "name": "receipt-match",
+        "kind": "scene",
+        "start": 47.704,
+        "end": 57.249,
+        "overlapsNextScene": false,
+        "sampleCount": 458160,
+        "peakAmplitude": 0.6892087459564209,
+        "rmsAmplitude": 0.1645656704774468,
+        "rmsDbFS": -15.673215129397878,
+        "nonzeroSampleCount": 457988,
+        "clippedSampleCount": 0
+      },
+      {
+        "name": "after-match",
+        "kind": "scene",
+        "start": 62.063,
+        "end": 72.003,
+        "overlapsNextScene": false,
+        "sampleCount": 477120,
+        "peakAmplitude": 0.6476866006851196,
+        "rmsAmplitude": 0.14947193754522184,
+        "rmsDbFS": -16.50880671712411,
+        "nonzeroSampleCount": 476992,
+        "clippedSampleCount": 0
+      },
+      {
+        "name": "legal-metadata",
+        "kind": "scene",
+        "start": 74.204,
+        "end": 84.484,
+        "overlapsNextScene": false,
+        "sampleCount": 493440,
+        "peakAmplitude": 0.6596153974533081,
+        "rmsAmplitude": 0.16854085580184677,
+        "rmsDbFS": -15.465896103741628,
+        "nonzeroSampleCount": 493287,
+        "clippedSampleCount": 0
+      },
+      {
+        "name": "ready-for-review",
+        "kind": "scene",
+        "start": 87.745,
+        "end": 97.485,
+        "overlapsNextScene": false,
+        "sampleCount": 467520,
+        "peakAmplitude": 0.7389986515045166,
+        "rmsAmplitude": 0.17410400004036003,
+        "rmsDbFS": -15.18382501699863,
+        "nonzeroSampleCount": 467338,
+        "clippedSampleCount": 0
+      },
+      {
+        "name": "human-review",
+        "kind": "scene",
+        "start": 101.634,
+        "end": 114.094,
+        "overlapsNextScene": false,
+        "sampleCount": 598080,
+        "peakAmplitude": 0.8753619194030762,
+        "rmsAmplitude": 0.17324765010457438,
+        "rmsDbFS": -15.226652947141307,
+        "nonzeroSampleCount": 597877,
+        "clippedSampleCount": 0
+      },
+      {
+        "name": "reviewed-packet",
+        "kind": "scene",
+        "start": 121.205,
+        "end": 130.805,
+        "overlapsNextScene": false,
+        "sampleCount": 460800,
+        "peakAmplitude": 0.7208491563796997,
+        "rmsAmplitude": 0.16129822060683086,
+        "rmsDbFS": -15.847408471798826,
+        "nonzeroSampleCount": 460634,
+        "clippedSampleCount": 0
+      },
+      {
+        "name": "persisted-review",
+        "kind": "scene",
+        "start": 139.866,
+        "end": 151.246,
+        "overlapsNextScene": false,
+        "sampleCount": 546240,
+        "peakAmplitude": 0.7345749139785767,
+        "rmsAmplitude": 0.16643538454498957,
+        "rmsDbFS": -15.575086724493053,
+        "nonzeroSampleCount": 546108,
+        "clippedSampleCount": 0
+      }
+    ],
+    "quietRangesAtLeastHalfSecond": {
+      "method": "10ms RMS windows below\u221250dBFS; technical threshold only, not perceived intelligibility.",
+      "ranges": [
+        {
+          "start": 12.26,
+          "end": 12.87,
+          "duration": 0.6099999999999994
+        },
+        {
+          "start": 18.57,
+          "end": 19.12,
+          "duration": 0.5500000000000007
+        },
+        {
+          "start": 32.96,
+          "end": 33.48,
+          "duration": 0.519999999999996
+        },
+        {
+          "start": 42.91,
+          "end": 43.49,
+          "duration": 0.5800000000000054
+        },
+        {
+          "start": 47.29,
+          "end": 47.91,
+          "duration": 0.6199999999999974
+        },
+        {
+          "start": 57.05,
+          "end": 57.57,
+          "duration": 0.5200000000000031
+        },
+        {
+          "start": 61.76,
+          "end": 62.26,
+          "duration": 0.5
+        },
+        {
+          "start": 84.32,
+          "end": 84.87,
+          "duration": 0.5500000000000114
+        },
+        {
+          "start": 87.44,
+          "end": 87.95,
+          "duration": 0.5100000000000051
+        },
+        {
+          "start": 97.33,
+          "end": 97.85,
+          "duration": 0.519999999999996
+        },
+        {
+          "start": 101.29,
+          "end": 101.83,
+          "duration": 0.539999999999992
+        },
+        {
+          "start": 113.95,
+          "end": 114.56,
+          "duration": 0.6099999999999994
+        },
+        {
+          "start": 120.8,
+          "end": 121.42,
+          "duration": 0.6200000000000045
+        },
+        {
+          "start": 130.67,
+          "end": 131.33,
+          "duration": 0.660000000000025
+        },
+        {
+          "start": 135.53,
+          "end": 136.03,
+          "duration": 0.5
+        },
+        {
+          "start": 139.44,
+          "end": 140.08,
+          "duration": 0.6400000000000148
+        }
+      ]
+    },
+    "actionBridgeIntervals": [
+      {
+        "start": 12.584999999999999,
+        "duration": 6.203771,
+        "cues": [
+          {
+            "text": "I select both CSV files and confirm the synthetic-only scope.",
+            "start": 0,
+            "duration": 6.203771
+          }
+        ],
+        "kind": "action bridge",
+        "name": "desktop-seed",
+        "end": 18.788770999999997,
+        "sampleCount": 297781,
+        "peakAmplitude": 0.6698892116546631,
+        "rmsAmplitude": 0.16924390195591235,
+        "rmsDbFS": -15.429739409383219,
+        "nonzeroSampleCount": 297607,
+        "clippedSampleCount": 0
+      },
+      {
+        "start": 29.395000000000003,
+        "duration": 3.760438,
+        "cues": [
+          {
+            "text": "I apply both files as one validated import.",
+            "start": 0,
+            "duration": 3.760438
+          }
+        ],
+        "kind": "action bridge",
+        "name": "import-preview",
+        "end": 33.155438000000004,
+        "sampleCount": 180501,
+        "peakAmplitude": 0.6254035830497742,
+        "rmsAmplitude": 0.1634996555338243,
+        "rmsDbFS": -15.729663159757926,
+        "nonzeroSampleCount": 180344,
+        "clippedSampleCount": 0
+      },
+      {
+        "start": 43.214000000000006,
+        "duration": 4.365313,
+        "cues": [
+          {
+            "text": "I open the receipt and select Linden's commitment.",
+            "start": 0,
+            "duration": 4.365313
+          }
+        ],
+        "kind": "action bridge",
+        "name": "after-import",
+        "end": 47.579313000000006,
+        "sampleCount": 209535,
+        "peakAmplitude": 0.6317811608314514,
+        "rmsAmplitude": 0.18206586566727392,
+        "rmsDbFS": -14.795429391835784,
+        "nonzeroSampleCount": 209410,
+        "clippedSampleCount": 0
+      },
+      {
+        "start": 57.349000000000004,
+        "duration": 4.600396,
+        "cues": [
+          {
+            "text": "I explicitly confirm this receipt's known commitment account.",
+            "start": 0,
+            "duration": 4.600396
+          }
+        ],
+        "kind": "action bridge",
+        "name": "receipt-match",
+        "end": 61.94939600000001,
+        "sampleCount": 220819,
+        "peakAmplitude": 0.7200328707695007,
+        "rmsAmplitude": 0.17583275445324617,
+        "rmsDbFS": -15.098004410809985,
+        "nonzeroSampleCount": 220728,
+        "clippedSampleCount": 0
+      },
+      {
+        "start": 72.103,
+        "duration": 2.001,
+        "cues": [
+          {
+            "text": "Next, the final synthetic reference.",
+            "start": 0,
+            "duration": 2.001
+          }
+        ],
+        "kind": "action bridge",
+        "name": "after-match",
+        "end": 74.104,
+        "sampleCount": 96048,
+        "peakAmplitude": 0.5506316423416138,
+        "rmsAmplitude": 0.1455133126272121,
+        "rmsDbFS": -16.741945448192663,
+        "nonzeroSampleCount": 95947,
+        "clippedSampleCount": 0
+      },
+      {
+        "start": 84.58399999999999,
+        "duration": 3.038292,
+        "cues": [
+          {
+            "text": "I attach the final metadata.",
+            "start": 0,
+            "duration": 3.038292
+          }
+        ],
+        "kind": "action bridge",
+        "name": "legal-metadata",
+        "end": 87.62229199999999,
+        "sampleCount": 145838,
+        "peakAmplitude": 0.5849967002868652,
+        "rmsAmplitude": 0.15434906953886965,
+        "rmsDbFS": -16.229919684551554,
+        "nonzeroSampleCount": 145699,
+        "clippedSampleCount": 0
+      },
+      {
+        "start": 97.585,
+        "duration": 3.93275,
+        "cues": [
+          {
+            "text": "I request review and open this snapshot.",
+            "start": 0,
+            "duration": 3.93275
+          }
+        ],
+        "kind": "action bridge",
+        "name": "ready-for-review",
+        "end": 101.51774999999999,
+        "sampleCount": 188772,
+        "peakAmplitude": 0.631001889705658,
+        "rmsAmplitude": 0.1674878993750141,
+        "rmsDbFS": -15.52033128591512,
+        "nonzeroSampleCount": 188649,
+        "clippedSampleCount": 0
+      },
+      {
+        "start": 114.19399999999999,
+        "duration": 6.881708,
+        "cues": [
+          {
+            "text": "The reviewer approves this snapshot. I open the packet.",
+            "start": 0,
+            "duration": 6.881708
+          }
+        ],
+        "kind": "action bridge",
+        "name": "human-review",
+        "end": 121.07570799999999,
+        "sampleCount": 330322,
+        "peakAmplitude": 0.6295812129974365,
+        "rmsAmplitude": 0.15706728519914653,
+        "rmsDbFS": -16.078285253628053,
+        "nonzeroSampleCount": 330122,
+        "clippedSampleCount": 0
+      },
+      {
+        "start": 130.905,
+        "duration": 8.820958,
+        "cues": [
+          {
+            "text": "I download the packet and ledger, then reload the saved session.",
+            "start": 0,
+            "duration": 8.820958
+          }
+        ],
+        "kind": "action bridge",
+        "name": "reviewed-packet",
+        "end": 139.725958,
+        "sampleCount": 423406,
+        "peakAmplitude": 0.6291963458061218,
+        "rmsAmplitude": 0.16019454775490521,
+        "rmsDbFS": -15.90704538554171,
+        "nonzeroSampleCount": 423061,
+        "clippedSampleCount": 0
+      }
+    ],
+    "intervalOverlapChecks": [
+      {
+        "firstName": "desktop-seed",
+        "secondName": "desktop-seed",
+        "gap": 0.09999999999999964,
+        "overlaps": false
+      },
+      {
+        "firstName": "desktop-seed",
+        "secondName": "import-preview",
+        "gap": 0.12122900000000314,
+        "overlaps": false
+      },
+      {
+        "firstName": "import-preview",
+        "secondName": "import-preview",
+        "gap": 0.10000000000000142,
+        "overlaps": false
+      },
+      {
+        "firstName": "import-preview",
+        "secondName": "after-import",
+        "gap": 0.11856199999999717,
+        "overlaps": false
+      },
+      {
+        "firstName": "after-import",
+        "secondName": "after-import",
+        "gap": 0.10000000000000142,
+        "overlaps": false
+      },
+      {
+        "firstName": "after-import",
+        "secondName": "receipt-match",
+        "gap": 0.12468699999999444,
+        "overlaps": false
+      },
+      {
+        "firstName": "receipt-match",
+        "secondName": "receipt-match",
+        "gap": 0.10000000000000142,
+        "overlaps": false
+      },
+      {
+        "firstName": "receipt-match",
+        "secondName": "after-match",
+        "gap": 0.11360399999999515,
+        "overlaps": false
+      },
+      {
+        "firstName": "after-match",
+        "secondName": "after-match",
+        "gap": 0.09999999999999432,
+        "overlaps": false
+      },
+      {
+        "firstName": "after-match",
+        "secondName": "legal-metadata",
+        "gap": 0.09999999999999432,
+        "overlaps": false
+      },
+      {
+        "firstName": "legal-metadata",
+        "secondName": "legal-metadata",
+        "gap": 0.09999999999999432,
+        "overlaps": false
+      },
+      {
+        "firstName": "legal-metadata",
+        "secondName": "ready-for-review",
+        "gap": 0.12270800000001714,
+        "overlaps": false
+      },
+      {
+        "firstName": "ready-for-review",
+        "secondName": "ready-for-review",
+        "gap": 0.09999999999999432,
+        "overlaps": false
+      },
+      {
+        "firstName": "ready-for-review",
+        "secondName": "human-review",
+        "gap": 0.11625000000000796,
+        "overlaps": false
+      },
+      {
+        "firstName": "human-review",
+        "secondName": "human-review",
+        "gap": 0.09999999999999432,
+        "overlaps": false
+      },
+      {
+        "firstName": "human-review",
+        "secondName": "reviewed-packet",
+        "gap": 0.12929200000000662,
+        "overlaps": false
+      },
+      {
+        "firstName": "reviewed-packet",
+        "secondName": "reviewed-packet",
+        "gap": 0.09999999999999432,
+        "overlaps": false
+      },
+      {
+        "firstName": "reviewed-packet",
+        "secondName": "persisted-review",
+        "gap": 0.14004200000002243,
+        "overlaps": false
+      }
+    ]
+  },
+  "transitionContactSheets": [
+    "docs/evidence/video-transitions-01.png",
+    "docs/evidence/video-transitions-02.png"
+  ],
+  "captionFiles": {
+    "srt": {
+      "path": "work/walkthrough/captions.srt",
+      "invalidMillisecondCarryCount": 0,
+      "cueCount": 38
+    },
+    "ass": {
+      "path": "work/walkthrough/captions.ass",
+      "invalidMillisecondCarryCount": 0,
+      "cueCount": 38
+    }
+  },
+  "captionTimeline": {
+    "cues": [
+      {
+        "start": 0.0,
+        "end": 4.075,
+        "text": "Odin Close Control is an independent concept by Ayo Ahmed."
+      },
+      {
+        "start": 4.075,
+        "end": 11.115,
+        "text": "This synthetic demonstration turns close preparation into an inspectable path: cash, evidence, then an explicit"
+      },
+      {
+        "start": 11.115,
+        "end": 12.485,
+        "text": "human review."
+      },
+      {
+        "start": 12.585,
+        "end": 18.789,
+        "text": "I select both CSV files and confirm the synthetic-only scope."
+      },
+      {
+        "start": 18.91,
+        "end": 22.005,
+        "text": "I upload commitments and payment events together."
+      },
+      {
+        "start": 22.005,
+        "end": 25.84,
+        "text": "The server validates exact amounts and previews the changes."
+      },
+      {
+        "start": 25.84,
+        "end": 29.295,
+        "text": "Both files are applied atomically to this saved session."
+      },
+      {
+        "start": 29.395,
+        "end": 33.155,
+        "text": "I apply both files as one validated import."
+      },
+      {
+        "start": 33.274,
+        "end": 37.429,
+        "text": "Aurora still has a two thousand pound receipt without an allocation."
+      },
+      {
+        "start": 37.429,
+        "end": 42.164,
+        "text": "A receipt does not become funded capital until a human assigns it to the correct"
+      },
+      {
+        "start": 42.164,
+        "end": 43.114,
+        "text": "commitment."
+      },
+      {
+        "start": 43.214,
+        "end": 47.579,
+        "text": "I open the receipt and select Linden's commitment."
+      },
+      {
+        "start": 47.704,
+        "end": 51.244,
+        "text": "I select Linden Ventures for this two thousand pound receipt."
+      },
+      {
+        "start": 51.244,
+        "end": 54.614,
+        "text": "The account, amount and bank reference stay visible."
+      },
+      {
+        "start": 54.614,
+        "end": 57.249,
+        "text": "The selection becomes part of the audit trail."
+      },
+      {
+        "start": 57.349,
+        "end": 61.949,
+        "text": "I explicitly confirm this receipt's known commitment account."
+      },
+      {
+        "start": 62.063,
+        "end": 64.553,
+        "text": "The principal now reconciles."
+      },
+      {
+        "start": 64.553,
+        "end": 68.668,
+        "text": "The fee cash is tracked separately using an illustrative fee rule."
+      },
+      {
+        "start": 68.668,
+        "end": 72.003,
+        "text": "A draft legal reference still blocks a review request."
+      },
+      {
+        "start": 72.103,
+        "end": 74.104,
+        "text": "Next, the final synthetic reference."
+      },
+      {
+        "start": 74.20400000000001,
+        "end": 78.124,
+        "text": "I attach final synthetic legal metadata with a document hash."
+      },
+      {
+        "start": 78.124,
+        "end": 80.624,
+        "text": "This records a human supplied reference."
+      },
+      {
+        "start": 80.624,
+        "end": 84.48400000000001,
+        "text": "It does not verify a real agreement or replace legal judgment."
+      },
+      {
+        "start": 84.584,
+        "end": 87.622,
+        "text": "I attach the final metadata."
+      },
+      {
+        "start": 87.745,
+        "end": 90.7,
+        "text": "Every deterministic blocker is resolved."
+      },
+      {
+        "start": 90.7,
+        "end": 94.00999999999999,
+        "text": "Human attestations and the close request are present."
+      },
+      {
+        "start": 94.00999999999999,
+        "end": 97.485,
+        "text": "The preparer can now request review of this exact revision."
+      },
+      {
+        "start": 97.58500000000001,
+        "end": 101.518,
+        "text": "I request review and open this snapshot."
+      },
+      {
+        "start": 101.634,
+        "end": 106.28399999999999,
+        "text": "The synthetic reviewer inspects the current revision and explicitly confirms it."
+      },
+      {
+        "start": 106.28399999999999,
+        "end": 109.864,
+        "text": "Any relevant later change invalidates that approval."
+      },
+      {
+        "start": 109.864,
+        "end": 114.094,
+        "text": "Review is a deliberate action, never an automatic financial decision."
+      },
+      {
+        "start": 114.194,
+        "end": 121.076,
+        "text": "The reviewer approves this snapshot. I open the packet."
+      },
+      {
+        "start": 121.205,
+        "end": 126.655,
+        "text": "The reviewed packet includes the cash ledger, evidence, audit trail and snapshot hash."
+      },
+      {
+        "start": 126.655,
+        "end": 130.805,
+        "text": "I can download it and verify that the hash matches the exact approved data."
+      },
+      {
+        "start": 130.905,
+        "end": 139.726,
+        "text": "I download the packet and ledger, then reload the saved session."
+      },
+      {
+        "start": 139.86599999999999,
+        "end": 142.426,
+        "text": "The reviewed session survives a reload."
+      },
+      {
+        "start": 142.426,
+        "end": 146.571,
+        "text": "This is a readiness handoff, with no signatures or transfers."
+      },
+      {
+        "start": 146.571,
+        "end": 151.246,
+        "text": "I built the concept to make rules, exceptions and human ownership clear."
+      }
+    ],
+    "invalidRanges": [],
+    "overlaps": []
+  },
+  "oneSecondInspection": {
+    "frameCount": 3789,
+    "sampleCount": 153,
+    "firstSample": 0.0,
+    "lastSample": 151.52,
+    "sheets": [
+      {
+        "path": "docs/evidence/video-contact-sheet-01.png",
+        "samples": [
+          {
+            "frame": 0,
+            "time": 0.0
+          },
+          {
+            "frame": 25,
+            "time": 1.0
+          },
+          {
+            "frame": 50,
+            "time": 2.0
+          },
+          {
+            "frame": 75,
+            "time": 3.0
+          },
+          {
+            "frame": 100,
+            "time": 4.0
+          },
+          {
+            "frame": 125,
+            "time": 5.0
+          },
+          {
+            "frame": 150,
+            "time": 6.0
+          },
+          {
+            "frame": 175,
+            "time": 7.0
+          },
+          {
+            "frame": 200,
+            "time": 8.0
+          },
+          {
+            "frame": 225,
+            "time": 9.0
+          },
+          {
+            "frame": 250,
+            "time": 10.0
+          },
+          {
+            "frame": 275,
+            "time": 11.0
+          },
+          {
+            "frame": 300,
+            "time": 12.0
+          },
+          {
+            "frame": 325,
+            "time": 13.0
+          },
+          {
+            "frame": 350,
+            "time": 14.0
+          },
+          {
+            "frame": 375,
+            "time": 15.0
+          },
+          {
+            "frame": 400,
+            "time": 16.0
+          },
+          {
+            "frame": 425,
+            "time": 17.0
+          },
+          {
+            "frame": 450,
+            "time": 18.0
+          },
+          {
+            "frame": 475,
+            "time": 19.0
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/video-contact-sheet-02.png",
+        "samples": [
+          {
+            "frame": 500,
+            "time": 20.0
+          },
+          {
+            "frame": 525,
+            "time": 21.0
+          },
+          {
+            "frame": 550,
+            "time": 22.0
+          },
+          {
+            "frame": 575,
+            "time": 23.0
+          },
+          {
+            "frame": 600,
+            "time": 24.0
+          },
+          {
+            "frame": 625,
+            "time": 25.0
+          },
+          {
+            "frame": 650,
+            "time": 26.0
+          },
+          {
+            "frame": 675,
+            "time": 27.0
+          },
+          {
+            "frame": 700,
+            "time": 28.0
+          },
+          {
+            "frame": 725,
+            "time": 29.0
+          },
+          {
+            "frame": 750,
+            "time": 30.0
+          },
+          {
+            "frame": 775,
+            "time": 31.0
+          },
+          {
+            "frame": 800,
+            "time": 32.0
+          },
+          {
+            "frame": 825,
+            "time": 33.0
+          },
+          {
+            "frame": 850,
+            "time": 34.0
+          },
+          {
+            "frame": 875,
+            "time": 35.0
+          },
+          {
+            "frame": 900,
+            "time": 36.0
+          },
+          {
+            "frame": 925,
+            "time": 37.0
+          },
+          {
+            "frame": 950,
+            "time": 38.0
+          },
+          {
+            "frame": 975,
+            "time": 39.0
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/video-contact-sheet-03.png",
+        "samples": [
+          {
+            "frame": 1000,
+            "time": 40.0
+          },
+          {
+            "frame": 1025,
+            "time": 41.0
+          },
+          {
+            "frame": 1050,
+            "time": 42.0
+          },
+          {
+            "frame": 1075,
+            "time": 43.0
+          },
+          {
+            "frame": 1100,
+            "time": 44.0
+          },
+          {
+            "frame": 1125,
+            "time": 45.0
+          },
+          {
+            "frame": 1150,
+            "time": 46.0
+          },
+          {
+            "frame": 1175,
+            "time": 47.0
+          },
+          {
+            "frame": 1200,
+            "time": 48.0
+          },
+          {
+            "frame": 1225,
+            "time": 49.0
+          },
+          {
+            "frame": 1250,
+            "time": 50.0
+          },
+          {
+            "frame": 1275,
+            "time": 51.0
+          },
+          {
+            "frame": 1300,
+            "time": 52.0
+          },
+          {
+            "frame": 1325,
+            "time": 53.0
+          },
+          {
+            "frame": 1350,
+            "time": 54.0
+          },
+          {
+            "frame": 1375,
+            "time": 55.0
+          },
+          {
+            "frame": 1400,
+            "time": 56.0
+          },
+          {
+            "frame": 1425,
+            "time": 57.0
+          },
+          {
+            "frame": 1450,
+            "time": 58.0
+          },
+          {
+            "frame": 1475,
+            "time": 59.0
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/video-contact-sheet-04.png",
+        "samples": [
+          {
+            "frame": 1500,
+            "time": 60.0
+          },
+          {
+            "frame": 1525,
+            "time": 61.0
+          },
+          {
+            "frame": 1550,
+            "time": 62.0
+          },
+          {
+            "frame": 1575,
+            "time": 63.0
+          },
+          {
+            "frame": 1600,
+            "time": 64.0
+          },
+          {
+            "frame": 1625,
+            "time": 65.0
+          },
+          {
+            "frame": 1650,
+            "time": 66.0
+          },
+          {
+            "frame": 1675,
+            "time": 67.0
+          },
+          {
+            "frame": 1700,
+            "time": 68.0
+          },
+          {
+            "frame": 1725,
+            "time": 69.0
+          },
+          {
+            "frame": 1750,
+            "time": 70.0
+          },
+          {
+            "frame": 1775,
+            "time": 71.0
+          },
+          {
+            "frame": 1800,
+            "time": 72.0
+          },
+          {
+            "frame": 1825,
+            "time": 73.0
+          },
+          {
+            "frame": 1850,
+            "time": 74.0
+          },
+          {
+            "frame": 1875,
+            "time": 75.0
+          },
+          {
+            "frame": 1900,
+            "time": 76.0
+          },
+          {
+            "frame": 1925,
+            "time": 77.0
+          },
+          {
+            "frame": 1950,
+            "time": 78.0
+          },
+          {
+            "frame": 1975,
+            "time": 79.0
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/video-contact-sheet-05.png",
+        "samples": [
+          {
+            "frame": 2000,
+            "time": 80.0
+          },
+          {
+            "frame": 2025,
+            "time": 81.0
+          },
+          {
+            "frame": 2050,
+            "time": 82.0
+          },
+          {
+            "frame": 2075,
+            "time": 83.0
+          },
+          {
+            "frame": 2100,
+            "time": 84.0
+          },
+          {
+            "frame": 2125,
+            "time": 85.0
+          },
+          {
+            "frame": 2150,
+            "time": 86.0
+          },
+          {
+            "frame": 2175,
+            "time": 87.0
+          },
+          {
+            "frame": 2200,
+            "time": 88.0
+          },
+          {
+            "frame": 2225,
+            "time": 89.0
+          },
+          {
+            "frame": 2250,
+            "time": 90.0
+          },
+          {
+            "frame": 2275,
+            "time": 91.0
+          },
+          {
+            "frame": 2300,
+            "time": 92.0
+          },
+          {
+            "frame": 2325,
+            "time": 93.0
+          },
+          {
+            "frame": 2350,
+            "time": 94.0
+          },
+          {
+            "frame": 2375,
+            "time": 95.0
+          },
+          {
+            "frame": 2400,
+            "time": 96.0
+          },
+          {
+            "frame": 2425,
+            "time": 97.0
+          },
+          {
+            "frame": 2450,
+            "time": 98.0
+          },
+          {
+            "frame": 2475,
+            "time": 99.0
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/video-contact-sheet-06.png",
+        "samples": [
+          {
+            "frame": 2500,
+            "time": 100.0
+          },
+          {
+            "frame": 2525,
+            "time": 101.0
+          },
+          {
+            "frame": 2550,
+            "time": 102.0
+          },
+          {
+            "frame": 2575,
+            "time": 103.0
+          },
+          {
+            "frame": 2600,
+            "time": 104.0
+          },
+          {
+            "frame": 2625,
+            "time": 105.0
+          },
+          {
+            "frame": 2650,
+            "time": 106.0
+          },
+          {
+            "frame": 2675,
+            "time": 107.0
+          },
+          {
+            "frame": 2700,
+            "time": 108.0
+          },
+          {
+            "frame": 2725,
+            "time": 109.0
+          },
+          {
+            "frame": 2750,
+            "time": 110.0
+          },
+          {
+            "frame": 2775,
+            "time": 111.0
+          },
+          {
+            "frame": 2800,
+            "time": 112.0
+          },
+          {
+            "frame": 2825,
+            "time": 113.0
+          },
+          {
+            "frame": 2850,
+            "time": 114.0
+          },
+          {
+            "frame": 2875,
+            "time": 115.0
+          },
+          {
+            "frame": 2900,
+            "time": 116.0
+          },
+          {
+            "frame": 2925,
+            "time": 117.0
+          },
+          {
+            "frame": 2950,
+            "time": 118.0
+          },
+          {
+            "frame": 2975,
+            "time": 119.0
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/video-contact-sheet-07.png",
+        "samples": [
+          {
+            "frame": 3000,
+            "time": 120.0
+          },
+          {
+            "frame": 3025,
+            "time": 121.0
+          },
+          {
+            "frame": 3050,
+            "time": 122.0
+          },
+          {
+            "frame": 3075,
+            "time": 123.0
+          },
+          {
+            "frame": 3100,
+            "time": 124.0
+          },
+          {
+            "frame": 3125,
+            "time": 125.0
+          },
+          {
+            "frame": 3150,
+            "time": 126.0
+          },
+          {
+            "frame": 3175,
+            "time": 127.0
+          },
+          {
+            "frame": 3200,
+            "time": 128.0
+          },
+          {
+            "frame": 3225,
+            "time": 129.0
+          },
+          {
+            "frame": 3250,
+            "time": 130.0
+          },
+          {
+            "frame": 3275,
+            "time": 131.0
+          },
+          {
+            "frame": 3300,
+            "time": 132.0
+          },
+          {
+            "frame": 3325,
+            "time": 133.0
+          },
+          {
+            "frame": 3350,
+            "time": 134.0
+          },
+          {
+            "frame": 3375,
+            "time": 135.0
+          },
+          {
+            "frame": 3400,
+            "time": 136.0
+          },
+          {
+            "frame": 3425,
+            "time": 137.0
+          },
+          {
+            "frame": 3450,
+            "time": 138.0
+          },
+          {
+            "frame": 3475,
+            "time": 139.0
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/video-contact-sheet-08.png",
+        "samples": [
+          {
+            "frame": 3500,
+            "time": 140.0
+          },
+          {
+            "frame": 3525,
+            "time": 141.0
+          },
+          {
+            "frame": 3550,
+            "time": 142.0
+          },
+          {
+            "frame": 3575,
+            "time": 143.0
+          },
+          {
+            "frame": 3600,
+            "time": 144.0
+          },
+          {
+            "frame": 3625,
+            "time": 145.0
+          },
+          {
+            "frame": 3650,
+            "time": 146.0
+          },
+          {
+            "frame": 3675,
+            "time": 147.0
+          },
+          {
+            "frame": 3700,
+            "time": 148.0
+          },
+          {
+            "frame": 3725,
+            "time": 149.0
+          },
+          {
+            "frame": 3750,
+            "time": 150.0
+          },
+          {
+            "frame": 3775,
+            "time": 151.0
+          },
+          {
+            "frame": 3788,
+            "time": 151.52
+          }
+        ]
+      }
+    ]
+  },
+  "inspectionStatus": "passed within documented scope",
+  "visualInspection": {
+    "oneSecondSheetsViewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "oneSecondSampleCount": 153,
+    "coverageSeconds": [
+      0.0,
+      151.52
+    ],
+    "sceneNamesViewedAtActualResolution": [
+      "desktop-seed",
+      "import-preview",
+      "after-import",
+      "receipt-match",
+      "after-match",
+      "legal-metadata",
+      "ready-for-review",
+      "human-review",
+      "reviewed-packet",
+      "persisted-review"
+    ],
+    "sceneFramesViewedAtActualResolution": [
+      {
+        "name": "desktop-seed",
+        "frame": 89,
+        "time": 3.56
+      },
+      {
+        "name": "import-preview",
+        "frame": 491,
+        "time": 19.64
+      },
+      {
+        "name": "after-import",
+        "frame": 851,
+        "time": 34.04
+      },
+      {
+        "name": "receipt-match",
+        "frame": 1211,
+        "time": 48.44
+      },
+      {
+        "name": "after-match",
+        "frame": 1570,
+        "time": 62.8
+      },
+      {
+        "name": "legal-metadata",
+        "frame": 1874,
+        "time": 74.96
+      },
+      {
+        "name": "ready-for-review",
+        "frame": 2212,
+        "time": 88.48
+      },
+      {
+        "name": "human-review",
+        "frame": 2560,
+        "time": 102.4
+      },
+      {
+        "name": "reviewed-packet",
+        "frame": 3049,
+        "time": 121.96
+      },
+      {
+        "name": "persisted-review",
+        "frame": 3515,
+        "time": 140.6
+      }
+    ],
+    "transitionSheetsViewed": [
+      1,
+      2
+    ],
+    "transitionSampleCount": 18,
+    "transitionInspectionResolution": [
+      360,
+      640
+    ],
+    "observations": [
+      "All 153 one-second samples and all 18 transition samples were inspected on contact sheets. All 10 scene samples were inspected at their actual 1080 \u00d7 1920 resolution.",
+      "The browser area is briefly blank or loading at the start, then shows the full viewport. There is no screenshot-induced gray region or narrowed viewport.",
+      "After import, Aurora shows Receipt unmatched, a GBP 2,000 cash shortfall and a legal blocker. After the match, GBP 50,500 reconciles and the legal blocker remains visible before the main narration starts.",
+      "The import dialog scrolls during its scene to show the validation diff and Import validated changes action.",
+      "The legal, human review and packet dialogs fit within the recorded desktop viewport, with their final actions visible.",
+      "Human review shows revision 5, its hash and attestation. The reviewed packet shows revision 6, its hash and downloads. Reloading preserves the approved current revision.",
+      "The local demonstration and synthetic data label, and the sole public credit to Ayo Ahmed, remain clear throughout the sampled timeline.",
+      "The entire 1440 \u00d7 900 source frame, with square pixels, maps to 1080 \u00d7 675 at y = 575. All 10 matching-timestamp pixel comparisons have mean RGB differences below 4 of 255, consistent with lossy encoding and resizing.",
+      "Headings and captions fit the portrait canvas. The sampled transitions show clean heading changes. Caption and voice interval checks find no overlaps."
+    ],
+    "blockingFindings": [],
+    "scope": "Full stream decoding, still-frame inspection and mathematical audio signal checks; no claim of continuous real-time playback or listening."
+  },
+  "reviewSummary": {
+    "pass": true,
+    "durationSeconds": 151.56,
+    "portraitBytes": 5906363,
+    "captionCues": 38,
+    "audioIntervals": 19,
+    "captionOverlapCount": 0,
+    "voiceOverlapCount": 0,
+    "maxQuietRangeSeconds": 0.660000000000025,
+    "maxScenePixelMAE": 3.9795775034293555
+  }
+}

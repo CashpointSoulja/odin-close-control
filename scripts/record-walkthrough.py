@@ -16,6 +16,7 @@ import time
 from urllib.parse import urlparse
 
 from playwright.sync_api import sync_playwright
+import playwright as playwright_package
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location("browser_qa", ROOT / "scripts" / "browser-qa.py")
@@ -34,10 +35,33 @@ SCENES = {
     "reviewed-packet": ("A current, reviewed handoff", "The reviewed packet includes the cash ledger, evidence, audit trail and snapshot hash. I can download it and verify that the hash matches the exact approved data."),
     "persisted-review": ("Independent concept by Ayo Ahmed", "The reviewed session survives a reload. This is a readiness handoff, with no signatures or transfers. I built the concept to make rules, exceptions and human ownership clear."),
 }
+BRIDGES = {
+    "desktop-seed": "I select both CSV files and confirm the synthetic-only scope.",
+    "import-preview": "I apply both files as one validated import.",
+    "after-import": "I open the receipt and select Linden's commitment.",
+    "receipt-match": "I explicitly confirm this receipt's known commitment account.",
+    "after-match": "Next, the final synthetic reference.",
+    "legal-metadata": "I attach the final metadata.",
+    "ready-for-review": "I request review and open this snapshot.",
+    "human-review": "The reviewer approves this snapshot. I open the packet.",
+    "reviewed-packet": "I download the packet and ledger, then reload the saved session.",
+}
 
 
 def call(command):
     subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+
+
+def recording_encoder():
+    """Use installed FFmpeg from a task-local Playwright cache; no download/home write."""
+    metadata = Path(playwright_package.__file__).parent / "driver" / "package" / "browsers.json"
+    revision = next(item["revision"] for item in json.loads(metadata.read_text())["browsers"] if item["name"] == "ffmpeg")
+    cache = ROOT / "work" / "playwright"
+    binary = cache / f"ffmpeg-{revision}" / "ffmpeg-linux"
+    binary.parent.mkdir(parents=True, exist_ok=True)
+    if not binary.exists():
+        binary.symlink_to(shutil.which("ffmpeg"))
+    os.environ["PLAYWRIGHT_BROWSERS_PATH"] = str(cache)
 
 
 def duration(path):
@@ -75,6 +99,19 @@ class RecordingRun(qa.Run):
         super().__init__(page, directory, observer)
         self.pointer = (30, 30)
 
+    def capture(self, name, note=""):
+        # Full-page screenshots resize Chromium's screencast viewport and can
+        # leave stale compositor frames. Video evidence is extracted afterward.
+        if name in ("after-import", "after-match", "ready-for-review", "persisted-review"):
+            self.page.locator("#deal-detail").evaluate("node => node.scrollIntoView({block:'start', behavior:'instant'})")
+        self.page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
+        self.page.wait_for_timeout(150)
+        self.page.mouse.move(self.pointer[0] + 1, self.pointer[1], steps=2)
+        self.page.wait_for_timeout(100)
+        self.steps.append({"name": name, "secondsFromStart": round(time.monotonic() - self.started, 3), "note": note})
+        if self.observer:
+            self.observer(name, note)
+
     def click(self, locator):
         locator.scroll_into_view_if_needed()
         box = locator.bounding_box()
@@ -89,10 +126,9 @@ class RecordingRun(qa.Run):
 
 
 def stamp(seconds):
-    hours = int(seconds // 3600)
-    minutes = int(seconds % 3600 // 60)
-    secs = int(seconds % 60)
-    millis = round((seconds % 1) * 1000)
+    whole, millis = divmod(round(seconds * 1000), 1000)
+    hours, remainder = divmod(whole, 3600)
+    minutes, secs = divmod(remainder, 60)
     return f"{hours:02}:{minutes:02}:{secs:02},{millis:03}"
 
 
@@ -102,12 +138,43 @@ def caption_chunks(text, words=12):
 
 
 def render(video, directory, scenes, voices, outfile, local=False):
-    total = duration(video)
+    last = scenes[-1]
+    total = min(duration(video), last.get("voiceStart", last["start"]) + voices[last["name"]]["duration"] + 0.35)
+    tracks = []
+    for scene in scenes:
+        tracks.append({"path": voices[scene["name"]]["path"], "start": scene.get("voiceStart", scene["start"]), "duration": voices[scene["name"]]["duration"], "cues": voices[scene["name"]]["cues"], "kind": "scene", "name": scene["name"]})
+    bridges = []
+    for scene, following in zip(scenes, scenes[1:]):
+        start = scene.get("voiceStart", scene["start"]) + voices[scene["name"]]["duration"] + 0.1
+        end = following.get("voiceStart", following["start"]) - 0.1
+        available = end - start
+        if available < 0.6:
+            continue
+        text = BRIDGES[scene["name"]]
+        textfile = directory / f"bridge-{scene['name']}.txt"
+        textfile.write_text(text)
+        original = directory / f"bridge-{scene['name']}-original.wav"
+        wave = directory / f"bridge-{scene['name']}.wav"
+        call(["ffmpeg", "-y", "-f", "lavfi", "-i", f"flite=textfile={textfile}:voice=slt", "-ar", "48000", str(original)])
+        speed = duration(original) / available
+        filters = []
+        while speed > 2:
+            filters.append("atempo=2")
+            speed /= 2
+        while speed < 0.5:
+            filters.append("atempo=0.5")
+            speed /= 0.5
+        filters.append(f"atempo={speed:.8f}")
+        call(["ffmpeg", "-y", "-i", str(original), "-af", ",".join(filters), "-t", f"{available:.6f}", str(wave)])
+        length = min(duration(wave), available)
+        track = {"path": str(wave), "start": start, "duration": length, "cues": [{"text": text, "start": 0, "duration": length}], "kind": "action bridge", "name": scene["name"]}
+        tracks.append(track)
+        bridges.append({key: value for key, value in track.items() if key != "path"})
     srt, counter = [], 1
     ass_events = []
-    for scene in scenes:
-        name, start = scene["name"], scene["start"]
-        for cue in voices[name]["cues"]:
+    for track in sorted(tracks, key=lambda value: value["start"]):
+        start = track["start"]
+        for cue in track["cues"]:
             cue_start = start + cue["start"]
             cue_end = min(total, cue_start + cue["duration"])
             chunk = cue["text"]
@@ -127,7 +194,7 @@ def render(video, directory, scenes, voices, outfile, local=False):
     environment = directory / "environment.txt"
     environment.write_text("LOCAL DEMONSTRATION | synthetic data" if local else "VERIFIED PUBLIC DEMONSTRATION | synthetic data")
     font = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
-    filters = [f"[0:v]scale=1080:675:flags=lanczos,pad=1080:1920:0:575:color=0xf6f8f3,setsar=1[v0]"]
+    filters = [f"[0:v]trim=duration={total:.6f},scale=1080:675:flags=lanczos,pad=1080:1920:0:575:color=0xf6f8f3,setsar=1[v0]"]
     filters.append(f"[v0]drawtext=fontfile={font}:textfile={title}:fontcolor=0x181b18:fontsize=47:x=70:y=140,drawtext=fontfile={font}:textfile={credit}:fontcolor=0x586155:fontsize=25:x=70:y=215,drawtext=fontfile={font}:textfile={environment}:fontcolor=0x586155:fontsize=24:x=70:y=1480[v1]")
     prior = "v1"
     for i, scene in enumerate(scenes):
@@ -144,19 +211,21 @@ def render(video, directory, scenes, voices, outfile, local=False):
         heading.write_text("\n".join(lines))
         end = scenes[i + 1]["start"] if i + 1 < len(scenes) else total
         nxt = f"h{i}"
-        filters.append(f"[{prior}]drawtext=fontfile={font}:textfile={heading}:fontcolor=0x181b18:fontsize=43:line_spacing=14:x=70:y=350:enable='gte(t,{scene['start']:.3f})*lt(t,{end:.3f})'[{nxt}]")
+        heading_start = 0 if i == 0 else scene["start"]
+        filters.append(f"[{prior}]drawtext=fontfile={font}:textfile={heading}:fontcolor=0x181b18:fontsize=43:line_spacing=14:x=70:y=350:enable='gte(t,{heading_start:.3f})*lt(t,{end:.3f})'[{nxt}]")
         prior = nxt
     filters.append(f"[{prior}]subtitles={ass}[v]")
     command = ["ffmpeg", "-y", "-i", str(video)]
-    for scene in scenes:
-        command.extend(["-i", voices[scene["name"]]["path"]])
-    for i, scene in enumerate(scenes):
-        delay = round(scene["start"] * 1000)
+    for track in tracks:
+        command.extend(["-i", track["path"]])
+    for i, track in enumerate(tracks):
+        delay = round(track["start"] * 1000)
         filters.append(f"[{i + 1}:a]adelay={delay}:all=1[a{i}]")
-    tracks = "".join(f"[a{i}]" for i in range(len(scenes)))
-    filters.append(f"{tracks}amix=inputs={len(scenes)}:normalize=0,apad,atrim=0:{total:.3f}[a]")
+    audio_inputs = "".join(f"[a{i}]" for i in range(len(tracks)))
+    filters.append(f"{audio_inputs}amix=inputs={len(tracks)}:normalize=0,apad,atrim=0:{total:.3f}[a]")
     command.extend(["-filter_complex", ";".join(filters), "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(outfile)])
     call(command)
+    return {"actionBridges": bridges, "renderedDuration": total}
 
 
 def main():
@@ -164,6 +233,8 @@ def main():
     parser.add_argument("--base-url", default=os.environ.get("BASE_URL", ""))
     parser.add_argument("--allow-local", action="store_true", help="Explicitly record a labelled local rehearsal")
     parser.add_argument("--render", action="store_true", help="Compose portrait MP4 with local voice and synchronized captions")
+    parser.add_argument("--reuse-voice", action="store_true", help="Reuse the generated speech timing from an earlier manifest")
+    parser.add_argument("--render-only", action="store_true", help="Recompose the existing capture and manifest without a new browser session")
     parser.add_argument("--output", default=str(ROOT / "work" / "walkthrough"))
     args = parser.parse_args()
     if not args.base_url:
@@ -173,8 +244,16 @@ def main():
         parser.error("Local URLs require --allow-local and produce rehearsal evidence")
     directory = Path(args.output).resolve()
     directory.mkdir(parents=True, exist_ok=True)
-    voices = prepare_voice(directory)
+    previous = directory / "recording-manifest.json"
+    if args.render_only:
+        manifest = json.loads(previous.read_text())
+        manifest.update(render(directory / "desktop-source.webm", directory, manifest["scenes"], manifest["voiceTiming"], directory / "odin-close-control-walkthrough.mp4", local=local))
+        previous.write_text(json.dumps(manifest, indent=2) + "\n")
+        print(json.dumps({"renderedDuration": manifest["renderedDuration"], "bridges": len(manifest["actionBridges"])}))
+        return
+    voices = json.loads(previous.read_text())["voiceTiming"] if args.reuse_voice and previous.exists() else prepare_voice(directory)
     scenes = []
+    recording_encoder()
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(executable_path="/usr/bin/chromium", args=["--no-sandbox"])
         context = browser.new_context(viewport={"width": 1440, "height": 900}, record_video_dir=str(directory), record_video_size={"width": 1440, "height": 900}, accept_downloads=True, bypass_csp=True)
@@ -192,8 +271,17 @@ def main():
         qa.loaded(page)
 
         def observe(name, note):
-            scenes.append({"name": name, "start": round(time.monotonic() - started, 3), "note": note})
-            page.wait_for_timeout(int((voices[name]["duration"] + 1.0) * 1000))
+            scene_start = round(time.monotonic() - started, 3)
+            scenes.append({"name": name, "start": scene_start, "note": note, **({"voiceStart": 0} if name == "desktop-seed" else {})})
+            hold = max(0, voices[name]["duration"] + 0.2 - (scene_start if name == "desktop-seed" else 0)) * 1000
+            if name == "import-preview":
+                page.wait_for_timeout(int(hold / 2))
+                # Show both the validation summary and the atomic-confirm action.
+                page.locator("#import-dialog").evaluate("node => node.scrollTo({top: node.scrollHeight, behavior: 'smooth'})")
+                page.wait_for_timeout(600)
+                page.wait_for_timeout(max(0, int(hold / 2) - 600))
+            else:
+                page.wait_for_timeout(int(hold))
 
         run = RecordingRun(page, directory / "frames", observe)
         packet = qa.run_workflow(run, include_invalid=False)
@@ -209,7 +297,8 @@ def main():
     manifest = {"baseUrl": args.base_url, "evidenceType": "local demonstration" if local else "remote deployment walkthrough", "desktopResolution": [1440, 900], "portraitResolution": [1080, 1920], "desktopIsCropped": False, "credit": "Ayo Ahmed | Independent synthetic concept", "narration": "Synthetic narration; all records fictional.", "scenes": scenes, "voiceTiming": voices, "packetVerification": packet}
     (directory / "recording-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     if args.render:
-        render(source, directory, scenes, voices, directory / "odin-close-control-walkthrough.mp4", local=local)
+        manifest.update(render(source, directory, scenes, voices, directory / "odin-close-control-walkthrough.mp4", local=local))
+        (directory / "recording-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(json.dumps(manifest, indent=2))
 
 
