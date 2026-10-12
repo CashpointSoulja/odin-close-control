@@ -21,7 +21,8 @@ FATCA
 
 SPV
 
-Run a deal in days, not weeks
+Run a deal in days,
+not weeks
 
 Odin handles the legal structure, investor onboarding, payments, and post-close admin so you can focus on investing.
 
@@ -33,7 +34,9 @@ FUND
 
 Flexible fund infrastructure for global managers
 
-From legal structuring to LP onboarding, reporting, and exits - full-stack infrastructure, built for managers raising and investing across borders.
+From legal structuring to LP onboarding,
+reporting, and exits - full-stack infrastructure,
+built for managers raising and investing across borders.
 
 Global Fund Domiciles
 USA

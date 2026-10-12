@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8f3">
+  <meta name="description" content="Odin Close Control: an independent, synthetic close-readiness workbench by Ayo Ahmed.">
+  <title>Odin Close Control · Ayo Ahmed</title>
+  <link rel="icon" href="/assets/eye.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to workbench</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Odin Close Control home">
+      <span class="brand-eye"><img src="/assets/eye.svg" width="38" height="15" alt=""></span>
+      <img class="wordmark" src="/assets/logo-wordmark.svg" width="64" height="19" alt="Odin">
+      <span class="brand-divider" aria-hidden="true"></span><span class="brand-product">Close Control</span>
+    </a>
+    <div class="header-actions">
+      <span class="demo-badge"><span class="dot" aria-hidden="true"></span>Independent concept · Synthetic data</span>
+      <button class="button ghost" id="reset-open" disabled>Reset</button>
+      <button class="button ink" id="import-open" disabled><span class="icon icon-upload" aria-hidden="true"></span> Upload CSV</button>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="page-heading"><div><p class="eyebrow">THE LAST MILE, MADE CLEAR</p><h1>A clear path<br>to a ready close<span class="lime-period">.</span></h1></div><div class="heading-note"><p>Know what's blocking.<br>Know who owns it.<br>Keep the evidence together.</p><span>Independent concept by Ayo Ahmed · Synthetic data</span></div></div>
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+    <div id="error" class="error-banner" role="alert" hidden></div>
+    <div id="workbench" aria-busy="true"><section class="loading-state"><span class="loading-mark" aria-hidden="true"></span><h2>Opening your synthetic workspace</h2><p>Loading the saved session and checking the current revision.</p></section></div>
+  </main>
+  <footer class="site-footer"><div><strong>Independent concept by Ayo Ahmed.</strong><br>Synthetic data only. No affiliation with Odin.</div><p>Deterministic checks. Human judgment.<br>No live financial, legal or compliance decisions.</p><a href="https://github.com/CashpointSoulja/odin-close-control" target="_blank" rel="noopener noreferrer">Explore the build <span class="icon icon-ne" aria-hidden="true"></span></a></footer>
+
+  <dialog id="import-dialog" class="modal wide" aria-labelledby="import-title">
+    <div class="modal-heading"><div><p class="eyebrow">ONE ATOMIC IMPORT</p><h2 id="import-title">Bring the cash into focus.</h2></div><button class="icon-button" data-close aria-label="Close CSV import">×</button></div>
+    <p class="muted">Upload both CSV files. Preview every change before it is saved to this synthetic session.</p>
+    <form id="import-form">
+      <div class="file-grid"><div class="file-box"><label for="commitments-file">01 · Commitments CSV</label><p>Known synthetic investor IDs and exact amounts.</p><input id="commitments-file" aria-describedby="import-errors" type="file" accept=".csv,text/csv" required><a href="/samples/commitments.csv" download>Download sample commitments ↓</a></div><div class="file-box"><label for="payments-file">02 · Payment events CSV</label><p>Settlements, refunds and linked reversals.</p><input id="payments-file" aria-describedby="import-errors" type="file" accept=".csv,text/csv" required><a href="/samples/payments.csv" download>Download sample payments ↓</a></div></div>
+      <label class="check-label"><input id="import-ack" aria-describedby="import-errors" type="checkbox" required><span>I am uploading the supplied synthetic fixtures or permitted DEMO records only. No real people or financial data.</span></label>
+      <div id="import-errors" role="alert" class="inline-error" hidden></div>
+      <div id="import-preview" class="preview" hidden></div>
+      <div class="modal-actions"><button class="button outline" type="button" data-close>Cancel</button><button class="button ink" type="submit" id="preview-button">Preview import <span class="icon icon-ne" aria-hidden="true"></span></button><button class="button lime" type="button" id="import-confirm" disabled hidden>Import validated changes <span aria-hidden="true">→</span></button></div>
+    </form>
+  </dialog>
+
+  <dialog id="match-dialog" class="modal" aria-labelledby="match-title"><div class="modal-heading"><div><p class="eyebrow">HUMAN CASH MATCH</p><h2 id="match-title">Assign this receipt.</h2></div><button class="icon-button" data-close aria-label="Close receipt matching">×</button></div><div id="match-event"></div><form id="match-form"><label for="match-account">Choose the exact commitment or fee account</label><select id="match-account" aria-describedby="match-error" required></select><p class="muted small">No inferred investor names or automatic matches. This selection is recorded in the audit trail.</p><div id="match-error" class="inline-error" role="alert" hidden></div><div class="modal-actions"><button type="button" class="button outline" data-close>Cancel</button><button type="submit" class="button ink">Confirm match →</button></div></form></dialog>
+
+  <dialog id="legal-dialog" class="modal" aria-labelledby="legal-title"><div class="modal-heading"><div><p class="eyebrow">FINAL LEGAL EVIDENCE</p><h2 id="legal-title">Attach a final reference.</h2></div><button class="icon-button" data-close aria-label="Close legal evidence">×</button></div><p class="muted">This demonstrator stores synthetic document metadata and a hash. It does not upload or verify a legal agreement.</p><form id="legal-form"><div class="file-box"><label for="legal-file">Synthetic legal metadata · JSON</label><input id="legal-file" aria-describedby="legal-error" type="file" accept=".json,application/json" required><a href="/samples/final-legal.json" download>Download final legal fixture ↓</a></div><div id="legal-error" class="inline-error" role="alert" hidden></div><div class="modal-actions"><button type="button" class="button outline" data-close>Cancel</button><button type="submit" class="button ink">Attach metadata →</button></div></form></dialog>
+
+  <dialog id="review-dialog" class="modal" aria-labelledby="review-title"><div class="modal-heading"><div><p class="eyebrow">REVISION-BOUND HUMAN HANDOFF</p><h2 id="review-title">Review this exact snapshot.</h2></div><button class="icon-button" data-close aria-label="Close human review">×</button></div><div id="review-summary"></div><form id="review-form"><label class="check-label review-check"><input id="review-check" aria-describedby="review-error" type="checkbox" required><span id="review-ack-text"></span></label><p class="muted small">DEMO-REVIEWER-01 is a synthetic reviewer. Approval creates a reviewed handoff packet; it does not close an investment or move funds. Any relevant change invalidates approval.</p><div id="review-error" class="inline-error" role="alert" hidden></div><div class="modal-actions"><button type="button" class="button outline" data-close>Cancel</button><button type="submit" class="button lime">Approve current snapshot →</button></div></form></dialog>
+
+  <dialog id="reset-dialog" class="modal" aria-labelledby="reset-title"><div class="modal-heading"><div><p class="eyebrow">YOUR SYNTHETIC SESSION</p><h2 id="reset-title">Start from the seed again?</h2></div><button class="icon-button" data-close aria-label="Close reset">×</button></div><p class="muted">This clears the imports, matches, attestations and reviews in your current session and restores the three example deals.</p><div id="reset-error" class="inline-error" role="alert" hidden></div><div class="modal-actions"><button class="button outline" data-close>Keep my progress</button><button id="reset-confirm" class="button ink">Reset this session →</button></div></dialog>
+
+  <dialog id="packet-dialog" class="modal wide" aria-labelledby="packet-title"><div class="modal-heading"><div><p class="eyebrow">REVIEWED HANDOFF</p><h2 id="packet-title">A snapshot you can inspect.</h2></div><button class="icon-button" data-close aria-label="Close handoff packet">×</button></div><div id="packet-summary"></div><div id="packet-error" class="inline-error" role="alert" hidden></div><details class="packet-raw"><summary>Inspect full JSON packet</summary><pre id="packet-json"></pre></details><div class="modal-actions"><button class="button outline" data-close>Close</button><button class="button ink" id="packet-download">Download packet JSON ↓</button><a class="button lime" id="ledger-download" download>Download cash ledger ↓</a></div></dialog>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "odin-close-control",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --ip 127.0.0.1 --port 8787",
+    "db:migrate": "wrangler d1 migrations apply odin-close-control --local",
+    "test": "node --test tests/*.test.js",
+    "test:domain": "node --test tests/domain.test.js",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.149.0",
+    "miniflare": "5.20261006.1-alpha"
+  }
+}

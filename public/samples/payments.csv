@@ -1,0 +1,4 @@
+event_id,deal_id,commitment_id,currency,amount,type,parent_event_id,bank_reference
+DEMO-AURORA-PAY-001,DEMO-AURORA,DEMO-AURORA-COM-001,GBP,30000.00,settlement,,DEMO-BANK-A001
+DEMO-AURORA-PAY-002,DEMO-AURORA,DEMO-AURORA-COM-002,GBP,18000.00,settlement,,DEMO-BANK-A002
+DEMO-AURORA-PAY-003,DEMO-AURORA,,GBP,2000.00,settlement,,DEMO-BANK-A003

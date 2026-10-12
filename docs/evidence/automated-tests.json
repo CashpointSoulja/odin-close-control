@@ -1,0 +1,30 @@
+{
+  "command": "npm test",
+  "scope": "34 domain tests and 8 real Worker/D1 integration tests",
+  "tests": 42,
+  "passed": 42,
+  "failed": 0,
+  "skipped": 0,
+  "durationMilliseconds": 2050.710976,
+  "storage": "Local D1 runtime",
+  "remoteDeployment": false,
+  "verifiedControls": [
+    "exact integer arithmetic",
+    "currency decimals",
+    "malformed and overflowing amounts",
+    "atomic invalid imports",
+    "idempotent and conflicting IDs",
+    "linked refunds/reversals",
+    "fee payer and rounding",
+    "underpayment/overpayment",
+    "revision concurrency",
+    "approval invalidation",
+    "session isolation and expiry",
+    "reset",
+    "payload and rate bounds",
+    "static security headers",
+    "formula-safe ledger export",
+    "reviewed packet hash"
+  ],
+  "recordedAt": "2026-10-12T23:12:21.756205+00:00"
+}

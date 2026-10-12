@@ -2,149 +2,149 @@ Source: https://help.joinodin.com/hc/en-gb/articles/25326486288273-Drafting-a-pr
 Captured: 2026-10-12T22:51:10+00:00
 Extraction: official article-body HTML, markup removed.
 
-For a video guide to drafting a primary deal as a Syndicate Lead, please scroll to the bottom of this page. 
-   
- To create your deal, select the ‘Deals’ page of the platform and click the “Launch a deal” button in the top right hand side. 
- You’ll be asked what type of deal you’d like to create. As a Syndicate Lead: 
- 
- Primary - purchasing new shares directly from a company. 
- Secondary - purchasing issued shares from existing company shareholders. 
- Do not select the ‘Raise a Round’ option under ‘I’m a founder’ - this is exclusively for founders who are raising funds for their own companies. 
- 
- The most likely scenario is that you are launching a primary deal - if you are launching a secondary deal, skip to this section. 
- Once selected, press ‘Continue’. 
- Note: Your deal is in draft and saves automatically throughout, so you can come back to it at any time. If you’d like to delete your draft deal, there’s an option to do so under the left hand side panel throughout the deal creation process. 
- - - 
- Select a syndicate 
- Select the Syndicate that you created from the dropdown menu. If you haven’t created one by this stage, select 'create new syndicate' and input the requested details. 
- Additional syndicate leads - You also have the option to add other Syndicate Leads to the deal. This could be, for example, co-leads of your Syndicate or associates who will be helping with the administration of the deal. If you choose to add one, you will be presented with a modal to enter the following details of your co-lead: 
- 
- First name; 
- Last name, and; 
- Email. 
- 
- When you hit save, upon submitting the deal for review, they will receive an email to sign up as a co-lead. 
- Pricing tier - If you are an existing Odin customer, your agreed pricing with us will be pre-selected on this page. If you are drafting your first deal, you can select the 'Syndicate' tier, or if you select the 'Syndicate Plus' tier, you will be prompted to provide a legal entity name and will hear from our customer success team to confirm the name is available and arrange invoice payment for your one-off setup fee. 
- Entity legal name - If you have not already created a syndicate, the name of the entity that appears on the cap table will be Odin Investments Limited. If you are a Syndicate Plus customer, you have the ability to select your own entity name . We recommend that you scan the Companies House register to ensure that the entity name doesn’t already exist. 
- - - 
- Investee company info 
- The next step is to enter details of the company that you’re investing in - the Investee Company. This information is required so that your investors have clarity on what they’re investing in. It also helps us to verify the business, which will be covered in the Investee Company Onboarding section. 
- 
- Tip: A lot of this information is available on public registers but we would also recommend retrieving this information from the company itself. 
- 
- Company logo - The investee company’s logo will appear on the deal page for all your investors to see. It’s easiest to download this from the company’s website. Note that square logos are best, with a resolution of at least 500x500 for maximum clarity. 
- Company legal name - This should be the name by which the investee company is registered with the relevant company registrar. For example, Odin’s legal name is Join Odin Limited . 
- Company URL - A link to the website homepage of the investee company. 
- Company contact first name & email address - This will likely be the CEO of the investee company. Failing that, ideally the contact will be COO, CFO or someone of high compliance literacy. This person will be Odin’s key point of contact for investee company onboarding and we’ll also contact them during the closing process (with you in cc). 
- Company trading name - This is the name the investee company goes by in day-to-day trade. It may be different to its legal name (eg. “Odin” rather than “Join Odin Limited”). 
- Company registration number - This can be accessed via the legal register for the country in which the investee company is incorporated. If you are unsure, you can enter 0000. 
- Country - You can start typing the country name and select from the dropdown list. 
- Address line 1 - The first line of the investee company’s address. 
- Address line 2 - If applicable, the second line of the investee company’s address. 
- Town or city - As stated. 
- County / state / province - As stated. 
- Postal code / ZIP code - As stated. 
- - - 
- Deal terms 
- This section allows you to disclose the terms under which you will be investing in the company - the type of investment, the valuation, currency, etc. 
- Base currency - This can be one of the following: 
- 
- Pound Sterling (GBP); 
- Euros (EUR), and; 
- US Dollar (USD). 
- 
- This is the currency that investors will wire funds in. It is also typically the currency in which we will wire funds to the investee company. It is possible to wire funds in a different currency, but this will incur extra charges . 
- S/EIS relief - SEIS and EIS are tax relief incentives for UK taxpayers investing in UK companies. To learn more about the the SEIS and EIS relief schemes, and how Odin can assist, please jump to this section of the guide. 
- Eligibility for S/EIS should always be confirmed with the investee company before you submit a deal for review by Odin. S/EIS-eligible companies will almost always be UK-based, but companies in other countries can be eligible if they’re registered in the UK as an overseas company and have a nominated agent. 
- It is important to ensure that the investee company has already got Advanced Assurance. This is a letter from HMRC confirming that a company's proposed round qualifies for tax relief, based on the information the company provided (N.B.: this is not a guarantee from HMRC, but it does act as “assurance” that it is likely tax relief will be granted). Check the boxes that are relevant for either scheme in the deal creation flow. 
- Investment instrument - This is the legal agreement that your SPV is entering into with the investee company. Here’s a breakdown of what you can select from the dropdown: 
- 
+For a video guide to drafting a primary deal as a Syndicate Lead, please scroll to the bottom of this page.
+
+ To create your deal, select the ‘Deals’ page of the platform and click the “Launch a deal” button in the top right hand side.
+ You’ll be asked what type of deal you’d like to create. As a Syndicate Lead:
+
+ Primary - purchasing new shares directly from a company.
+ Secondary - purchasing issued shares from existing company shareholders.
+ Do not select the ‘Raise a Round’ option under ‘I’m a founder’ - this is exclusively for founders who are raising funds for their own companies.
+
+ The most likely scenario is that you are launching a primary deal - if you are launching a secondary deal, skip to this section.
+ Once selected, press ‘Continue’.
+ Note: Your deal is in draft and saves automatically throughout, so you can come back to it at any time. If you’d like to delete your draft deal, there’s an option to do so under the left hand side panel throughout the deal creation process.
+ - -
+ Select a syndicate
+ Select the Syndicate that you created from the dropdown menu. If you haven’t created one by this stage, select 'create new syndicate' and input the requested details.
+ Additional syndicate leads - You also have the option to add other Syndicate Leads to the deal. This could be, for example, co-leads of your Syndicate or associates who will be helping with the administration of the deal. If you choose to add one, you will be presented with a modal to enter the following details of your co-lead:
+
+ First name;
+ Last name, and;
+ Email.
+
+ When you hit save, upon submitting the deal for review, they will receive an email to sign up as a co-lead.
+ Pricing tier - If you are an existing Odin customer, your agreed pricing with us will be pre-selected on this page. If you are drafting your first deal, you can select the 'Syndicate' tier, or if you select the 'Syndicate Plus' tier, you will be prompted to provide a legal entity name and will hear from our customer success team to confirm the name is available and arrange invoice payment for your one-off setup fee.
+ Entity legal name - If you have not already created a syndicate, the name of the entity that appears on the cap table will be Odin Investments Limited. If you are a Syndicate Plus customer, you have the ability to select your own entity name . We recommend that you scan the Companies House register to ensure that the entity name doesn’t already exist.
+ - -
+ Investee company info
+ The next step is to enter details of the company that you’re investing in - the Investee Company. This information is required so that your investors have clarity on what they’re investing in. It also helps us to verify the business, which will be covered in the Investee Company Onboarding section.
+
+ Tip: A lot of this information is available on public registers but we would also recommend retrieving this information from the company itself.
+
+ Company logo - The investee company’s logo will appear on the deal page for all your investors to see. It’s easiest to download this from the company’s website. Note that square logos are best, with a resolution of at least 500x500 for maximum clarity.
+ Company legal name - This should be the name by which the investee company is registered with the relevant company registrar. For example, Odin’s legal name is Join Odin Limited .
+ Company URL - A link to the website homepage of the investee company.
+ Company contact first name & email address - This will likely be the CEO of the investee company. Failing that, ideally the contact will be COO, CFO or someone of high compliance literacy. This person will be Odin’s key point of contact for investee company onboarding and we’ll also contact them during the closing process (with you in cc).
+ Company trading name - This is the name the investee company goes by in day-to-day trade. It may be different to its legal name (eg. “Odin” rather than “Join Odin Limited”).
+ Company registration number - This can be accessed via the legal register for the country in which the investee company is incorporated. If you are unsure, you can enter 0000.
+ Country - You can start typing the country name and select from the dropdown list.
+ Address line 1 - The first line of the investee company’s address.
+ Address line 2 - If applicable, the second line of the investee company’s address.
+ Town or city - As stated.
+ County / state / province - As stated.
+ Postal code / ZIP code - As stated.
+ - -
+ Deal terms
+ This section allows you to disclose the terms under which you will be investing in the company - the type of investment, the valuation, currency, etc.
+ Base currency - This can be one of the following:
+
+ Pound Sterling (GBP);
+ Euros (EUR), and;
+ US Dollar (USD).
+
+ This is the currency that investors will wire funds in. It is also typically the currency in which we will wire funds to the investee company. It is possible to wire funds in a different currency, but this will incur extra charges .
+ S/EIS relief - SEIS and EIS are tax relief incentives for UK taxpayers investing in UK companies. To learn more about the the SEIS and EIS relief schemes, and how Odin can assist, please jump to this section of the guide.
+ Eligibility for S/EIS should always be confirmed with the investee company before you submit a deal for review by Odin. S/EIS-eligible companies will almost always be UK-based, but companies in other countries can be eligible if they’re registered in the UK as an overseas company and have a nominated agent.
+ It is important to ensure that the investee company has already got Advanced Assurance. This is a letter from HMRC confirming that a company's proposed round qualifies for tax relief, based on the information the company provided (N.B.: this is not a guarantee from HMRC, but it does act as “assurance” that it is likely tax relief will be granted). Check the boxes that are relevant for either scheme in the deal creation flow.
+ Investment instrument - This is the legal agreement that your SPV is entering into with the investee company. Here’s a breakdown of what you can select from the dropdown:
+
  Equity - Any agreement that allows for the direct exchange of investment capital for shares in the investee company.
- 
+
  If selected, you’ll be asked to confirm the share class from one of the two following options:
- 
- Common/Ordinary - Common shares represent ownership in a company with standard voting rights and rights to dividends. 
- Preferred - Preferred shares usually have the same rights as common / ordinary shares, and some additional rights too. Frequently they’ll come with some sort of liquidation preference that protects investors in the event of an unprofitable exit. 
- 
- 
- Share price - You’ll also have to enter the price per share that the investee company is issuing shares at. If you are unsure, you can enter “1”, and then Odin will finalise this at closing by corresponding with the Investee Company. 
+
+ Common/Ordinary - Common shares represent ownership in a company with standard voting rights and rights to dividends.
+ Preferred - Preferred shares usually have the same rights as common / ordinary shares, and some additional rights too. Frequently they’ll come with some sort of liquidation preference that protects investors in the event of an unprofitable exit.
+
+
+ Share price - You’ll also have to enter the price per share that the investee company is issuing shares at. If you are unsure, you can enter “1”, and then Odin will finalise this at closing by corresponding with the Investee Company.
  Pre-money valuation - The fully diluted valuation of the Investee Company before any new investments or financing are accounted for. The founder will be able to provide this information, and this will typically also be noted on the investment agreement provided by the investee company.
- 
- 
- 
-   
- 
- 
- 
- 
- 
- 
- Convertible Loan Note (CLN) - A debt instrument that can be converted into equity at a later date, typically during a future equity financing round, offering investors the potential to either receive their investment back (plus interest) or instead convert it into shares in the company. 
- Advance Subscription Agreement (ASA) - An investment contract enabling investors to provide capital to startups in exchange for future equity. A SeedFAST is a type of ASA - select this if you’re raising on an ASA. 
- Simple Agreement for Future Equity (SAFE) - An investment instrument similar to an ASA that allows investors to provide funding to startups in exchange for the promise of future equity. 
- 
- For CLNs, ASAs or SAFEs, you’ll be asked to enter the following information - while it is preferable that you complete this now, it is not mandatory so we can also confirm this at a later date if you do not have it to hand: 
- 
- Valuation Cap - Often these types of instruments will specify a future maximum valuation at which the investment can convert to shares. If there is a valuation cap, the type may be Pre-money or Post-money. 
- Pre-money - The fully diluted company valuation, BEFORE accounting for any new investments (including the instrument being subscribed to by the syndicate). 
- Post-money - The fully diluted company valuation, AFTER accounting for any new investments (including the instrument being subscribed to by the syndicate). 
+
+
+
+
+
+
+
+
+
+
+ Convertible Loan Note (CLN) - A debt instrument that can be converted into equity at a later date, typically during a future equity financing round, offering investors the potential to either receive their investment back (plus interest) or instead convert it into shares in the company.
+ Advance Subscription Agreement (ASA) - An investment contract enabling investors to provide capital to startups in exchange for future equity. A SeedFAST is a type of ASA - select this if you’re raising on an ASA.
+ Simple Agreement for Future Equity (SAFE) - An investment instrument similar to an ASA that allows investors to provide funding to startups in exchange for the promise of future equity.
+
+ For CLNs, ASAs or SAFEs, you’ll be asked to enter the following information - while it is preferable that you complete this now, it is not mandatory so we can also confirm this at a later date if you do not have it to hand:
+
+ Valuation Cap - Often these types of instruments will specify a future maximum valuation at which the investment can convert to shares. If there is a valuation cap, the type may be Pre-money or Post-money.
+ Pre-money - The fully diluted company valuation, BEFORE accounting for any new investments (including the instrument being subscribed to by the syndicate).
+ Post-money - The fully diluted company valuation, AFTER accounting for any new investments (including the instrument being subscribed to by the syndicate).
  Discount - A discount allows your investors to convert their investment into shares at a lower price per share than new investors in the next funding round. For example, if you have a 20% discount and the company’s fully diluted valuation after the next round is $5m, then you will receive shares at a price per share equivalent to a 20% discount (i.e. a $4m valuation).
- 
- Typically, if both a discount and a cap are available, your investment will convert into shares at whichever valuation is lower during the next qualifying financing, either the discounted valuation or the capped valuation. 
- 
- 
- 
- All of the above types of legal documentation are provided by the investee company. 
- For all investment instrument types, you’ll be asked to complete the following information: 
- 
- Total round size - This is how much the investee company is raising in total for this round, beyond the SPV that is being administered through Odin. Investors often like to know this, since it allows them to understand the total dilution the company will be taking in the round (based on the company valuation), which is an important consideration. 
- SPV allocation - How much capital you intend to raise into your SPV to invest in the company. 
- Minimum commitment - This is the minimum amount that an investor can invest into your deal. If left blank, this defaults to 1,000. 
- Target close date - This allows Odin’s Customer Success and Deal Operations team to better understand your timelines and prioritise assistance according to urgency. 
+
+ Typically, if both a discount and a cap are available, your investment will convert into shares at whichever valuation is lower during the next qualifying financing, either the discounted valuation or the capped valuation.
+
+
+
+ All of the above types of legal documentation are provided by the investee company.
+ For all investment instrument types, you’ll be asked to complete the following information:
+
+ Total round size - This is how much the investee company is raising in total for this round, beyond the SPV that is being administered through Odin. Investors often like to know this, since it allows them to understand the total dilution the company will be taking in the round (based on the company valuation), which is an important consideration.
+ SPV allocation - How much capital you intend to raise into your SPV to invest in the company.
+ Minimum commitment - This is the minimum amount that an investor can invest into your deal. If left blank, this defaults to 1,000.
+ Target close date - This allows Odin’s Customer Success and Deal Operations team to better understand your timelines and prioritise assistance according to urgency.
  Proxy voting rights - Here you can select who manages the governance of the syndicate and handles matters requiring investor consent. There are four options:
- 
- Syndicate lead(s) - You as Syndicate Lead will vote on behalf of investors in the syndicate on matters requiring investor consent. We usually recommend this option. If there are two or more co-leads on a deal, only one signature will be required in practice rather than all of the syndicate leads. 
- Chair of the board - If a board is set up for the company, you can proxy the voting to that individual. 
- Founder(s) of the investee company - A founder of the Investee Company can be selected to vote on behalf of the investors in the syndicate. 
- 
- 
- 
- - - 
- Memo & materials 
- In this section, you are able to share more context about the investment opportunity to your investors. 
- Memo - This should be a brief document that outlines key points about the deal and your rationale for investing. You may have already written this, but if you’re yet to start, Odin provides a template. Our template will be overlaid automatically and can be edited for your own use or deleted and replaced with your version. You can also simply include a link to a memo you’ve written elsewhere. 
- If you click ‘preview’ you can see how your investor will see the memo. There are also formatting options available for enhanced readability. 
- If you’ve previously created a data room containing an investment memo and other relevant materials, feel free to paste the link into this box instead of writing a memo. 
- If no memo is required for your deal (often the case for deals where investors have already given hard commitments and seen materials elsewhere), you can just input some placeholder text (eg. “See previous communications”). 
- For more context on memo best practice, we recommend this blog post by Visible VC. 
- Investment agreement - Below the memo, there is a field to link to the investment agreement. Please ensure that this file is uploaded into a folder or Drive and, most importantly, that the link is set to viewable by anyone who clicks on it. 
- If this is not available or not complete, a draft document or placeholder link is absolutely fine. Odin primarily needs the investment agreement for the deal closing process. Please also be aware that when closing the deal, any delay in Odin receiving this agreement from the investee company will result in delays to completion. 
- Pitch deck - It is highly likely that the investee company is raising their round using a pitch deck. This can be linked here, and as per the investment agreement, please ensure that this file is uploaded into a folder or Drive and, most importantly, that the link is set to viewable by anyone who clicks on it. 
- Embedded deck URL - You can also choose to embed the pitch deck on the page by copying the embed code from the software that hosts your deck. Odin’s embed feature is compatible with Pitch, Google Slides, Google Drive, Prezi and SlideShare. Please note embedding doesn’t work for DocSend. 
- - - 
- Carry & fees 
- In this section, you’ll be able to set the default carry percentage, carry recipient/splits and confirm who’s paying Odin’s fee. 
- Default carry - Carried interest is a share of profits that you will receive upon a successful exit event. Typically, default carry is set anywhere between 10-20%, more often closer to 20%. 
- Please note, while the deal set up does not support custom carry terms such as performance related hurdles, you can get in touch with our support team at hello@joinodin.com or contact your Customer Success representative directly and request for custom terms to be added to the legals (e.g. carry goes from 20% to 30% if the investment returns >3x). 
- Carry recipient(s) - If you have set a default carry percentage, you will at the very least need to add yourself as a carry recipient. Select ‘Create carry recipient’ and enter your details as prompted. 
- If you are receiving the carry as an individual, you will be required to provide the following: 
- 
- First name; 
- Last name, and; 
- Email address. 
- 
- If you are receiving the carry as a company entity, select ‘Company’ from the ‘entity type’ dropdown and provide the following information: 
- 
- Company trade name; 
- Company legal name; 
- Company registration number; 
- First name of company contact; 
- Last name of company contact; 
- Email of company contact; 
- 
- In instances where you have a co-lead or e.g. a business associate who introduces investors to your deal, you may want to split carry with them. You can once again select ‘Create carry recipient’ and in the modal provided, enter their details accordingly, depending on whether they are an Individual or a Company entity. 
- Whether you have 1 or many carry recipients, the percentages of carry received must add up to 100 - you will be blocked from progressing to the next step if they do not. 
- If you need to edit carry recipients or add additional recipients later, this is possible. 
- Your commitment as syndicate lead - This is how much you intend to invest as the Syndicate Lead. Please note that you can change this when the deal is live and are free to invest above or beyond whatever you state in this field. Your own commitment as Syndicate Lead won’t be viewable by your investors. 
- Who will pay Odin’s platform fee - It’s crucial to select this correctly as it will impact the capital available to invest when the deal closes. You can read more about the options for paying Odin’s fees, and how they work in practice, in this section . 
+
+ Syndicate lead(s) - You as Syndicate Lead will vote on behalf of investors in the syndicate on matters requiring investor consent. We usually recommend this option. If there are two or more co-leads on a deal, only one signature will be required in practice rather than all of the syndicate leads.
+ Chair of the board - If a board is set up for the company, you can proxy the voting to that individual.
+ Founder(s) of the investee company - A founder of the Investee Company can be selected to vote on behalf of the investors in the syndicate.
+
+
+
+ - -
+ Memo & materials
+ In this section, you are able to share more context about the investment opportunity to your investors.
+ Memo - This should be a brief document that outlines key points about the deal and your rationale for investing. You may have already written this, but if you’re yet to start, Odin provides a template. Our template will be overlaid automatically and can be edited for your own use or deleted and replaced with your version. You can also simply include a link to a memo you’ve written elsewhere.
+ If you click ‘preview’ you can see how your investor will see the memo. There are also formatting options available for enhanced readability.
+ If you’ve previously created a data room containing an investment memo and other relevant materials, feel free to paste the link into this box instead of writing a memo.
+ If no memo is required for your deal (often the case for deals where investors have already given hard commitments and seen materials elsewhere), you can just input some placeholder text (eg. “See previous communications”).
+ For more context on memo best practice, we recommend this blog post by Visible VC.
+ Investment agreement - Below the memo, there is a field to link to the investment agreement. Please ensure that this file is uploaded into a folder or Drive and, most importantly, that the link is set to viewable by anyone who clicks on it.
+ If this is not available or not complete, a draft document or placeholder link is absolutely fine. Odin primarily needs the investment agreement for the deal closing process. Please also be aware that when closing the deal, any delay in Odin receiving this agreement from the investee company will result in delays to completion.
+ Pitch deck - It is highly likely that the investee company is raising their round using a pitch deck. This can be linked here, and as per the investment agreement, please ensure that this file is uploaded into a folder or Drive and, most importantly, that the link is set to viewable by anyone who clicks on it.
+ Embedded deck URL - You can also choose to embed the pitch deck on the page by copying the embed code from the software that hosts your deck. Odin’s embed feature is compatible with Pitch, Google Slides, Google Drive, Prezi and SlideShare. Please note embedding doesn’t work for DocSend.
+ - -
+ Carry & fees
+ In this section, you’ll be able to set the default carry percentage, carry recipient/splits and confirm who’s paying Odin’s fee.
+ Default carry - Carried interest is a share of profits that you will receive upon a successful exit event. Typically, default carry is set anywhere between 10-20%, more often closer to 20%.
+ Please note, while the deal set up does not support custom carry terms such as performance related hurdles, you can get in touch with our support team at hello@joinodin.com or contact your Customer Success representative directly and request for custom terms to be added to the legals (e.g. carry goes from 20% to 30% if the investment returns >3x).
+ Carry recipient(s) - If you have set a default carry percentage, you will at the very least need to add yourself as a carry recipient. Select ‘Create carry recipient’ and enter your details as prompted.
+ If you are receiving the carry as an individual, you will be required to provide the following:
+
+ First name;
+ Last name, and;
+ Email address.
+
+ If you are receiving the carry as a company entity, select ‘Company’ from the ‘entity type’ dropdown and provide the following information:
+
+ Company trade name;
+ Company legal name;
+ Company registration number;
+ First name of company contact;
+ Last name of company contact;
+ Email of company contact;
+
+ In instances where you have a co-lead or e.g. a business associate who introduces investors to your deal, you may want to split carry with them. You can once again select ‘Create carry recipient’ and in the modal provided, enter their details accordingly, depending on whether they are an Individual or a Company entity.
+ Whether you have 1 or many carry recipients, the percentages of carry received must add up to 100 - you will be blocked from progressing to the next step if they do not.
+ If you need to edit carry recipients or add additional recipients later, this is possible.
+ Your commitment as syndicate lead - This is how much you intend to invest as the Syndicate Lead. Please note that you can change this when the deal is live and are free to invest above or beyond whatever you state in this field. Your own commitment as Syndicate Lead won’t be viewable by your investors.
+ Who will pay Odin’s platform fee - It’s crucial to select this correctly as it will impact the capital available to invest when the deal closes. You can read more about the options for paying Odin’s fees, and how they work in practice, in this section .
  Review & submit - Now that you’ve completed all the required fields, you can review your inputs. If you’re satisfied that everything is in order, you can click ‘Submit for review’. Once you’ve submitted for review, we’ll typically get back to you within 48 hours .  You can learn more about the review process here .
