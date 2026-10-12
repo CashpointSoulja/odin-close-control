@@ -1,0 +1,21 @@
+Source: https://jobs.ashbyhq.com/odin/ed22ab98-e9e7-4563-953c-641367a51d13
+Captured: 2026-10-12T22:51:10.364600+00:00
+Extraction: official HTML meta description (client application assets were unavailable in the capture browser).
+
+Relevant exact passages from the official role:
+
+ - This is a product role, and your product is how Odin operates. Think of it as our ghostbuster: every operational problem lands with you, you decide what gets fixed, and you ship most of the fixes yourself rather than writing tickets for someone else.
+
+ - Odin's operations run on around 50 processes, some code and some people, and plenty still held together by spreadsheets. Your job is to take each one apart, question why it exists, then rebuild it or kill it.
+
+ - The simplest way to think about it: the numerator is how many deals we close, the denominator is what each deal costs us to run. You'll focus on the denominator, and the right person won't be able to stop themselves thinking about the numerator too.
+
+ - Cost per deal: There will be big early wins where a whole process can be ripped out and replaced. After that, doubling ops efficiency comes from 150 small changes, and you'll be the one making them.
+
+ - Automation: You'll sit with the deal operations team, learn each workflow end to end, then build what replaces it. Most of what you ship you'll build without engineering. What does go to them arrives simple, scoped and usually with a working prototype attached.
+
+- You build, not buy: Clear evidence, at work or in your own time, that you've built real solutions with AI with no budget and no engineers. Buying a tool or setting up workflows in Sheets doesn't count.
+
+ - Systems thinker: You look at any process the way a good product manager looks at a product: What's the job? Why are we doing this at all? What's the smallest, simplest system that achieves the goal? You think about the whole business, not just your corner of it.
+
+ - Numerate: Comfortable with financial mechanics, strong mental arithmetic. You'll be automating a lot of numerical work - carry, allocations, fee calculations, distributions, and the edge cases that make all of them interesting.

@@ -1,0 +1,7 @@
+Source: https://help.joinodin.com/hc/en-gb/articles/25652990575121-What-is-closing-and-when-do-I-know-a-deal-has-closed
+Captured: 2026-10-12T22:51:10+00:00
+Extraction: official article-body HTML, markup removed.
+
+‘Closing’ is the process by which Odin locks the deal off from further investment, communicates with the investee company to sign off on deal legals, and transfers the final investment amount to the investee company to complete the SPV’s investment. At the end of closing, the syndicate’s investment is complete and your nominee will appear on the company’s cap table. 
+ Once all funds have been collected for the deal, and we’ve received notice of closing from the Deal Lead, Odin’s Financial Operations team will work on closing the deal, which involves the countersigning of investment documents and of course, wiring the funds to the investee company. There is no work required here by you as an investor, and you will not be required for any document signatures. 
+ Odin typically estimates 7 working days for a deal to close fully, beginning from the moment the deal lead presses ‘close’, and not the date you wire your funds to the SPV. This can take more or less time, depending on the relative complexity of the deal, how quickly our team receives final legals, and how long it takes the wire transfer to land. Your Deal Lead will communicate how far along the closing process is, rather than Odin.

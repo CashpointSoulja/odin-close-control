@@ -1,0 +1,134 @@
+{
+  "captured_at_utc": "2026-10-12T22:51:38.678921+00:00",
+  "css": [
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/1b93d2cc1a87763a.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "5e1d2bf2ffe10279e182ad9eef5c9af63a4ac21289cbc830b9d0d986d0224458",
+      "bytes": 5243
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/c564387a6b77b9ab.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "e14f99a40ed8613a78cb505b476e1f7ccb83bc37970e7819de2968378a53731c",
+      "bytes": 582
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/64bfd59b0dc41079.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "3f082890bd72a4756a54ce5af3aa1d4be1f459f94c3b3c21ba879247f67d3319",
+      "bytes": 111357
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/14d965960776bf5c.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "86126a6d5c38975ad6c58b6f4bd54968963edab9428cd3b334bf37ef509fbf82",
+      "bytes": 120321
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/dc0e8b464c889c37.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "a08b35a5434870c8f1c1d6f0532a369444225c912696cb9c5840078bf6b8ab4e",
+      "bytes": 89998
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/76905177b5e51e75.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "f610fcc8dc5c3d908348aaa79e90a92c4e254899a4d6d0dfd3a1f412dc2bc5d8",
+      "bytes": 116676
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/4faddcebea4384df.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "85df33f1745917699078ea309dcd5689261a53260816085990df074bf0983e12",
+      "bytes": 1357
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/19a0aa6e37698327.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "d6d87d8ca632d63c6cf96c8b86b385449e3beee601fa81e1f6264c21b4e4dfad",
+      "bytes": 2617
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/94f5ac983aae96ae.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "fc9b82d2f6d40fd5148258dca2c427a4d5fa9bcfbf3381ea970ab6a8eb08c27c",
+      "bytes": 13430
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/0570a28f416d477d.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "2401805b30d3bd8dada599fa2ab45fb2659344b1123b1fac7146979f21d34966",
+      "bytes": 3412
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/34e180909c9db7b2.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "4e45904279295bd82e0ca270a7ffaba9e2d29df71dccfa33cd9118bc0fe4829b",
+      "bytes": 10535
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/49e6bab0c1f6ce11.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "8d9dda0650342109a7411f51b8e09de6596e5ac520e7d364f681ff9b4b8ab8e8",
+      "bytes": 6778
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/5ea0eff947670021.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "21a64de047066f9d6b1d9190e2fcfa64dfdf7aa46d131b56dc498789048426cb",
+      "bytes": 3635
+    },
+    {
+      "url": "https://www.joinodin.com/_next/static/chunks/ca8e3a08ba39da30.css?dpl=dpl_6QbMcqFDZdtq2NxaDpM3zKRnhNDj",
+      "sha256": "254b36bf63a2d17d3bfc69e620b2eaab00677da64c4efa0715e645d67877ec5e",
+      "bytes": 5182
+    }
+  ],
+  "font_face_declarations": [
+    "@font-face{font-family:primaryFont;src:url(../media/die_grotesk_c_regular-s.p.9904f6f9.woff2)format(\"woff2\");font-display:swap;font-weight:400;font-style:normal}",
+    "@font-face{font-family:primaryFont;src:url(../media/die_grotesk_c_medium-s.p.d1d0b257.woff2)format(\"woff2\");font-display:swap;font-weight:500;font-style:normal}",
+    "@font-face{font-family:primaryFont Fallback;src:local(Arial);ascent-override:131.79%;descent-override:50.18%;line-gap-override:0.0%;size-adjust:91.66%}",
+    "@font-face{font-family:secondaryFont;src:url(../media/die_grotesk_a_regular-s.p.051771a9.woff2)format(\"woff2\");font-display:swap;font-weight:400;font-style:normal}",
+    "@font-face{font-family:secondaryFont;src:url(../media/die_grotesk_a_medium-s.p.e7276606.woff2)format(\"woff2\");font-display:swap;font-weight:500;font-style:normal}",
+    "@font-face{font-family:secondaryFont Fallback;src:local(Arial);ascent-override:118.59%;descent-override:45.16%;line-gap-override:0.0%;size-adjust:101.86%}",
+    "@font-face{font-family:accentFont;src:url(../media/MDThermochrome0_4_Variable-s.p.d434b298.woff2)format(\"woff2\");font-display:swap;font-weight:100 900;font-style:normal}",
+    "@font-face{font-family:accentFont Fallback;src:local(Arial);ascent-override:115.49%;descent-override:50.61%;line-gap-override:0.0%;size-adjust:90.3%}"
+  ],
+  "hex_colors": [
+    "#020617",
+    "#082f49",
+    "#0b1220",
+    "#0c4a6e",
+    "#0ea5e9",
+    "#0f172a",
+    "#111827",
+    "#151619",
+    "#1a1b1f",
+    "#1e1f25",
+    "#1e293b",
+    "#231d00",
+    "#25292f",
+    "#302a0e",
+    "#33333e",
+    "#334155",
+    "#38393e",
+    "#38bdf8",
+    "#424345",
+    "#475569",
+    "#484329",
+    "#594c08",
+    "#64748b",
+    "#6f7070",
+    "#7dd3fc",
+    "#94a3b8",
+    "#b42318",
+    "#bae6fd",
+    "#cbd5e1",
+    "#d4ddc8",
+    "#dde4d3",
+    "#e0e1dd",
+    "#e0f2fe",
+    "#e2e8f0",
+    "#e7f0e0",
+    "#edefea",
+    "#eff0ed",
+    "#eff1ec",
+    "#f0f2ed",
+    "#f1f5f9",
+    "#f2dedb",
+    "#f5ffdf",
+    "#f6f8f3",
+    "#f8fafc",
+    "#f9f9f9",
+    "#ff4d3d"
+  ],
+  "font_assets_retained": false
+}
