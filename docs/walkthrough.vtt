@@ -6,7 +6,7 @@ Odin Close Control is an independent concept by Ayo Ahmed.
 
 2
 00:00:04.075 --> 00:00:11.115
-This synthetic demonstration turns close preparation into an inspectable path: cash. evidence. then an explicit
+This synthetic demonstration turns close preparation into an inspectable path: cash, evidence, then an explicit
 
 3
 00:00:11.115 --> 00:00:12.485
@@ -54,7 +54,7 @@ I select Linden Ventures for this two thousand pound receipt.
 
 14
 00:00:51.244 --> 00:00:54.614
-The account. amount and bank reference stay visible.
+The account, amount and bank reference stay visible.
 
 15
 00:00:54.614 --> 00:00:57.249
@@ -78,7 +78,7 @@ A draft legal reference still blocks a review request.
 
 20
 00:01:12.103 --> 00:01:14.104
-Next. the final synthetic reference.
+Next, the final synthetic reference.
 
 21
 00:01:14.204 --> 00:01:18.124
@@ -122,7 +122,7 @@ Any relevant later change invalidates that approval.
 
 31
 00:01:49.864 --> 00:01:54.094
-Review is a deliberate action. never an automatic financial decision.
+Review is a deliberate action, never an automatic financial decision.
 
 32
 00:01:54.194 --> 00:02:01.076
@@ -130,7 +130,7 @@ The reviewer approves this snapshot. I open the packet.
 
 33
 00:02:01.205 --> 00:02:06.655
-The reviewed packet includes the cash ledger. evidence. audit trail and snapshot hash.
+The reviewed packet includes the cash ledger, evidence, audit trail and snapshot hash.
 
 34
 00:02:06.655 --> 00:02:10.805
@@ -138,7 +138,7 @@ I can download it and verify that the hash matches the exact approved data.
 
 35
 00:02:10.905 --> 00:02:19.726
-I download the packet and ledger. then reload the saved session.
+I download the packet and ledger, then reload the saved session.
 
 36
 00:02:19.866 --> 00:02:22.426
@@ -146,8 +146,8 @@ The reviewed session survives a reload.
 
 37
 00:02:22.426 --> 00:02:26.571
-This is a readiness handoff. with no signatures or transfers.
+This is a readiness handoff, with no signatures or transfers.
 
 38
 00:02:26.571 --> 00:02:31.246
-I built the concept to make rules. exceptions and human ownership clear.
+I built the concept to make rules, exceptions and human ownership clear.

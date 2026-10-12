@@ -4,6 +4,8 @@ An independent concept by **Ayo Ahmed**. Synthetic data only.
 
 I built a close-readiness and cash-reconciliation workbench for my candidacy for Odin’s Founding Product Builder, Operations role. I chose one public, documented workflow: establish that a primary SPV’s funds and evidence are ready for a human financial-operations handoff.
 
+I provide the [local walkthrough MP4](docs/walkthrough.mp4) and an [offline browser-viewer bundle](docs/odin-close-control-evidence.zip). Public full-stack deployment is blocked by missing Cloudflare authentication; the connected GitHub integration also denied Pages publishing. The video is a local demonstration, not a deployed-app recording.
+
 ## Why this problem
 
 [Odin’s live role](https://jobs.ashbyhq.com/odin/ed22ab98-e9e7-4563-953c-641367a51d13) says the product is how Odin operates, describes around 50 processes, and puts cost per deal at the centre of the job. I have not accessed those internal processes. I chose one workflow I could substantiate from [the public closing guide](https://help.joinodin.com/hc/en-gb/articles/25652990575121-What-is-closing-and-when-do-I-know-a-deal-has-closed): collected funds and the Deal Lead’s close request precede human financial-operations closing. Final legals and wires affect timing; the stated estimate is typically seven working days from the lead pressing close, not a guarantee or a countdown in this concept.

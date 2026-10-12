@@ -6,8 +6,8 @@ const money = (minor, currency) => e(formatMoney(String(minor ?? '0'), currency)
 const sum = values => values.reduce((total, value) => total + BigInt(value || '0'), 0n).toString();
 const nonzero = value => BigInt(value || '0') !== 0n;
 const shortHash = hash => hash ? `${hash.slice(0, 12)}…${hash.slice(-6)}` : 'Calculating snapshot hash…';
-const date = value => new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${value}T12:00:00Z`));
-const timestamp = value => value ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'UTC' }).format(new Date(value)) + ' UTC' : 'Time not recorded';
+const date = value => new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Europe/London' }).format(new Date(`${value}T12:00:00Z`));
+const timestamp = value => value ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Europe/London', timeZoneName: 'short' }).format(new Date(value)) : 'Time not recorded';
 const sources = {
   closing: 'https://help.joinodin.com/hc/en-gb/articles/25652990575121-What-is-closing-and-when-do-I-know-a-deal-has-closed',
   drafting: 'https://help.joinodin.com/hc/en-gb/articles/25326486288273-Drafting-a-primary-deal',

@@ -90,7 +90,6 @@
       "voiceStart": 0,
       "voiceDuration": 12.485,
       "voiceEnd": 12.485,
-      "gapToNextScene": 6.425000000000001,
       "captionCueCount": 3,
       "captionCues": [
         {
@@ -111,7 +110,7 @@
       ],
       "frame": 89,
       "time": 3.56,
-      "path": "work/video-review/corrected-final/scenes/frame-0001.png",
+      "path": "docs/evidence/video-scene-desktop-seed.png",
       "desktopComparison": {
         "sourceFrame": 89,
         "sourceTime": 3.56,
@@ -128,7 +127,8 @@
           3.9795775034293555
         ],
         "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
-      }
+      },
+      "mainVoiceGapToNextScene": 6.425000000000001
     },
     {
       "name": "import-preview",
@@ -137,7 +137,6 @@
       "voiceStart": 18.91,
       "voiceDuration": 10.385,
       "voiceEnd": 29.295,
-      "gapToNextScene": 3.979000000000001,
       "captionCueCount": 3,
       "captionCues": [
         {
@@ -158,7 +157,7 @@
       ],
       "frame": 491,
       "time": 19.64,
-      "path": "work/video-review/corrected-final/scenes/frame-0004.png",
+      "path": "docs/evidence/video-scene-import-preview.png",
       "desktopComparison": {
         "sourceFrame": 491,
         "sourceTime": 19.64,
@@ -175,7 +174,8 @@
           3.071659807956104
         ],
         "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
-      }
+      },
+      "mainVoiceGapToNextScene": 3.979000000000001
     },
     {
       "name": "after-import",
@@ -184,7 +184,6 @@
       "voiceStart": 33.274,
       "voiceDuration": 9.84,
       "voiceEnd": 43.114000000000004,
-      "gapToNextScene": 4.59,
       "captionCueCount": 3,
       "captionCues": [
         {
@@ -205,7 +204,7 @@
       ],
       "frame": 851,
       "time": 34.04,
-      "path": "work/video-review/corrected-final/scenes/frame-0007.png",
+      "path": "docs/evidence/video-scene-after-import.png",
       "desktopComparison": {
         "sourceFrame": 851,
         "sourceTime": 34.04,
@@ -222,7 +221,8 @@
           3.253246913580247
         ],
         "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
-      }
+      },
+      "mainVoiceGapToNextScene": 4.59
     },
     {
       "name": "receipt-match",
@@ -231,7 +231,6 @@
       "voiceStart": 47.704,
       "voiceDuration": 9.545,
       "voiceEnd": 57.249,
-      "gapToNextScene": 4.814000000000002,
       "captionCueCount": 3,
       "captionCues": [
         {
@@ -252,7 +251,7 @@
       ],
       "frame": 1211,
       "time": 48.44,
-      "path": "work/video-review/corrected-final/scenes/frame-0010.png",
+      "path": "docs/evidence/video-scene-receipt-match.png",
       "desktopComparison": {
         "sourceFrame": 1211,
         "sourceTime": 48.44,
@@ -269,7 +268,8 @@
           2.091698216735254
         ],
         "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
-      }
+      },
+      "mainVoiceGapToNextScene": 4.814000000000002
     },
     {
       "name": "after-match",
@@ -278,7 +278,6 @@
       "voiceStart": 62.063,
       "voiceDuration": 9.94,
       "voiceEnd": 72.003,
-      "gapToNextScene": 2.2009999999999916,
       "captionCueCount": 3,
       "captionCues": [
         {
@@ -299,7 +298,7 @@
       ],
       "frame": 1570,
       "time": 62.8,
-      "path": "work/video-review/corrected-final/scenes/frame-0013.png",
+      "path": "docs/evidence/video-scene-after-match.png",
       "desktopComparison": {
         "sourceFrame": 1570,
         "sourceTime": 62.8,
@@ -316,7 +315,8 @@
           3.2202249657064472
         ],
         "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
-      }
+      },
+      "mainVoiceGapToNextScene": 2.2009999999999916
     },
     {
       "name": "legal-metadata",
@@ -325,7 +325,6 @@
       "voiceStart": 74.204,
       "voiceDuration": 10.28,
       "voiceEnd": 84.484,
-      "gapToNextScene": 3.2610000000000117,
       "captionCueCount": 3,
       "captionCues": [
         {
@@ -346,7 +345,7 @@
       ],
       "frame": 1874,
       "time": 74.96,
-      "path": "work/video-review/corrected-final/scenes/frame-0016.png",
+      "path": "docs/evidence/video-scene-legal-metadata.png",
       "desktopComparison": {
         "sourceFrame": 1874,
         "sourceTime": 74.96,
@@ -363,7 +362,8 @@
           1.786650205761317
         ],
         "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
-      }
+      },
+      "mainVoiceGapToNextScene": 3.2610000000000117
     },
     {
       "name": "ready-for-review",
@@ -372,7 +372,6 @@
       "voiceStart": 87.745,
       "voiceDuration": 9.74,
       "voiceEnd": 97.485,
-      "gapToNextScene": 4.148999999999996,
       "captionCueCount": 3,
       "captionCues": [
         {
@@ -393,7 +392,7 @@
       ],
       "frame": 2212,
       "time": 88.48,
-      "path": "work/video-review/corrected-final/scenes/frame-0019.png",
+      "path": "docs/evidence/video-scene-ready-for-review.png",
       "desktopComparison": {
         "sourceFrame": 2212,
         "sourceTime": 88.48,
@@ -410,7 +409,8 @@
           3.452290809327846
         ],
         "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
-      }
+      },
+      "mainVoiceGapToNextScene": 4.148999999999996
     },
     {
       "name": "human-review",
@@ -419,7 +419,6 @@
       "voiceStart": 101.634,
       "voiceDuration": 12.46,
       "voiceEnd": 114.094,
-      "gapToNextScene": 7.110999999999997,
       "captionCueCount": 3,
       "captionCues": [
         {
@@ -440,7 +439,7 @@
       ],
       "frame": 2560,
       "time": 102.4,
-      "path": "work/video-review/corrected-final/scenes/frame-0022.png",
+      "path": "docs/evidence/video-scene-human-review.png",
       "desktopComparison": {
         "sourceFrame": 2560,
         "sourceTime": 102.4,
@@ -457,7 +456,8 @@
           2.653622770919067
         ],
         "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
-      }
+      },
+      "mainVoiceGapToNextScene": 7.110999999999997
     },
     {
       "name": "reviewed-packet",
@@ -466,7 +466,6 @@
       "voiceStart": 121.205,
       "voiceDuration": 9.6,
       "voiceEnd": 130.805,
-      "gapToNextScene": 9.061000000000016,
       "captionCueCount": 2,
       "captionCues": [
         {
@@ -482,7 +481,7 @@
       ],
       "frame": 3049,
       "time": 121.96,
-      "path": "work/video-review/corrected-final/scenes/frame-0025.png",
+      "path": "docs/evidence/video-scene-reviewed-packet.png",
       "desktopComparison": {
         "sourceFrame": 3049,
         "sourceTime": 121.96,
@@ -499,7 +498,8 @@
           2.596743484224966
         ],
         "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
-      }
+      },
+      "mainVoiceGapToNextScene": 9.061000000000016
     },
     {
       "name": "persisted-review",
@@ -508,7 +508,6 @@
       "voiceStart": 139.866,
       "voiceDuration": 11.38,
       "voiceEnd": 151.246,
-      "gapToNextScene": 0.3139999999999876,
       "captionCueCount": 3,
       "captionCues": [
         {
@@ -529,7 +528,7 @@
       ],
       "frame": 3515,
       "time": 140.6,
-      "path": "work/video-review/corrected-final/scenes/frame-0028.png",
+      "path": "docs/evidence/video-scene-persisted-review.png",
       "desktopComparison": {
         "sourceFrame": 3515,
         "sourceTime": 140.6,
@@ -546,7 +545,8 @@
           3.699039780521262
         ],
         "note": "Lossy codec and resize differences are expected; inspect visual framing as well as metrics."
-      }
+      },
+      "mainVoiceGapToNextScene": 0.3139999999999876
     }
   ],
   "transitionSamples": [

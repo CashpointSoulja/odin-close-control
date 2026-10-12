@@ -13,7 +13,11 @@
     "blocker": "Cloudflare authentication unavailable"
   },
   "video": {
-    "published": false,
-    "status": "Final capture correction and whole-timeline review pending"
+    "repositoryFile": "https://github.com/CashpointSoulja/odin-close-control/blob/main/docs/walkthrough.mp4",
+    "publicFileVerified": true,
+    "browserPlayerVerified": false,
+    "repositoryFileVideoElements": 0,
+    "hostingBlocker": "GitHub Pages creation returned403 Resource not accessible by integration; Cloudflare authentication is also unavailable.",
+    "assetUploadBlocker": "The cloud proxy denied uploads.github.com; the MP4 remains publicly available in the repository."
   }
 }

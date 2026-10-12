@@ -14,7 +14,7 @@
   },
   "sourceSha256": {
     "public/shared/domain.js": "deab2ce7b6b6f9d34f48a66df55348894f8012bc344d872901222888c7087b9d",
-    "public/app.js": "266a3238cc9db524c219b868490a786cd5dc1e3827b8ef2ba3ed61deffd51649",
+    "public/app.js": "50ac4084115b15e41e948ee97ab7eb35407240cb5aebece8973bdcc9795d5642",
     "src/worker.js": "6c0ab482bb84eb38a3f87100060d2c09315fc8d0387e6429807e16e9328a3d5b",
     "migrations/0001_sessions.sql": "a9f50756e9bda9af7074150600c1a6061e0a6cfa38ac50d9204c30ed9ec842fc",
     "wrangler.jsonc": "1f9efcf24f0ba9c5d2652563d63a754be55fc5520a536b888b9759dbb3ace456",
