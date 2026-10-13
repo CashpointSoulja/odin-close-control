@@ -4,7 +4,9 @@ An independent concept by **Ayo Ahmed**. Synthetic data only.
 
 I built a close-readiness and cash-reconciliation workbench for my candidacy for Odin’s Founding Product Builder, Operations role. I chose one public, documented workflow: establish that a primary SPV’s funds and evidence are ready for a human financial-operations handoff.
 
-I am holding final walkthrough delivery until the public deployment is verified and the complete recording has been watched and listened to. The previous local recording and sampled media checks are historical evidence only. They do not satisfy that delivery requirement. Authenticated deployment will be handled separately; this repository contains no credentials.
+The synthetic demo is [reported live on Workers Free](https://ayo-odin-close-control.ayoahmed-49d.workers.dev/). A separately supplied deployment audit reports successful public workflow and desktop/mobile checks against source commit `8a734d804d4c3d59f45c09fe34f3f403a9aead3e`. I record that external report separately from my independent verification here, which is pending because this environment's network policy blocks the exact public hostname. See [the deployment audit](docs/deployment-audit.md) for the reported provider version and evidence limits.
+
+I am holding final walkthrough delivery until I independently verify the public application and watch and listen to the complete public recording. The previous local recording and sampled media checks are historical evidence only. They do not satisfy that delivery requirement. The [public-only recording sources](docs/walkthrough-public/README.md) and narration are prepared; there is no new public-app video yet. This repository contains no credentials.
 
 ## Why this problem
 
@@ -30,15 +32,15 @@ Open `http://127.0.0.1:8787`. I use a Cloudflare Worker and SQLite-backed Durabl
 
 ## Deployment
 
-I redesigned persistence because the supplied account has no spare D1 slots. [The exact configuration](wrangler.jsonc) declares two new Odin-only SQLite Durable Object classes and a `new_sqlite_classes` migration. It contains no D1 binding or database operation. An authenticated operator can deploy it on Workers Free without creating, deleting or reusing a D1 database. I have not deployed or inspected the operator's account in this build.
+I redesigned persistence because the originally supplied account has no spare D1 slots. [The exact configuration](wrangler.jsonc) declares two new Odin-only SQLite Durable Object classes and a `new_sqlite_classes` migration. It contains no D1 binding or database operation. The external audit reports deployment in a separate managed Cloudflare Free account with verified email, no card and no paid plan, using only the two Odin SQLite namespaces. It reports that personal databases and unrelated projects were untouched. I did not request credentials, inspect that account or run its deployment here.
 
 ```sh
 npm run deploy:check
-# The authenticated operator runs this separately, on Workers Free:
+# Deployment was reported complete externally; this is the operator command:
 npm run deploy
 ```
 
-I checked [Cloudflare's current Free-plan rules](docs/research/cloudflare-durable-objects-free.md). SQLite Durable Objects are supported; quotas are shared across the account, and exceeding a Free limit causes errors rather than paid overage. I use no paid upgrade or eventually consistent fallback. See [the deployment audit](docs/deployment-audit.md) and [actual test results](docs/test-results.md) for configuration, invariants and verification limits.
+I checked [Cloudflare's current Free-plan rules](docs/research/cloudflare-durable-objects-free.md). SQLite Durable Objects are supported; quotas are shared across the account, and exceeding a Free limit causes errors rather than paid overage. I use no paid upgrade or eventually consistent fallback. The external audit reports an initial SSL handshake issue followed by HTTPS 200 on the next hourly check; exact times were not supplied. See [the deployment audit](docs/deployment-audit.md), [external report](docs/evidence/external-deployment-report.json) and [actual test results](docs/test-results.md) for configuration, attempt history and verification limits.
 
 ## What I deliberately leave to people
 

@@ -9,19 +9,41 @@
     "tlsTrust": "Configured cloud proxy CA public-key pin; no global certificate bypass"
   },
   "demo": {
-    "deployed": false,
-    "deploymentOwner": "Authenticated external operator",
-    "status": "Build prepared for new Odin SQLite Durable Object namespaces; public deployment not verified",
-    "credentials": "Not requested or received"
+    "url": "https://ayo-odin-close-control.ayoahmed-49d.workers.dev/",
+    "deployed": true,
+    "deploymentEvidenceSource": "Separately supplied external audit; not independently verified here",
+    "deploymentOwner": "Separately authenticated operator in a managed Cloudflare Free account",
+    "reportedSourceCommit": "8a734d804d4c3d59f45c09fe34f3f403a9aead3e",
+    "reportedProviderVersion": "0e12fd95-21b8-47e7-8f86-4913865f3e04",
+    "externallyReportedPublicQaPassed": true,
+    "externallyReportedHttpsStatus": 200,
+    "independentPublicVerificationHere": false,
+    "providerVersionIndependentlyVerifiedHere": false,
+    "status": "Externally reported live and publicly verified; independent verification here pending exact-host access",
+    "verificationBlocker": "Cloud proxy CONNECT 403 for the actual hostname under enforced destination policy; exact hostname allowlisting pending",
+    "report": "external-deployment-report.json",
+    "exactExternalTimestampsSupplied": false,
+    "credentials": "Not requested or received here"
   },
   "video": {
     "repositoryFile": "https://github.com/CashpointSoulja/odin-close-control/blob/main/docs/walkthrough.mp4",
     "publicFileVerified": true,
     "browserPlayerVerified": false,
     "repositoryFileVideoElements": 0,
-    "hostingBlocker": "Historical GitHub Pages integration403; final public deployment recording and complete watch/listen remain required",
+    "hostingBlocker": "Historical GitHub Pages integration 403; new public recording access is blocked by exact-host network policy, and complete watch/listen remains required",
     "assetUploadBlocker": "The cloud proxy denied uploads.github.com; the MP4 remains publicly available in the repository.",
     "deliveryHeld": true,
-    "reviewStatus": "Historical local recording: decoded and sampled; not continuously watched or listened to"
+    "reviewStatus": "Historical local recording: decoded and sampled; not continuously watched or listened to",
+    "publicRecordingCompleted": false,
+    "continuousPublicWatchAndListenCompleted": false,
+    "finalSubmission": false
+  },
+  "publicRecordingPreparation": {
+    "sources": "https://github.com/CashpointSoulja/odin-close-control/tree/main/docs/walkthrough-public",
+    "download": "https://github.com/CashpointSoulja/odin-close-control/raw/refs/heads/main/docs/walkthrough-public/walkthrough-sources.zip",
+    "videoAvailable": false,
+    "captureHeld": true,
+    "continuousWatchAndListenHeld": true,
+    "ownAccessRecord": "public-build-verification.json"
   }
 }

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "intro",
+    "heading": "A clear path to a ready close",
+    "narration": "This is Odin Close Control, an independent concept by Ayo Ahmed. On the public app, I'll take one fictional deal from a cash exception to a reviewed handoff."
+  },
+  {
+    "name": "commitments-upload",
+    "heading": "01 · Upload commitments",
+    "narration": "First, I upload the commitments CSV: known synthetic accounts and exact amounts."
+  },
+  {
+    "name": "payments-upload",
+    "heading": "02 · Upload payment events",
+    "narration": "Then the payment events CSV. I confirm that these are the supplied synthetic records and ask for a preview."
+  },
+  {
+    "name": "validated-preview",
+    "heading": "Preview before saving",
+    "narration": "The server shows commitment changes and new payment events before anything is saved. The preview is tied to this revision."
+  },
+  {
+    "name": "atomic-import",
+    "heading": "Apply one atomic import",
+    "narration": "I apply these validated files together. Either every change is saved, or none is."
+  },
+  {
+    "name": "cash-exception",
+    "heading": "Keep the exception visible",
+    "narration": "Aurora still has a two thousand pound receipt without an account. It stays outside matched cash until someone resolves it."
+  },
+  {
+    "name": "explicit-match",
+    "heading": "Choose the exact account",
+    "narration": "I choose Linden Ventures' commitment for this receipt, then explicitly confirm the match. That decision is recorded in the audit trail."
+  },
+  {
+    "name": "reconciled-cash",
+    "heading": "Cash reconciled",
+    "narration": "The cash shortfall is now zero. Principal and illustrative fees stay separate. Final legal evidence is still required."
+  },
+  {
+    "name": "legal-metadata",
+    "heading": "Attach a final reference",
+    "narration": "I attach the final synthetic legal metadata. It records a document reference and hash; it does not verify a real agreement."
+  },
+  {
+    "name": "ready-request",
+    "heading": "Request human review",
+    "narration": "The readiness checks are met. I request a human review of this saved revision."
+  },
+  {
+    "name": "human-review",
+    "heading": "Review this exact snapshot",
+    "narration": "The synthetic reviewer checks this exact snapshot and explicitly approves it. A relevant later change would clear that approval."
+  },
+  {
+    "name": "persisted-reload",
+    "heading": "Reload the saved review",
+    "narration": "I reload the public app. The approved revision is still present in the saved session."
+  },
+  {
+    "name": "packet-download",
+    "heading": "Download the reviewed packet",
+    "narration": "Now I download the actual packet JSON and cash ledger. The packet contains the approved revision and its snapshot hash."
+  },
+  {
+    "name": "handoff",
+    "heading": "An inspectable human handoff",
+    "narration": "This is a reviewed readiness handoff. It does not sign an agreement, close an investment, or move funds."
+  }
+]

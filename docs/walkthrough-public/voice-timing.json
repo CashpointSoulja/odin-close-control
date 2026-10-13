@@ -1,0 +1,241 @@
+{
+  "intro": {
+    "file": "voice/intro.wav",
+    "duration": 9.421,
+    "cues": [
+      {
+        "text": "This is Odin Close Control, an independent concept by Ayo Ahmed.",
+        "start": 0.0,
+        "duration": 3.895063
+      },
+      {
+        "text": "On the public app, I'll take one fictional deal from a cash exception",
+        "start": 3.895063,
+        "duration": 4.000625
+      },
+      {
+        "text": "to a reviewed handoff.",
+        "start": 7.895688,
+        "duration": 1.525313
+      }
+    ]
+  },
+  "commitments-upload": {
+    "file": "voice/commitments-upload.wav",
+    "duration": 4.765813,
+    "cues": [
+      {
+        "text": "First, I upload the commitments CSV: known synthetic accounts and exact amounts.",
+        "start": 0.0,
+        "duration": 4.765813
+      }
+    ]
+  },
+  "payments-upload": {
+    "file": "voice/payments-upload.wav",
+    "duration": 6.8915,
+    "cues": [
+      {
+        "text": "Then the payment events CSV.",
+        "start": 0.0,
+        "duration": 2.215813
+      },
+      {
+        "text": "I confirm that these are the supplied synthetic records and ask for a",
+        "start": 2.215813,
+        "duration": 3.665875
+      },
+      {
+        "text": "preview.",
+        "start": 5.881688,
+        "duration": 1.009813
+      }
+    ]
+  },
+  "validated-preview": {
+    "file": "voice/validated-preview.wav",
+    "duration": 6.616813,
+    "cues": [
+      {
+        "text": "The server shows commitment changes and new payment events before anything is saved.",
+        "start": 0.0,
+        "duration": 4.59325
+      },
+      {
+        "text": "The preview is tied to this revision.",
+        "start": 4.59325,
+        "duration": 2.023563
+      }
+    ]
+  },
+  "atomic-import": {
+    "file": "voice/atomic-import.wav",
+    "duration": 5.4005,
+    "cues": [
+      {
+        "text": "I apply these validated files together.",
+        "start": 0.0,
+        "duration": 2.862375
+      },
+      {
+        "text": "Either every change is saved, or none is.",
+        "start": 2.862375,
+        "duration": 2.538125
+      }
+    ]
+  },
+  "cash-exception": {
+    "file": "voice/cash-exception.wav",
+    "duration": 7.541375,
+    "cues": [
+      {
+        "text": "Aurora still has a two thousand pound receipt without an account.",
+        "start": 0.0,
+        "duration": 3.89525
+      },
+      {
+        "text": "It stays outside matched cash until someone resolves it.",
+        "start": 3.89525,
+        "duration": 3.646125
+      }
+    ]
+  },
+  "explicit-match": {
+    "file": "voice/explicit-match.wav",
+    "duration": 7.7845,
+    "cues": [
+      {
+        "text": "I choose Linden Ventures' commitment for this receipt, then explicitly confirm the match.",
+        "start": 0.0,
+        "duration": 5.37825
+      },
+      {
+        "text": "That decision is recorded in the audit trail.",
+        "start": 5.37825,
+        "duration": 2.40625
+      }
+    ]
+  },
+  "reconciled-cash": {
+    "file": "voice/reconciled-cash.wav",
+    "duration": 7.190438,
+    "cues": [
+      {
+        "text": "The cash shortfall is now zero.",
+        "start": 0.0,
+        "duration": 2.21125
+      },
+      {
+        "text": "Principal and illustrative fees stay separate.",
+        "start": 2.21125,
+        "duration": 2.580063
+      },
+      {
+        "text": "Final legal evidence is still required.",
+        "start": 4.791313,
+        "duration": 2.399125
+      }
+    ]
+  },
+  "legal-metadata": {
+    "file": "voice/legal-metadata.wav",
+    "duration": 7.77525,
+    "cues": [
+      {
+        "text": "I attach the final synthetic legal metadata.",
+        "start": 0.0,
+        "duration": 2.861625
+      },
+      {
+        "text": "It records a document reference and hash;",
+        "start": 2.861625,
+        "duration": 2.733375
+      },
+      {
+        "text": "it does not verify a real agreement.",
+        "start": 5.595,
+        "duration": 2.18025
+      }
+    ]
+  },
+  "ready-request": {
+    "file": "voice/ready-request.wav",
+    "duration": 4.783438,
+    "cues": [
+      {
+        "text": "The readiness checks are met.",
+        "start": 0.0,
+        "duration": 1.80675
+      },
+      {
+        "text": "I request a human review of this saved revision.",
+        "start": 1.80675,
+        "duration": 2.976688
+      }
+    ]
+  },
+  "human-review": {
+    "file": "voice/human-review.wav",
+    "duration": 7.227438,
+    "cues": [
+      {
+        "text": "The synthetic reviewer checks this exact snapshot and explicitly approves it.",
+        "start": 0.0,
+        "duration": 4.328188
+      },
+      {
+        "text": "A relevant later change would clear that approval.",
+        "start": 4.328188,
+        "duration": 2.89925
+      }
+    ]
+  },
+  "persisted-reload": {
+    "file": "voice/persisted-reload.wav",
+    "duration": 4.843063,
+    "cues": [
+      {
+        "text": "I reload the public app.",
+        "start": 0.0,
+        "duration": 1.774813
+      },
+      {
+        "text": "The approved revision is still present in the saved session.",
+        "start": 1.774813,
+        "duration": 3.06825
+      }
+    ]
+  },
+  "packet-download": {
+    "file": "voice/packet-download.wav",
+    "duration": 7.554563,
+    "cues": [
+      {
+        "text": "Now I download the actual packet JSON and cash ledger.",
+        "start": 0.0,
+        "duration": 3.887625
+      },
+      {
+        "text": "The packet contains the approved revision and its snapshot hash.",
+        "start": 3.887625,
+        "duration": 3.666938
+      }
+    ]
+  },
+  "handoff": {
+    "file": "voice/handoff.wav",
+    "duration": 6.252563,
+    "cues": [
+      {
+        "text": "This is a reviewed readiness handoff.",
+        "start": 0.0,
+        "duration": 2.243938
+      },
+      {
+        "text": "It does not sign an agreement, close an investment, or move funds.",
+        "start": 2.243938,
+        "duration": 4.008625
+      }
+    ]
+  }
+}

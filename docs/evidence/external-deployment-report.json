@@ -1,0 +1,130 @@
+{
+  "evidenceType": "Separately supplied deployment and verification report",
+  "provenance": "User-supplied deployment audit and verification report; no raw external logs, hash string or screenshots supplied",
+  "independentlyVerifiedHere": false,
+  "reportTimestamp": null,
+  "exactTimestampsSupplied": false,
+  "deployment": {
+    "reportedLive": true,
+    "url": "https://ayo-odin-close-control.ayoahmed-49d.workers.dev/",
+    "reportedSourceCommit": "8a734d804d4c3d59f45c09fe34f3f403a9aead3e",
+    "reportedProviderVersion": "0e12fd95-21b8-47e7-8f86-4913865f3e04",
+    "sourceAndProviderVersionIndependentlyVerifiedHere": false,
+    "account": {
+      "separateManagedAccount": true,
+      "plan": "Cloudflare Free",
+      "emailVerified": true,
+      "cardAdded": false,
+      "paidPlanUsed": false,
+      "independentlyInspectedHere": false
+    },
+    "persistence": {
+      "reportedNamespaceCount": 2,
+      "bindings": ["ODIN_SESSIONS", "ODIN_RATE_LIMITERS"],
+      "sqliteClasses": ["OdinSession", "OdinRateLimiter"],
+      "personalDatabasesTouched": false,
+      "unrelatedProjectsTouched": false
+    },
+    "availabilityHistory": [
+      {
+        "sequence": 1,
+        "reportedResult": "Initial SSL handshake issue",
+        "timestamp": null
+      },
+      {
+        "sequence": 2,
+        "reportedResult": "HTTPS 200 on the next hourly check",
+        "httpStatus": 200,
+        "timestamp": null
+      }
+    ]
+  },
+  "reportedIndependentTestAttempts": [
+    {
+      "sequence": 1,
+      "scope": "Full suite",
+      "tests": 61,
+      "passed": 60,
+      "failed": 1,
+      "reportedFailure": "Transient Miniflare transport fetch failed in a write-guard case",
+      "timestamp": null
+    },
+    {
+      "sequence": 2,
+      "scope": "Isolated API rerun",
+      "tests": 8,
+      "passed": 8,
+      "failed": 0,
+      "timestamp": null
+    },
+    {
+      "sequence": 3,
+      "scope": "Subsequent full rerun",
+      "tests": 61,
+      "passed": 61,
+      "failed": 0,
+      "timestamp": null
+    }
+  ],
+  "reportedPublicBrowserVerification": {
+    "baseUrl": "https://ayo-odin-close-control.ayoahmed-49d.workers.dev/",
+    "passed": true,
+    "workflow": [
+      "Synthetic CSV upload",
+      "Validation preview",
+      "Atomic import",
+      "Explicit receipt match",
+      "Final synthetic legal metadata",
+      "Human review",
+      "Reload persistence",
+      "Packet and ledger downloads"
+    ],
+    "approvedPacketRevision": 6,
+    "approvedPacketHashValidated": true,
+    "exactApprovedPacketHash": null,
+    "exactApprovedPacketHashSupplied": false,
+    "staleReviewRejected": true,
+    "stalePacketRejected": true,
+    "successfulFlowFailuresReported": 0,
+    "desktopActualPixelsInspected": true,
+    "mobileActualPixelsInspected": true,
+    "desktopAndMobileReportedClean": true,
+    "rawBrowserReportSuppliedHere": false,
+    "rawScreenshotsSuppliedHere": false,
+    "rawDownloadedPacketSuppliedHere": false,
+    "independentlyVerifiedHere": false,
+    "timestamp": null
+  },
+  "independentVerificationHere": {
+    "status": "Pending public-host access",
+    "publicWorkflowCompleted": false,
+    "providerVersionInspected": false,
+    "blocker": {
+      "type": "Enforced cloud-proxy destination policy",
+      "hostname": "ayo-odin-close-control.ayoahmed-49d.workers.dev",
+      "connectHttpStatus": 403,
+      "bareWorkersDevEntryAllowsActualHostname": false,
+      "exactHostnameAllowlistingPending": true,
+      "applicationFailureEstablished": false,
+      "accountCredentialsRequiredForPublicChecks": false
+    }
+  },
+  "finalWalkthrough": {
+    "deliveryHeld": true,
+    "publicRecordingCompleted": false,
+    "continuousWatchAndListenCompleted": false,
+    "required": "Portrait recording of the public application with readable active content, followed by a complete continuous watch and listen",
+    "historicalMediaIsFinalSubmission": false,
+    "decodingSamplingSignalChecksOrUnattendedPlaybackSatisfyReview": false
+  },
+  "credentialsRequestedOrReceivedHere": false,
+  "remoteDeploymentRunHere": false,
+  "d1OperationsRunHere": false,
+  "limitations": [
+    "This document records a supplied external report; it is not a new independent public verification result.",
+    "Exact deployment, SSL and external test or browser timestamps were not supplied.",
+    "The exact public revision-6 approved packet hash was not supplied; local session hashes are separate evidence.",
+    "The provider version and deployed source are externally reported and were not inspected through the authenticated provider API here.",
+    "Synthetic results do not establish production suitability, savings or a real investment closing."
+  ]
+}

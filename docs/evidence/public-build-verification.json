@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-13T02:36:21.499118+00:00",
+  "requestedUrl": "https://ayo-odin-close-control.ayoahmed-49d.workers.dev/",
+  "status": "Blocked before reaching the application",
+  "networkAttempt": {
+    "proxyConnectStatus": 403,
+    "applicationHttpStatus": null,
+    "browserError": "net::ERR_TUNNEL_CONNECTION_FAILED",
+    "proxyPolicy": "Enforced; exact hostname absent",
+    "applicationFailureEstablished": false
+  },
+  "publicWorkflowCompletedHere": false,
+  "publicStaticFilesFetchedHere": false,
+  "providerVersionInspectedHere": false,
+  "externallyReportedSourceCommit": "8a734d804d4c3d59f45c09fe34f3f403a9aead3e",
+  "externallyReportedProviderVersion": "0e12fd95-21b8-47e7-8f86-4913865f3e04",
+  "localProductSourceUnchangedAgainstReportedCommit": {
+    "public/index.html": "795df2480ea722a8ec5708d351a0105c889619de68260bb805e4ff556753268e",
+    "public/app.js": "50ac4084115b15e41e948ee97ab7eb35407240cb5aebece8973bdcc9795d5642",
+    "public/styles.css": "bea54fc6a5184fbc7d3bed3e6bc7a3f6e5bb3283c15aee8da964f6d6ee7a5e4a",
+    "public/shared/domain.js": "deab2ce7b6b6f9d34f48a66df55348894f8012bc344d872901222888c7087b9d",
+    "src/worker.js": "12846947d0c3496a98de9a3609cd12f5cb7df9eb9152f2b999b01cd0177c71dc",
+    "src/storage.js": "db7166db8981c9dba72fba71174e6452b3ef1a0556a2e130dc7ed38625363aa6",
+    "wrangler.jsonc": "4d856f7224ded0ca39dae59c17bf4c179b799316c64e3831388ba8a30db8fb2f"
+  },
+  "recordingCapturedHere": false,
+  "continuousWatchAndListenCompletedHere": false,
+  "reviewHeld": true,
+  "limitations": [
+    "Host allowlisting is required for independent public HTTPS/browser checks in this cloud environment.",
+    "No continuous synchronized audiovisual review capability is available in the current tool set.",
+    "Frame extraction, full decoding, transcripts, signal checks and unattended playback do not satisfy a complete watch and listen."
+  ],
+  "credentialsRequestedOrReceived": false,
+  "remoteDeploymentPerformed": false
+}

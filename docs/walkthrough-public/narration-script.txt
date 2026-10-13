@@ -1,0 +1,41 @@
+A clear path to a ready close
+This is Odin Close Control, an independent concept by Ayo Ahmed. On the public app, I'll take one fictional deal from a cash exception to a reviewed handoff.
+
+01 · Upload commitments
+First, I upload the commitments CSV: known synthetic accounts and exact amounts.
+
+02 · Upload payment events
+Then the payment events CSV. I confirm that these are the supplied synthetic records and ask for a preview.
+
+Preview before saving
+The server shows commitment changes and new payment events before anything is saved. The preview is tied to this revision.
+
+Apply one atomic import
+I apply these validated files together. Either every change is saved, or none is.
+
+Keep the exception visible
+Aurora still has a two thousand pound receipt without an account. It stays outside matched cash until someone resolves it.
+
+Choose the exact account
+I choose Linden Ventures' commitment for this receipt, then explicitly confirm the match. That decision is recorded in the audit trail.
+
+Cash reconciled
+The cash shortfall is now zero. Principal and illustrative fees stay separate. Final legal evidence is still required.
+
+Attach a final reference
+I attach the final synthetic legal metadata. It records a document reference and hash; it does not verify a real agreement.
+
+Request human review
+The readiness checks are met. I request a human review of this saved revision.
+
+Review this exact snapshot
+The synthetic reviewer checks this exact snapshot and explicitly approves it. A relevant later change would clear that approval.
+
+Reload the saved review
+I reload the public app. The approved revision is still present in the saved session.
+
+Download the reviewed packet
+Now I download the actual packet JSON and cash ledger. The packet contains the approved revision and its snapshot hash.
+
+An inspectable human handoff
+This is a reviewed readiness handoff. It does not sign an agreement, close an investment, or move funds.

@@ -1,0 +1,138 @@
+{
+  "preparedAt": "2026-10-13T02:40:24.299027+00:00",
+  "status": "Sources prepared; actual public capture and continuous audiovisual review held",
+  "requestedPublicUrl": "https://ayo-odin-close-control.ayoahmed-49d.workers.dev/",
+  "reportedDeployedSourceCommit": "8a734d804d4c3d59f45c09fe34f3f403a9aead3e",
+  "reportedProviderVersion": "0e12fd95-21b8-47e7-8f86-4913865f3e04",
+  "recordedApplicationFootage": false,
+  "finishedVideoAvailable": false,
+  "continuousWatchAndListenCompleted": false,
+  "voiceSceneCount": 14,
+  "preparedSpokenSeconds": 94.048,
+  "voiceSources": "Prepared synthetic narration; not recorded human speech",
+  "checks": {
+    "pythonSyntax": "passed",
+    "sceneAndVoiceConsistency": "14 matching scenes",
+    "privateCompositor": "12-second non-application test pattern rendered H.264/AAC at1080x1920 and fully decoded; not a walkthrough or watching evidence"
+  },
+  "blockers": [
+    "Enforced cloud proxy denies CONNECT to the exact public hostname with403.",
+    "Continuous synchronized audiovisual review is not available through the current tool set."
+  ],
+  "sourceArtifacts": [
+    {
+      "file": "README.md",
+      "bytes": 3514,
+      "sha256": "ca335781eb7833245acde555ee27f2041c97552e24fe01cb7eaf8ed858a11e8b"
+    },
+    {
+      "file": "extract-review-frames.py",
+      "bytes": 1788,
+      "sha256": "e2f0e1ba077e7e97a526cb41ec33fe6148729e6858531988f2e6ebf9ff5dae4a"
+    },
+    {
+      "file": "narration-script.txt",
+      "bytes": 1938,
+      "sha256": "7679bee6183743a65692bc5a275fc987e21ffa6ddc8643c9b1d829e37aefb4fd"
+    },
+    {
+      "file": "record-public.py",
+      "bytes": 29171,
+      "sha256": "965b7dd4bd7de538605fda81545fd07dc66ce67679cc4e1b1f27f6bd25126d1d"
+    },
+    {
+      "file": "storyboard.json",
+      "bytes": 2984,
+      "sha256": "df184252133a3ae3b964a1e285bce395c84ea54857a5cf1768ca48f21bb7b8a1"
+    },
+    {
+      "file": "voice/atomic-import.wav",
+      "bytes": 518526,
+      "sha256": "424331e08f607aaf3ce65f73ba7208f8b3b76379f2295e0712749bc87c8c15c1"
+    },
+    {
+      "file": "voice/cash-exception.wav",
+      "bytes": 724050,
+      "sha256": "c86ea66e1c698ff8647ab3f10e50a18e62a536f75ffca2dbaf3eef222a6baea6"
+    },
+    {
+      "file": "voice/commitments-upload.wav",
+      "bytes": 457596,
+      "sha256": "65bcc6d2b47a81e6b2fc9ad7ab6260319fb06fd0542ba9c0c0e91483939cc4d1"
+    },
+    {
+      "file": "voice/explicit-match.wav",
+      "bytes": 747390,
+      "sha256": "ca138ea41874d89bd2991e2bb79bcddf691fe6205e74f8b7ae6f586c33e94236"
+    },
+    {
+      "file": "voice/handoff.wav",
+      "bytes": 600324,
+      "sha256": "4ed1106df73676180ebf5bbd946da6e21836f1230e5d115494666ddba8554735"
+    },
+    {
+      "file": "voice/human-review.wav",
+      "bytes": 693912,
+      "sha256": "89704298eba43e799d3235a0b78c0e86ebfecf917d9ecbb479433fcb2b54c9bb"
+    },
+    {
+      "file": "voice/intro.wav",
+      "bytes": 904494,
+      "sha256": "b48d2cd2e769dff294a70283d5a7ac55e42c71985339f3b9d79c0c2f86815f3f"
+    },
+    {
+      "file": "voice/legal-metadata.wav",
+      "bytes": 746502,
+      "sha256": "bd30d1aedcd690e8b892191a088ae8a057558d7cd8d589d175a93c81950e6097"
+    },
+    {
+      "file": "voice/packet-download.wav",
+      "bytes": 725316,
+      "sha256": "fc4d15c2c2b0122c23338857be6b64fadd3ce2babcdb431ee87fb0f1aabfd0e1"
+    },
+    {
+      "file": "voice/payments-upload.wav",
+      "bytes": 661662,
+      "sha256": "f74cc42e8d342856955106a22a33be3e1db632d9d2744df5b46b27d728a559ed"
+    },
+    {
+      "file": "voice/persisted-reload.wav",
+      "bytes": 465012,
+      "sha256": "3025c863dd4b1d4f17d3cd41efa0a4ac0bf25d0ca141b7abf43b52c4689e9f9a"
+    },
+    {
+      "file": "voice/ready-request.wav",
+      "bytes": 459288,
+      "sha256": "4c7047dc3f1ffaa87ee4abd15bbb7b478009e8bcff92e3a0f8e434456b0c936e"
+    },
+    {
+      "file": "voice/reconciled-cash.wav",
+      "bytes": 690360,
+      "sha256": "2f1853b89c759c92ebe3a62bea3ab76d680c47e9dd9f5dcd4ccdeafb3322fc33"
+    },
+    {
+      "file": "voice/validated-preview.wav",
+      "bytes": 635292,
+      "sha256": "ee5be58149ebfa8686310b4ebdeac6a22d0f6f90139d641c6d377fb96e51b67b"
+    },
+    {
+      "file": "voice-timing.json",
+      "bytes": 5883,
+      "sha256": "d75e02240e58e9c64d221aafad94951e396e1cb6304931ab1495b14b6c602f97"
+    }
+  ],
+  "originalSyntheticFixtures": [
+    {
+      "file": "public/samples/commitments.csv",
+      "sha256": "a29d99fe7fefcb3d15f7495aa5ac646c0c734a7dce94c84b8a1b740022214be4"
+    },
+    {
+      "file": "public/samples/final-legal.json",
+      "sha256": "ff28742a4eef710cd9733ac35364ace990efed1ad6c136ffc20e45b7c5dc2ef4"
+    },
+    {
+      "file": "public/samples/payments.csv",
+      "sha256": "f871a5bf38009971c96f36bd286a37524ad7418628c11262360269c2e16ddf7b"
+    }
+  ]
+}

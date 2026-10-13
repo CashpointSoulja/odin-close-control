@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Real-server browser verification. BASE_URL defaults to local SQLite Durable Objects."""
 import argparse
+import base64
 import csv
 from datetime import datetime, timezone
 import hashlib
@@ -9,6 +10,7 @@ import json
 import os
 from pathlib import Path
 import time
+import subprocess
 from urllib.parse import urlparse
 
 from playwright.sync_api import sync_playwright, expect
@@ -17,6 +19,22 @@ ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / "public" / "samples"
 EVIDENCE = Path(os.environ.get("EVIDENCE_DIR", str(ROOT / "docs" / "evidence")))
 BASE_URL = os.environ.get("BASE_URL", "http://127.0.0.1:8787").rstrip("/")
+
+
+def browser_options(base_url):
+    """Use the configured proxy for a public run; trust only its supplied CA pin."""
+    options = {"executable_path": "/usr/bin/chromium", "args": ["--no-sandbox"]}
+    if urlparse(base_url).hostname not in ("localhost", "127.0.0.1"):
+        proxy = os.environ.get("HTTPS_PROXY")
+        if proxy:
+            options["proxy"] = {"server": proxy}
+        certificate = os.environ.get("ODIN_PROXY_CA_CERT")
+        if certificate:
+            public_key = subprocess.check_output(["openssl", "x509", "-in", certificate, "-pubkey", "-noout"])
+            der = subprocess.check_output(["openssl", "pkey", "-pubin", "-outform", "der"], input=public_key)
+            pin = base64.b64encode(hashlib.sha256(der).digest()).decode()
+            options["args"].append("--ignore-certificate-errors-spki-list=" + pin)
+    return options
 
 
 def canonical(value):
@@ -307,7 +325,7 @@ def main():
     report = {"capturedAt": datetime.now(timezone.utc).isoformat(), "baseUrl": args.base_url, "target": "local Wrangler with SQLite Durable Objects" if urlparse(args.base_url).hostname in ("localhost", "127.0.0.1") else "remote deployment",
               "desktopViewport": {"width": 1440, "height": 1000}, "mobileViewport": {"width": 390, "height": 844}, "passed": False}
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(executable_path="/usr/bin/chromium", args=["--no-sandbox"])
+        browser = playwright.chromium.launch(**browser_options(args.base_url))
         context = browser.new_context(viewport={"width": 1440, "height": 1000}, accept_downloads=True)
         page = context.new_page()
         run = Run(page)
