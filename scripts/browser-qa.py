@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Real-server browser verification. BASE_URL defaults to local Wrangler/D1."""
+"""Real-server browser verification. BASE_URL defaults to local SQLite Durable Objects."""
 import argparse
 import csv
 from datetime import datetime, timezone
@@ -15,7 +15,7 @@ from playwright.sync_api import sync_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / "public" / "samples"
-EVIDENCE = ROOT / "docs" / "evidence"
+EVIDENCE = Path(os.environ.get("EVIDENCE_DIR", str(ROOT / "docs" / "evidence")))
 BASE_URL = os.environ.get("BASE_URL", "http://127.0.0.1:8787").rstrip("/")
 
 
@@ -304,7 +304,7 @@ def main():
     parser.add_argument("--base-url", default=BASE_URL)
     args = parser.parse_args()
     EVIDENCE.mkdir(parents=True, exist_ok=True)
-    report = {"capturedAt": datetime.now(timezone.utc).isoformat(), "baseUrl": args.base_url, "target": "local Wrangler with D1" if urlparse(args.base_url).hostname in ("localhost", "127.0.0.1") else "remote deployment",
+    report = {"capturedAt": datetime.now(timezone.utc).isoformat(), "baseUrl": args.base_url, "target": "local Wrangler with SQLite Durable Objects" if urlparse(args.base_url).hostname in ("localhost", "127.0.0.1") else "remote deployment",
               "desktopViewport": {"width": 1440, "height": 1000}, "mobileViewport": {"width": 390, "height": 844}, "passed": False}
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(executable_path="/usr/bin/chromium", args=["--no-sandbox"])

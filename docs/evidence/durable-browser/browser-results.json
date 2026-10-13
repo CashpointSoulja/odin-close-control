@@ -1,0 +1,124 @@
+{
+  "capturedAt": "2026-10-13T00:04:26.664906+00:00",
+  "baseUrl": "http://127.0.0.1:8788",
+  "target": "local Wrangler with SQLite Durable Objects",
+  "desktopViewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "passed": true,
+  "packet": {
+    "revision": 6,
+    "snapshotHash": "0941745b60462c38ab65f11e5b6373809a8480d920063d7a4984afb002c6a412",
+    "reviewer": "DEMO-REVIEWER-01",
+    "matchedEventId": "DEMO-AURORA-PAY-003",
+    "matchedCommitmentId": "DEMO-AURORA-COM-002",
+    "packetFilename": "DEMO-AURORA-reviewed-revision-6.json",
+    "ledgerFilename": "DEMO-AURORA-cash-ledger-revision-6.csv"
+  },
+  "inducedStateConditions": [
+    "loading-induced-delay: held session request, then continued to genuine server",
+    "error-induced-unavailable: deliberately fulfilled one session request with labelled 503"
+  ],
+  "staleRegression": {
+    "staleReview": "409; checkbox cleared; UI refreshed",
+    "stalePacket": "409; no download; cached JSON cleared; controls disabled",
+    "currentRevision": 9
+  },
+  "steps": [
+    {
+      "name": "desktop-seed",
+      "secondsFromStart": 1.149,
+      "note": "Fresh private synthetic session"
+    },
+    {
+      "name": "invalid-import",
+      "secondsFromStart": 1.744,
+      "note": "Real server validation of exponent-form money; no mutation"
+    },
+    {
+      "name": "import-preview",
+      "secondsFromStart": 2.15,
+      "note": "Both CSV files validated by the server before atomic import"
+    },
+    {
+      "name": "after-import",
+      "secondsFromStart": 2.399,
+      "note": "Imported receipt remains unassigned until a human matches it"
+    },
+    {
+      "name": "receipt-match",
+      "secondsFromStart": 3.664,
+      "note": "Explicit selection of Linden Ventures' commitment for the 2,000 GBP receipt"
+    },
+    {
+      "name": "after-match",
+      "secondsFromStart": 4.076,
+      "note": "Principal is reconciled; final legal evidence is still required"
+    },
+    {
+      "name": "legal-metadata",
+      "secondsFromStart": 4.344,
+      "note": "Synthetic final-reference metadata; no real legal document is verified"
+    },
+    {
+      "name": "ready-for-review",
+      "secondsFromStart": 4.582,
+      "note": "Every deterministic blocker resolved; human approval remains required"
+    },
+    {
+      "name": "human-review",
+      "secondsFromStart": 5.466,
+      "note": "Synthetic reviewer explicitly confirms the exact requested current revision"
+    },
+    {
+      "name": "reviewed-packet",
+      "secondsFromStart": 6.037,
+      "note": "Current reviewed data and revision-bound hash can be downloaded"
+    },
+    {
+      "name": "persisted-review",
+      "secondsFromStart": 7.165,
+      "note": "Actual server-backed approved session survives reload"
+    },
+    {
+      "name": "empty-search-results",
+      "secondsFromStart": 7.339,
+      "note": "Actual no-results state produced by the deal search"
+    },
+    {
+      "name": "mobile-reviewed",
+      "secondsFromStart": 7.749,
+      "note": "390 \u00d7 844 responsive layout in the actual approved session"
+    },
+    {
+      "name": "mobile-dialog",
+      "secondsFromStart": 7.92,
+      "note": "Responsive native dialog; all controls remain reachable by scrolling"
+    }
+  ],
+  "checks": [
+    {
+      "name": "invalid-server-preview-does-not-mutate",
+      "status": "passed",
+      "errorCount": 1
+    },
+    {
+      "name": "valid-server-preview",
+      "status": "passed",
+      "summary": {
+        "newCommitments": 0,
+        "updatedCommitments": 0,
+        "newEvents": 1,
+        "idempotentEvents": 2
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "apiFailures": []
+}

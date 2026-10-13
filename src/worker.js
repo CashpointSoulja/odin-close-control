@@ -1,4 +1,6 @@
 import { createSeedState, reconcile, queue, prepareImport, applyMutation, applyImport, packet } from '../public/shared/domain.js';
+import { DurableObject } from 'cloudflare:workers';
+import { ApiError, OdinSqlStore } from './storage.js';
 
 const COOKIE = 'odin_close_session';
 const SESSION_TTL = 24 * 60 * 60;
@@ -24,13 +26,6 @@ const SECURITY_HEADERS = {
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=()',
   'X-Frame-Options': 'DENY'
 };
-
-class ApiError extends Error {
-  constructor(status, code, message, details) {
-    super(message);
-    Object.assign(this, { status, code, details });
-  }
-}
 
 function response(body, status = 200, extras = {}) {
   return new Response(JSON.stringify(body), {
@@ -91,30 +86,11 @@ async function readJson(request, allowed, { optional = false } = {}) {
   return body;
 }
 
-async function takeRate(db, key, maximum, duration, now) {
-  const window = Math.floor(now / duration);
-  const row = await db.prepare(`INSERT INTO rate_limits (key, count, expires_at) VALUES (?, 1, ?)
-    ON CONFLICT(key) DO UPDATE SET count = count + 1 WHERE count < ? RETURNING count`)
-    .bind(`${key}:${window}`, (window + 1) * duration, maximum).first();
-  if (!row) throw new ApiError(429, 'RATE_LIMITED', 'Please wait before trying again.');
-}
-
 function cookieSecret(request) {
   const values = (request.headers.get('Cookie') || '').split(';').map(value => value.trim());
   const cookie = values.find(value => value.startsWith(`${COOKIE}=`));
   const secret = cookie?.slice(COOKIE.length + 1);
   return secret && /^[a-f0-9]{64}$/.test(secret) ? secret : null;
-}
-
-async function loadSession(request, db, now) {
-  const secret = cookieSecret(request);
-  if (!secret) return null;
-  const id = await hash(secret);
-  const row = await db.prepare('SELECT id, state_json, revision FROM sessions WHERE id = ? AND expires_at > ?').bind(id, now).first();
-  if (!row) return null;
-  const state = JSON.parse(row.state_json);
-  if (state.revision !== row.revision) throw new Error('Session revision integrity failure');
-  return { id, revision: row.revision, state };
 }
 
 function statePayload(state) {
@@ -151,14 +127,6 @@ async function preview(session, body) {
   return { prep, payload: { valid: prep.valid, errors: prep.errors, summary: prep.summary, diff: prep.diff, previewHash, revision: session.revision } };
 }
 
-async function saveSession(db, session, nextState, now) {
-  const unchanged = nextState.revision === session.revision && JSON.stringify(nextState) === JSON.stringify(session.state);
-  if (!unchanged && nextState.revision !== session.revision + 1) throw new Error('Mutation must advance the revision exactly once');
-  const result = await db.prepare('UPDATE sessions SET state_json = ?, revision = ? WHERE id = ? AND revision = ? AND expires_at > ?')
-    .bind(JSON.stringify(nextState), nextState.revision, session.id, session.revision, now).run();
-  if (result.meta.changes !== 1) throw new ApiError(409, 'STALE_REVISION', 'This session changed. Reload its state before continuing.');
-}
-
 function csvCell(value) {
   let text = value == null ? '' : String(value);
   if (/^[\s]*[=+\-@]|^[\t\r]/.test(text)) text = `'${text}`;
@@ -171,47 +139,98 @@ function ledgerCsv(state, dealId) {
   return [columns, ...rows].map(row => row.map(csvCell).join(',')).join('\r\n') + '\r\n';
 }
 
-export default {
-  async fetch(request, env) {
+const nowSeconds = () => Math.floor(Date.now() / 1000);
+const storageUnavailable = () => new ApiError(503, 'STORAGE_UNAVAILABLE', 'Synthetic session storage is unavailable. Please try again later.');
+
+function sessionCookie(url, secret, ttl = SESSION_TTL) {
+  const local = ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname);
+  return `${COOKIE}=${secret}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${ttl}${local ? '' : '; Secure'}`;
+}
+
+function errorResponse(error, request) {
+  // Domain errors are deliberately safe validation messages. Unexpected failures
+  // never echo SQL, cookies, submitted text, quota details or stack traces.
+  const safe = error instanceof ApiError || (Number.isInteger(error.status) && error.status >= 400 && error.status < 500 && typeof error.code === 'string');
+  const headers = error.code === 'SESSION_REQUIRED' ? { 'Set-Cookie': sessionCookie(new URL(request.url), '', 0) } : {};
+  return response({ error: safe ? { code: error.code, message: error.message, ...(error.details ? { details: error.details } : {}) } : { code: 'INTERNAL_ERROR', message: 'The request could not be completed. Please try again.' } }, safe ? error.status : 500, headers);
+}
+
+async function durableFetch(namespace, name, request) {
+  try {
+    const result = await namespace.get(namespace.idFromName(name)).fetch(request);
+    return result.status >= 500 ? errorResponse(storageUnavailable(), request) : result;
+  } catch {
+    throw storageUnavailable();
+  }
+}
+
+export class OdinSession extends DurableObject {
+  constructor(ctx, env) {
+    super(ctx, env);
+    this.store = new OdinSqlStore(ctx.storage, { sessions: true });
+  }
+
+  async alarm() {
+    // Lock cleanup across deleteAll so no newer storage transition can be erased.
+    await this.ctx.blockConcurrencyWhile(async () => {
+      const nextExpiry = this.store.expireExpired(nowSeconds());
+      if (nextExpiry === null) {
+        await this.ctx.storage.deleteAlarm();
+        await this.ctx.storage.deleteAll();
+      }
+      else await this.ctx.storage.setAlarm(nextExpiry * 1000);
+    });
+  }
+
+  async reclaimMissingSession() {
+    const failure = await this.ctx.blockConcurrencyWhile(async () => {
+      try {
+        if (!this.store.hasActiveSession(nowSeconds())) {
+          await this.ctx.storage.deleteAlarm();
+          await this.ctx.storage.deleteAll();
+        }
+      } catch {
+        return storageUnavailable();
+      }
+    });
+    if (failure) throw failure;
+  }
+
+  async fetch(request) {
     const url = new URL(request.url);
-    if (!url.pathname.startsWith('/api/')) {
-      return protectedResponse(await env.ASSETS.fetch(request));
-    }
+    const path = url.pathname;
     try {
-      if (!env.DB) throw new ApiError(503, 'STORAGE_UNAVAILABLE', 'The synthetic session database is unavailable.');
-      const path = url.pathname;
-      const writes = path === '/api/session' || Object.hasOwn(ROUTES, path);
+      if (path === '/internal/create' && request.method === 'POST') {
+        const body = await readJson(request, ['id']);
+        if (typeof body.id !== 'string' || !/^[a-f0-9]{64}$/.test(body.id)) throw new ApiError(400, 'INVALID_SESSION', 'The synthetic session identity is invalid.');
+        return await this.ctx.blockConcurrencyWhile(async () => {
+          try {
+            const now = nowSeconds();
+            const state = createSeedState();
+            try { await this.ctx.storage.setAlarm((now + SESSION_TTL) * 1000); }
+            catch { throw storageUnavailable(); }
+            this.store.createSession(body.id, state, now, SESSION_TTL);
+            return response(statePayload(state), 201);
+          } catch (error) {
+            // Expected failures must not reject blockConcurrencyWhile, which
+            // would reset the object and turn a normal denial into transport503.
+            return errorResponse(error, request);
+          }
+        });
+      }
       const reads = ['/api/state', '/api/export', '/api/export/ledger'].includes(path);
-      if (!writes && !reads) throw new ApiError(404, 'NOT_FOUND', 'This API route does not exist.');
-      if (request.method !== (writes ? 'POST' : 'GET')) return response({ error: { code: 'METHOD_NOT_ALLOWED', message: 'This route does not support that method.' } }, 405, { Allow: writes ? 'POST' : 'GET' });
-      if (writes) validateOrigin(request);
-      const now = Math.floor(Date.now() / 1000);
-      // Cleanup and fixed-window counters are storage-bound, not browser-local state.
-      await env.DB.batch([
-        env.DB.prepare('DELETE FROM sessions WHERE expires_at <= ?').bind(now),
-        env.DB.prepare('DELETE FROM rate_limits WHERE expires_at <= ?').bind(now)
-      ]);
-      let session = await loadSession(request, env.DB, now);
+      if (path !== '/api/session' && !reads && !Object.hasOwn(ROUTES, path)) throw new ApiError(404, 'NOT_FOUND', 'This API route does not exist.');
+      const id = request.headers.get('X-Odin-Session-Id');
+      if (!id || !/^[a-f0-9]{64}$/.test(id)) throw new ApiError(401, 'SESSION_REQUIRED', 'Start a new synthetic session.');
+      const now = nowSeconds();
+      const session = this.store.loadSession(id, now);
+      if (!session) throw new ApiError(401, 'SESSION_REQUIRED', 'Start a new synthetic session.');
+      this.store.takeRate('session', 120, 60, now);
       if (path === '/api/session') {
         await readJson(request, [], { optional: true });
-        if (session) {
-          await takeRate(env.DB, `session:${session.id}`, 120, 60, now);
-          return response(statePayload(session.state));
-        }
-        const ipKey = await hash(request.headers.get('CF-Connecting-IP') || 'local-development');
-        await takeRate(env.DB, `create:${ipKey}`, 10, 3600, now);
-        const bytes = crypto.getRandomValues(new Uint8Array(32));
-        const secret = Array.from(bytes, value => value.toString(16).padStart(2, '0')).join('');
-        const id = await hash(secret);
-        const state = createSeedState();
-        await env.DB.prepare('INSERT INTO sessions (id, state_json, revision, created_at, expires_at) VALUES (?, ?, ?, ?, ?)')
-          .bind(id, JSON.stringify(state), state.revision, now, now + SESSION_TTL).run();
-        const local = ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname);
-        const cookie = `${COOKIE}=${secret}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${SESSION_TTL}${local ? '' : '; Secure'}`;
-        return response(statePayload(state), 201, { 'Set-Cookie': cookie });
+        this.store.assertCurrent(session, nowSeconds());
+        return response(statePayload(session.state));
       }
-      if (!session) throw new ApiError(401, 'SESSION_REQUIRED', 'Start a new synthetic session.');
-      await takeRate(env.DB, `session:${session.id}`, 120, 60, now);
       if (path === '/api/state') return response(statePayload(session.state));
       if (reads) {
         if ([...url.searchParams.keys()].some(key => !['dealId', 'revision'].includes(key)) || url.searchParams.getAll('dealId').length !== 1 || url.searchParams.getAll('revision').length !== 1) {
@@ -221,17 +240,21 @@ export default {
         if (!/^(0|[1-9]\d*)$/.test(requested || '') || Number(requested) !== session.revision) throw new ApiError(409, 'STALE_REVISION', 'Export the currently reviewed revision.');
         const dealId = url.searchParams.get('dealId');
         const reviewedPacket = await packet(session.state, dealId);
+        this.store.assertCurrent(session, nowSeconds());
         const filename = `${dealId}-reviewed-r${session.revision}`;
         if (path === '/api/export') return response(reviewedPacket, 200, { 'Content-Disposition': `attachment; filename="${filename}.json"` });
         return new Response(ledgerCsv(session.state, dealId), { headers: { ...SECURITY_HEADERS, 'Cache-Control': 'no-store', 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="${filename}-ledger.csv"` } });
       }
-      await takeRate(env.DB, `write:${session.id}`, 40, 60, now);
+      this.store.takeRate('write', 40, 60, now);
       const body = await readJson(request, ROUTES[path]);
       expectedRevision(body, session);
       let nextState;
       if (path === '/api/import/preview' || path === '/api/import') {
         const prepared = await preview(session, body);
-        if (path.endsWith('/preview')) return response(prepared.payload);
+        if (path.endsWith('/preview')) {
+          this.store.assertCurrent(session, nowSeconds());
+          return response(prepared.payload);
+        }
         if (!prepared.prep.valid) throw new ApiError(422, 'IMPORT_INVALID', 'Correct the synthetic import before applying it.', prepared.prep.errors);
         if (typeof body.previewHash !== 'string' || body.previewHash !== prepared.payload.previewHash) throw new ApiError(409, 'PREVIEW_MISMATCH', 'Preview these exact files at the current revision before importing.');
         nextState = await applyImport(session.state, prepared.prep);
@@ -239,13 +262,100 @@ export default {
         const { expectedRevision: ignored, ...payload } = body;
         nextState = await applyMutation(session.state, path.slice('/api/'.length), payload);
       }
-      await saveSession(env.DB, session, nextState, Math.floor(Date.now() / 1000));
+      this.store.saveSession(session, nextState, nowSeconds());
       return response(statePayload(nextState));
     } catch (error) {
-      // Domain errors are deliberately safe validation messages. Unexpected storage
-      // or runtime failures never echo SQL, cookies, submitted text or stack traces.
-      const safe = error instanceof ApiError || (Number.isInteger(error.status) && error.status >= 400 && error.status < 500 && typeof error.code === 'string');
-      return response({ error: safe ? { code: error.code, message: error.message, ...(error.details ? { details: error.details } : {}) } : { code: 'INTERNAL_ERROR', message: 'The request could not be completed. Please try again.' } }, safe ? error.status : 500);
+      if (error.code === 'SESSION_REQUIRED') {
+        try { await this.reclaimMissingSession(); }
+        catch (storageError) { return errorResponse(storageError, request); }
+      }
+      return errorResponse(error, request);
+    }
+  }
+}
+
+export class OdinRateLimiter extends DurableObject {
+  constructor(ctx, env) {
+    super(ctx, env);
+    this.store = new OdinSqlStore(ctx.storage);
+  }
+
+  async alarm() {
+    await this.ctx.blockConcurrencyWhile(async () => {
+      const nextExpiry = this.store.expireExpired(nowSeconds());
+      if (nextExpiry === null) {
+        await this.ctx.storage.deleteAlarm();
+        await this.ctx.storage.deleteAll();
+      }
+      else await this.ctx.storage.setAlarm(nextExpiry * 1000);
+    });
+  }
+
+  async fetch(request) {
+    try {
+      if (new URL(request.url).pathname !== '/internal/rate' || request.method !== 'POST') throw new ApiError(404, 'NOT_FOUND', 'This API route does not exist.');
+      await readJson(request, []);
+      return await this.ctx.blockConcurrencyWhile(async () => {
+        try {
+          const scheduledExpiry = (Math.floor(nowSeconds() / 3600) + 1) * 3600;
+          try { await this.ctx.storage.setAlarm(scheduledExpiry * 1000); }
+          catch { throw storageUnavailable(); }
+          const expiresAt = this.store.takeRate('create', 10, 3600, nowSeconds());
+          if (expiresAt !== scheduledExpiry) {
+            // If the hour changed while scheduling, the first alarm still owns
+            // cleanup; move it to the accepted counter's actual window.
+            try { await this.ctx.storage.setAlarm(expiresAt * 1000); }
+            catch { throw storageUnavailable(); }
+          }
+          return response({ ok: true });
+        } catch (error) {
+          return errorResponse(error, request);
+        }
+      });
+    } catch (error) {
+      return errorResponse(error, request);
+    }
+  }
+}
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    if (!url.pathname.startsWith('/api/')) return protectedResponse(await env.ASSETS.fetch(request));
+    try {
+      const path = url.pathname;
+      const writes = path === '/api/session' || Object.hasOwn(ROUTES, path);
+      const reads = ['/api/state', '/api/export', '/api/export/ledger'].includes(path);
+      if (!writes && !reads) throw new ApiError(404, 'NOT_FOUND', 'This API route does not exist.');
+      if (request.method !== (writes ? 'POST' : 'GET')) return response({ error: { code: 'METHOD_NOT_ALLOWED', message: 'This route does not support that method.' } }, 405, { Allow: writes ? 'POST' : 'GET' });
+      if (writes) validateOrigin(request);
+      if (!env.ODIN_SESSIONS || !env.ODIN_RATE_LIMITERS) throw storageUnavailable();
+      const secret = cookieSecret(request);
+      if (secret) {
+        const id = await hash(secret);
+        const headers = new Headers(request.headers);
+        // The browser cannot supply the storage identity or retain raw secrets/IPs
+        // in the Durable Object request. Only this Worker-derived hash is used.
+        headers.set('X-Odin-Session-Id', id);
+        headers.delete('Cookie');
+        headers.delete('CF-Connecting-IP');
+        return await durableFetch(env.ODIN_SESSIONS, `session:${id}`, new Request(request, { headers }));
+      }
+      if (path !== '/api/session') throw new ApiError(401, 'SESSION_REQUIRED', 'Start a new synthetic session.');
+      const ipKey = await hash(request.headers.get('CF-Connecting-IP') || 'local-development');
+      const limited = await durableFetch(env.ODIN_RATE_LIMITERS, `create:${ipKey}`, new Request('https://odin.internal/internal/rate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' }));
+      if (!limited.ok) return limited;
+      await readJson(request, [], { optional: true });
+      const bytes = crypto.getRandomValues(new Uint8Array(32));
+      const createdSecret = Array.from(bytes, value => value.toString(16).padStart(2, '0')).join('');
+      const id = await hash(createdSecret);
+      const created = await durableFetch(env.ODIN_SESSIONS, `session:${id}`, new Request('https://odin.internal/internal/create', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) }));
+      if (created.status !== 201) return created;
+      const headers = new Headers(created.headers);
+      headers.set('Set-Cookie', sessionCookie(url, createdSecret));
+      return new Response(created.body, { status: 201, headers });
+    } catch (error) {
+      return errorResponse(error, request);
     }
   }
 };

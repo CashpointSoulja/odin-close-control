@@ -1,0 +1,265 @@
+{
+  "recordedAt": "2026-10-13T00:08:36.936286+00:00",
+  "command": "node --test --test-reporter=tap tests/*.test.js",
+  "equivalentScript": "npm test",
+  "tests": 61,
+  "passed": 61,
+  "failed": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "counts": {
+    "domain": 34,
+    "api": 8,
+    "durable": 19
+  },
+  "durationMilliseconds": 55253.07625,
+  "runtime": "Miniflare 5.20261006.1-alpha / workerd with real SQLite Durable Objects",
+  "scope": "Local verification; no remote deployment or live investor data",
+  "testFixtures": "SQL inspection, controlled fixture clock and one held actual SHA-256 exist only in tests/fixtures/durable-worker.js",
+  "checks": [
+    {
+      "name": "SQLite Durable Object sessions have opaque HttpOnly cookies and isolate visitors",
+      "status": "passed"
+    },
+    {
+      "name": "the Worker preserves static asset responses and adds document security headers",
+      "status": "passed"
+    },
+    {
+      "name": "revision CAS rejects stale concurrent writes and expired sessions",
+      "status": "passed"
+    },
+    {
+      "name": "preview binds exact files and revision; rejected imports are atomic; duplicates are idempotent",
+      "status": "passed"
+    },
+    {
+      "name": "write guards reject cross origin, unknown fields, wrong content type and actual oversized bytes",
+      "status": "passed"
+    },
+    {
+      "name": "current reviewed revision is required before JSON or ledger exports",
+      "status": "passed"
+    },
+    {
+      "name": "reviewed ledger output neutralizes hostile cells and preserves quoted commas and newlines",
+      "status": "passed"
+    },
+    {
+      "name": "SQLite Durable Object rate limits cap session creation per IP and requests per session",
+      "status": "passed"
+    },
+    {
+      "name": "amount parsing preserves exact precision across supported currency exponents",
+      "status": "passed"
+    },
+    {
+      "name": "rejects malformed, negative, ambiguous, grouped, exponent and overflowing money",
+      "status": "passed"
+    },
+    {
+      "name": "three seed deals explain exact funding blockers, without treating readiness as closing",
+      "status": "passed"
+    },
+    {
+      "name": "queue prioritises target date, then severity, then ID and carries source evidence",
+      "status": "passed"
+    },
+    {
+      "name": "sample batch previews explicit additions and imports atomically at one revision",
+      "status": "passed"
+    },
+    {
+      "name": "entire CSV batch rejects atomically, even when an earlier row was valid",
+      "status": "passed"
+    },
+    {
+      "name": "CSV parser accepts quoted fields/BOM/CRLF and rejects broken schemas and quoting",
+      "status": "passed"
+    },
+    {
+      "name": "CSV input uses exact known fictional investors and rejects real or unknown identities",
+      "status": "passed"
+    },
+    {
+      "name": "synthetic identifier namespaces reject personal-text suffixes and mismatched deal IDs",
+      "status": "passed"
+    },
+    {
+      "name": "commitment amount updates are supported while existing identity reassignment is rejected",
+      "status": "passed"
+    },
+    {
+      "name": "stable event IDs are idempotent; changed canonical events are rejected",
+      "status": "passed"
+    },
+    {
+      "name": "unassigned receipt retains original canonical identity after explicit matching and reupload",
+      "status": "passed"
+    },
+    {
+      "name": "different IDs sharing bank reference+currency+amount stay quarantined until explicit exclusion",
+      "status": "passed"
+    },
+    {
+      "name": "same reference with different amounts does not create an inferred duplicate",
+      "status": "passed"
+    },
+    {
+      "name": "duplicate reference groups span the synthetic session and block each affected deal",
+      "status": "passed"
+    },
+    {
+      "name": "wrong-currency receipts remain blocked and never convert or fund an account",
+      "status": "passed"
+    },
+    {
+      "name": "refunds and reversals reduce only their linked parent cash account, independent of row order",
+      "status": "passed"
+    },
+    {
+      "name": "adjustments reject missing/adjustment/cross-deal/cross-currency parents and aggregate excess",
+      "status": "passed"
+    },
+    {
+      "name": "parent quarantine also quarantines adjustments and parent with adjustments cannot be excluded",
+      "status": "passed"
+    },
+    {
+      "name": "fees use half-up basis points and deterministic largest-remainder investor allocations",
+      "status": "passed"
+    },
+    {
+      "name": "fee payer change moves obligations and exposes seeded lead cash rather than silently reallocating it",
+      "status": "passed"
+    },
+    {
+      "name": "one minor-unit under/overpayment remains a blocker with no tolerance or floating-point drift",
+      "status": "passed"
+    },
+    {
+      "name": "aggregate cash and obligations reject overflow before state is committed",
+      "status": "passed"
+    },
+    {
+      "name": "duplicate resolution that activates overflowing cash is rejected atomically",
+      "status": "passed"
+    },
+    {
+      "name": "metadata and attestations accept only explicit synthetic schema and known actors",
+      "status": "passed"
+    },
+    {
+      "name": "full Aurora route imports, matches, attaches metadata, reviews and exports exact current hash",
+      "status": "passed"
+    },
+    {
+      "name": "review requires readiness, an explicit current request, known reviewer and confirmation",
+      "status": "passed"
+    },
+    {
+      "name": "hash canonicalises object keys/array order and excludes audit and review fields",
+      "status": "passed"
+    },
+    {
+      "name": "export hash binds the exact raw snapshot and calculated fees, allocations and cash accounts",
+      "status": "passed"
+    },
+    {
+      "name": "any successful mutation invalidates all reviews and old export approval",
+      "status": "passed"
+    },
+    {
+      "name": "exact idempotent reimport preserves approved state and revision, while new import invalidates it",
+      "status": "passed"
+    },
+    {
+      "name": "stale preview and stale revision mutations reject without input changes; reset is monotonic",
+      "status": "passed"
+    },
+    {
+      "name": "tampered review revision/hash never authorises export or approval",
+      "status": "passed"
+    },
+    {
+      "name": "shared limits reject byte/row amplification and accumulated commitments/events/audit",
+      "status": "passed"
+    },
+    {
+      "name": "two independent HTTP clients sharing a cookie can commit a revision exactly once",
+      "status": "passed"
+    },
+    {
+      "name": "different visitors write independently into separate real SQLite objects",
+      "status": "passed"
+    },
+    {
+      "name": "disposing and recreating Miniflare preserves state, audit, approved review and exact export hash",
+      "status": "passed"
+    },
+    {
+      "name": "expired session cookies fail closed and a subsequent explicit session gets a new identity",
+      "status": "passed"
+    },
+    {
+      "name": "session alarms delete expired SQL state and rate counters without an incoming API request",
+      "status": "passed"
+    },
+    {
+      "name": "invalid CSV and mismatched previews leave every persisted state byte unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "intervening mutations reject stale approval and clear the requested review",
+      "status": "passed"
+    },
+    {
+      "name": "SQLite rate counters expire and alarm cleanup preserves live windows",
+      "status": "passed"
+    },
+    {
+      "name": "rejected writes consume durable limits and cannot reset them by restarting workerd",
+      "status": "passed"
+    },
+    {
+      "name": "an export held during real SHA-256 rejects a concurrently changed reviewed revision",
+      "status": "passed"
+    },
+    {
+      "name": "a preview held during real SHA-256 rejects a concurrently changed revision",
+      "status": "passed"
+    },
+    {
+      "name": "review approval and reviewed export held during SHA-256 fail closed if SQL expiry passes",
+      "status": "passed"
+    },
+    {
+      "name": "valid-shaped unknown cookies never seed sessions or leave SQLite schema behind",
+      "status": "passed"
+    },
+    {
+      "name": "a duplicate import held during SHA-256 cannot overwrite an intervening successful write",
+      "status": "passed"
+    },
+    {
+      "name": "returned and thrown Durable Object storage failures produce only a safe 503 response",
+      "status": "passed"
+    },
+    {
+      "name": "malformed session creation requests consume the persistent per-IP attempt limit",
+      "status": "passed"
+    },
+    {
+      "name": "malformed existing-session requests consume its persisted request limit without changing state",
+      "status": "passed"
+    },
+    {
+      "name": "a real SQLite update failure rolls back state and returns a safe 503 without a fallback write",
+      "status": "passed"
+    },
+    {
+      "name": "the public Worker never exposes internal Durable Object or test fixture routes",
+      "status": "passed"
+    }
+  ]
+}

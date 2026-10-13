@@ -1,0 +1,58 @@
+{
+  "recordedAt": "2026-10-13T00:08:36.936286+00:00",
+  "baseCommit": "35f8a3d77c9ab72488bdb768938b806f9f69e6e1",
+  "preservesEarlierCommit": "24eab2e7e9ccd1cc3746cd3d12ed06fa8bf897fd",
+  "sourceSha256": {
+    "src/worker.js": "12846947d0c3496a98de9a3609cd12f5cb7df9eb9152f2b999b01cd0177c71dc",
+    "src/storage.js": "db7166db8981c9dba72fba71174e6452b3ef1a0556a2e130dc7ed38625363aa6",
+    "wrangler.jsonc": "4d856f7224ded0ca39dae59c17bf4c179b799316c64e3831388ba8a30db8fb2f",
+    "package.json": "1ecf306b303a2ada01157888acef93f168c7863a929f1d6bfe90d9a864a4cd2b",
+    "package-lock.json": "ed89941eea6cd25367ff97b654c54bd94bd83f80f568d0347e36084e4317f2f0",
+    "public/shared/domain.js": "deab2ce7b6b6f9d34f48a66df55348894f8012bc344d872901222888c7087b9d",
+    "public/app.js": "50ac4084115b15e41e948ee97ab7eb35407240cb5aebece8973bdcc9795d5642",
+    "public/styles.css": "bea54fc6a5184fbc7d3bed3e6bc7a3f6e5bb3283c15aee8da964f6d6ee7a5e4a",
+    "public/index.html": "795df2480ea722a8ec5708d351a0105c889619de68260bb805e4ff556753268e",
+    "tests/domain.test.js": "867ddf6a54b0cc44f2b2f862329f61547dd46e41bf0b4deb6ec94f68e2136f07",
+    "tests/api.test.js": "6f6f935280c23391848b8845d57db8969f8521e239c2838cdb9368e0600791eb",
+    "tests/durable.test.js": "01489b0be2ef150b54dbed73ebc4263d73b5900645f4440001c1ff95ee93a934",
+    "tests/helpers/durable.js": "7def741acb8a6611a1ad31685831d0addea0c815ed9d0b6a07a7387f9d7b8ea5",
+    "tests/fixtures/durable-worker.js": "c0f4dea3510c8433bb3771971bbcccbd30edbc1af8928179a29d219712888f07",
+    "scripts/browser-qa.py": "30b81d3f706f9c140797e1515e55a07e9059a64bc6503f4ad3155149c56129f4"
+  },
+  "unchangedAgainstBase": {
+    "public/shared/domain.js": true,
+    "public/app.js": true,
+    "public/styles.css": true,
+    "public/index.html": true,
+    "tests/domain.test.js": true
+  },
+  "configuration": {
+    "worker": "ayo-odin-close-control",
+    "bindings": [
+      "ODIN_SESSIONS",
+      "ODIN_RATE_LIMITERS",
+      "ASSETS"
+    ],
+    "migrationTag": "odin-sqlite-v1",
+    "new_sqlite_classes": [
+      "OdinSession",
+      "OdinRateLimiter"
+    ],
+    "d1Bindings": [],
+    "kvBindings": []
+  },
+  "workerBuild": {
+    "command": "npm run deploy:check",
+    "succeeded": true,
+    "totalUploadKiB": "59.97",
+    "gzipKiB": "15.93",
+    "assetFileCount": 14,
+    "remoteDeployment": false
+  },
+  "tests": "durable-tests.json",
+  "browser": "durable-browser/browser-results.json",
+  "publicDeploymentVerified": false,
+  "credentialsRequestedOrReceived": false,
+  "freeQuotaExhaustionExercisedRemotely": false,
+  "deliveryHeld": true
+}

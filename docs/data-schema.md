@@ -2,14 +2,16 @@
 
 I keep monetary arithmetic in integer minor units and retain receipt provenance. Every stored business record is synthetic. Company and investor labels come from fixed fixtures; imported records cannot introduce names, email addresses, bank details or arbitrary legal filenames.
 
-## D1 tables
+## SQLite Durable Object tables
 
 | Table | Fields | Purpose |
 | --- | --- | --- |
-| `sessions` | `id`, `state_json`, `revision`, `created_at`, `expires_at` | `id` is a SHA-256 cookie-secret digest. JSON state and revision save together by optimistic comparison. Timestamps are epoch seconds. |
-| `rate_limits` | `key`, `count`, `expires_at` | Session counters and creation counters using a hashed IP identifier, scoped to a fixed window. No raw IP is stored. |
+| `odin_sessions` | `id`, `state_json`, `revision`, `created_at`, `expires_at` | One row in each `OdinSession` object's own SQLite database. `id` is a SHA-256 cookie-secret digest. JSON state and revision save together inside a synchronous transaction with expected-revision comparison. Timestamps are epoch seconds. |
+| `odin_rate_limits` | `key`, `count`, `expires_at` | Request/write counters within the visitor's object; creation counters in separate `OdinRateLimiter` objects selected by hashed ingress IP. Keys include fixed windows. No raw IP or cookie secret is stored. |
 
-The migration enforces valid JSON, nonnegative revisions, positive counters and session expiry after creation. Both tables have expiry indexes. I store one bounded synthetic workflow per session rather than presenting this as a production financial ledger schema.
+The [SQL adapter](../src/storage.js) creates these tables only in Odin's namespaces. It enforces valid JSON, nonnegative revisions, positive counters and session expiry after creation. Each database holds at most one session and a small set of current counters; no expiry index or cross-visitor query is needed. The class migration is `odin-sqlite-v1` with `new_sqlite_classes: ["OdinSession", "OdinRateLimiter"]`, not a D1 SQL migration. I store one bounded synthetic workflow per session rather than presenting this as a production financial ledger schema.
+
+The Worker maps `session:` plus the cookie digest into the `ODIN_SESSIONS` namespace. Creation limiting maps `create:` plus an ingress-IP digest into `ODIN_RATE_LIMITERS`. Public requests cannot choose an object ID or override the Worker-derived session identity. Expired state is rejected and an expired identity is never silently reseeded. Alarms and guarded missing-session cleanup delete only Odin object storage; they cannot address any D1 database or another project's namespace.
 
 ## Session JSON
 

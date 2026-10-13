@@ -1,55 +1,26 @@
 import assert from 'node:assert/strict';
 import { after, before, test } from 'node:test';
-import { readFile } from 'node:fs/promises';
-import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
+import { createRuntime, call as request, session as createSession, readSamples, sessionStub, sql } from './helpers/durable.js';
 
 let mf;
-let db;
 let samples;
 
 before(async () => {
-  mf = new Miniflare(convertV4MiniflareOptions({
-    modules: [
-      { type: 'ESModule', path: 'src/worker.js' },
-      { type: 'ESModule', path: 'public/shared/domain.js' }
-    ],
-    compatibilityDate: '2026-10-12',
-    d1Databases: ['DB'],
-    serviceBindings: {
-      ASSETS: { node: (_request, result) => {
-        result.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=60' });
-        result.end('<!doctype html><html><body>Synthetic asset fixture</body></html>');
-      } }
-    }
-  }));
-  db = await mf.getD1Database('DB');
-  const schema = (await readFile('migrations/0001_sessions.sql', 'utf8')).replace(/^\s*--.*$/gm, '');
-  await db.batch(schema.split(';').filter(sql => sql.trim()).map(sql => db.prepare(sql)));
-  samples = {
-    commitmentsCsv: await readFile('public/samples/commitments.csv', 'utf8'),
-    paymentsCsv: await readFile('public/samples/payments.csv', 'utf8')
-  };
+  mf = createRuntime();
+  samples = await readSamples();
 });
 
 after(async () => { await mf?.dispose(); });
 
-async function call(path, { cookie, body, method = body === undefined ? 'GET' : 'POST', headers = {} } = {}) {
-  const response = await mf.dispatchFetch(`http://localhost${path}`, {
-    method,
-    headers: { ...(body === undefined ? {} : { 'Content-Type': 'application/json', Origin: 'http://localhost' }), ...(cookie ? { Cookie: cookie } : {}), ...headers },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) })
-  });
-  const contentType = response.headers.get('Content-Type') || '';
-  return { response, status: response.status, body: contentType.includes('application/json') ? await response.json() : await response.text() };
+function call(path, options) {
+  return request(mf, path, options);
 }
 
-async function session(ip = '192.0.2.1') {
-  const result = await call('/api/session', { body: {}, headers: { 'CF-Connecting-IP': ip } });
-  assert.equal(result.status, 201);
-  return { cookie: result.response.headers.get('Set-Cookie').split(';', 1)[0], ...result };
+function session(ip = '192.0.2.1') {
+  return createSession(mf, ip);
 }
 
-test('D1 sessions have opaque HttpOnly cookies and isolate visitors', async () => {
+test('SQLite Durable Object sessions have opaque HttpOnly cookies and isolate visitors', async () => {
   const first = await session();
   const second = await session();
   const setCookie = first.response.headers.get('Set-Cookie');
@@ -63,8 +34,9 @@ test('D1 sessions have opaque HttpOnly cookies and isolate visitors', async () =
   const untouched = await call('/api/state', { cookie: second.cookie });
   assert.deepEqual(untouched.body.state, second.body.state);
   assert.deepEqual(Object.keys(changed.body).sort(), ['queue', 'reconciliations', 'state']);
-  const rows = await db.prepare('SELECT id, state_json FROM sessions').all();
-  assert.ok(rows.results.every(row => !row.id.includes(first.cookie.split('=')[1])));
+  const rows = await sql(await sessionStub(mf, first.cookie), 'SELECT id, state_json FROM odin_sessions');
+  assert.equal(rows.length, 1);
+  assert.ok(rows.every(row => !row.id.includes(first.cookie.split('=')[1])));
 });
 
 test('the Worker preserves static asset responses and adds document security headers', async () => {
@@ -92,11 +64,10 @@ test('revision CAS rejects stale concurrent writes and expired sessions', async 
   const reset = await call('/api/reset', { cookie: own.cookie, body: { expectedRevision: current.body.state.revision } });
   assert.equal(reset.status, 200);
   assert.equal(reset.body.state.revision, current.body.state.revision + 1);
-  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(own.cookie.split('=')[1]));
-  const id = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
-  await db.prepare('UPDATE sessions SET created_at = 0, expires_at = 1 WHERE id = ?').bind(id).run();
+  const stub = await sessionStub(mf, own.cookie);
+  await sql(stub, 'UPDATE odin_sessions SET created_at = 0, expires_at = 1');
   assert.equal((await call('/api/state', { cookie: own.cookie })).status, 401);
-  assert.equal(await db.prepare('SELECT id FROM sessions WHERE id = ?').bind(id).first(), null);
+  assert.deepEqual(await sql(stub, "SELECT name FROM sqlite_master WHERE name LIKE 'odin_%'"), []);
 });
 
 test('preview binds exact files and revision; rejected imports are atomic; duplicates are idempotent', async () => {
@@ -112,7 +83,7 @@ test('preview binds exact files and revision; rejected imports are atomic; dupli
   assert.equal(wrongHash.status, 409);
   const invalid = await call('/api/import', { cookie: own.cookie, body: { ...input, paymentsCsv: 'event_id,deal_id\nREAL-PAYMENT,REAL-COMPANY', previewHash: preview.body.previewHash } });
   assert.equal(invalid.status, 422);
-  assert.equal((await call('/api/state', { cookie: own.cookie })).body.state.revision, input.expectedRevision);
+  assert.deepEqual((await call('/api/state', { cookie: own.cookie })).body.state, own.body.state);
   const imported = await call('/api/import', { cookie: own.cookie, body: { ...input, previewHash: preview.body.previewHash } });
   assert.equal(imported.status, 200);
   const duplicateInput = { ...samples, expectedRevision: imported.body.state.revision };
@@ -161,8 +132,6 @@ test('current reviewed revision is required before JSON or ledger exports', asyn
 
 test('reviewed ledger output neutralizes hostile cells and preserves quoted commas and newlines', async () => {
   const own = await session();
-  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(own.cookie.split('=')[1]));
-  const id = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
   const fixture = structuredClone(own.body.state);
   // Bypass the public identifier validator deliberately to test output protection
   // against hostile data already present inside a trusted storage fixture.
@@ -170,7 +139,7 @@ test('reviewed ledger output neutralizes hostile cells and preserves quoted comm
   cedar[0].bankReference = '=SUM(A1:A2)';
   cedar[1].bankReference = ' +SUM("A1","A2")';
   cedar[2].bankReference = '\t@SUM(A1:A2)\nnext,line';
-  await db.prepare('UPDATE sessions SET state_json = ? WHERE id = ?').bind(JSON.stringify(fixture), id).run();
+  await sql(await sessionStub(mf, own.cookie), 'UPDATE odin_sessions SET state_json = ?', JSON.stringify(fixture));
   const requested = await call('/api/review/request', { cookie: own.cookie, body: { dealId: 'DEMO-CEDAR', expectedRevision: fixture.revision } });
   assert.equal(requested.status, 200, JSON.stringify(requested.body));
   const approved = await call('/api/review/approve', { cookie: own.cookie, body: { dealId: 'DEMO-CEDAR', reviewer: 'DEMO-REVIEWER-01', confirmed: true, expectedRevision: requested.body.state.revision } });
@@ -183,7 +152,7 @@ test('reviewed ledger output neutralizes hostile cells and preserves quoted comm
   assert.ok(!ledger.body.includes(',"=SUM(A1:A2)",'));
 });
 
-test('D1 rate limits cap session creation per IP and requests per session', async () => {
+test('SQLite Durable Object rate limits cap session creation per IP and requests per session', async () => {
   for (let i = 0; i < 10; i++) await session('198.51.100.77');
   const limited = await call('/api/session', { body: {}, headers: { 'CF-Connecting-IP': '198.51.100.77' } });
   assert.equal(limited.status, 429);

@@ -27,5 +27,7 @@
     "Operator and reviewer identities are fictional labels within one visitor session.",
     "Financial/legal/KYC source authority and actual document contents are not verified.",
     "No real operating-time or savings baseline was measured."
-  ]
+  ],
+  "scope": "Historical D1 bundle verification; superseded for the current backend",
+  "currentManifest": "durable-validation-manifest.json"
 }

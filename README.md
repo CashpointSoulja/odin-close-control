@@ -4,7 +4,7 @@ An independent concept by **Ayo Ahmed**. Synthetic data only.
 
 I built a close-readiness and cash-reconciliation workbench for my candidacy for Odin’s Founding Product Builder, Operations role. I chose one public, documented workflow: establish that a primary SPV’s funds and evidence are ready for a human financial-operations handoff.
 
-I provide the [local walkthrough MP4](docs/walkthrough.mp4) and an [offline browser-viewer bundle](docs/odin-close-control-evidence.zip). Public full-stack deployment is blocked by missing Cloudflare authentication; the connected GitHub integration also denied Pages publishing. The video is a local demonstration, not a deployed-app recording.
+I am holding final walkthrough delivery until the public deployment is verified and the complete recording has been watched and listened to. The previous local recording and sampled media checks are historical evidence only. They do not satisfy that delivery requirement. Authenticated deployment will be handled separately; this repository contains no credentials.
 
 ## Why this problem
 
@@ -22,23 +22,23 @@ Requires Node.js 22 or newer.
 
 ```sh
 npm ci
-npm run db:migrate
 npm test
 npm run dev
 ```
 
-Open `http://127.0.0.1:8787`. I use a Cloudflare Worker and a real local D1 database; browser storage is not the persistence layer. Each visitor receives an isolated synthetic session. The sample CSVs and legal metadata are under [public/samples](public/samples). Reset replaces only the current visitor’s seeded demo state.
+Open `http://127.0.0.1:8787`. I use a Cloudflare Worker and SQLite-backed Durable Objects; browser storage is not the persistence layer. Each visitor receives an isolated synthetic session. Tables initialize within Odin's new objects. The sample CSVs and legal metadata are under [public/samples](public/samples). Reset replaces only the current visitor’s seeded demo state.
 
 ## Deployment
 
-The backend is designed for Cloudflare Workers and D1. I require authenticated Cloudflare access before deploying it: create a D1 database named `odin-close-control`, replace the obvious placeholder database ID in [wrangler.jsonc](wrangler.jsonc), apply its remote migration, then deploy. I keep credentials out of this repository. Deployment status and verification evidence are recorded in [actual test results](docs/test-results.md); a runnable local backend is not evidence of a public deployment.
+I redesigned persistence because the supplied account has no spare D1 slots. [The exact configuration](wrangler.jsonc) declares two new Odin-only SQLite Durable Object classes and a `new_sqlite_classes` migration. It contains no D1 binding or database operation. An authenticated operator can deploy it on Workers Free without creating, deleting or reusing a D1 database. I have not deployed or inspected the operator's account in this build.
 
 ```sh
-npx wrangler d1 create odin-close-control
-# Set the returned database ID in wrangler.jsonc.
-npx wrangler d1 migrations apply odin-close-control --remote
+npm run deploy:check
+# The authenticated operator runs this separately, on Workers Free:
 npm run deploy
 ```
+
+I checked [Cloudflare's current Free-plan rules](docs/research/cloudflare-durable-objects-free.md). SQLite Durable Objects are supported; quotas are shared across the account, and exceeding a Free limit causes errors rather than paid overage. I use no paid upgrade or eventually consistent fallback. See [the deployment audit](docs/deployment-audit.md) and [actual test results](docs/test-results.md) for configuration, invariants and verification limits.
 
 ## What I deliberately leave to people
 

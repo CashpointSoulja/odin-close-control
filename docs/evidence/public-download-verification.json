@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-10-12T23:50:39.999098+00:00",
+  "freshSignedOutContext": true,
+  "files": [
+    {
+      "name": "walkthrough.mp4",
+      "url": "https://github.com/CashpointSoulja/odin-close-control/raw/refs/heads/main/docs/walkthrough.mp4",
+      "status": 200,
+      "bytes": 5906363,
+      "sha256": "df247fab514027a4cf6f96ef52fa5dd7bd3806cedbe48154cd783f5d2e6d04c3",
+      "matchesCommittedArtifact": true
+    },
+    {
+      "name": "odin-close-control-evidence.zip",
+      "url": "https://github.com/CashpointSoulja/odin-close-control/raw/refs/heads/main/docs/odin-close-control-evidence.zip",
+      "status": 200,
+      "bytes": 15791381,
+      "sha256": "9cf2b91d009f95f379dea0ee2d6bf1d367117ef21b342ccf28d4e5388a6b865a",
+      "matchesCommittedArtifact": true
+    }
+  ],
+  "release": {
+    "url": "https://github.com/CashpointSoulja/odin-close-control/releases/tag/demo-v1",
+    "signInVisible": true,
+    "titleVisible": true
+  }
+}

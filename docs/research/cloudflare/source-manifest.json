@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-12T23:58:25.154513+00:00",
+  "publishedRepositoryCommit": "a86e20128f0d8e593e128b242761522af2d34fde",
+  "directWebsiteResult": "403 from configured cloud proxy; official published GitHub source used",
+  "files": [
+    {
+      "file": "docs/research/cloudflare/durable-pricing.mdx",
+      "source": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/production/src/content/docs/durable-objects/platform/pricing.mdx",
+      "immutableSource": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/a86e20128f0d8e593e128b242761522af2d34fde/src/content/docs/durable-objects/platform/pricing.mdx",
+      "sha256": "4124b71645e69aadde371fc99c88609b8bdc52be66b5bab84819709be073d92c",
+      "bytes": 6917
+    },
+    {
+      "file": "docs/research/cloudflare/durable-limits.mdx",
+      "source": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/production/src/content/docs/durable-objects/platform/limits.mdx",
+      "immutableSource": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/a86e20128f0d8e593e128b242761522af2d34fde/src/content/docs/durable-objects/platform/limits.mdx",
+      "sha256": "3659c0f0abc2ca951ea6b7086768b2696a8f726b7f4be0920c05b451f479302f",
+      "bytes": 6813
+    },
+    {
+      "file": "docs/research/cloudflare/durable-pricing-table.mdx",
+      "source": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/production/src/content/partials/durable-objects/durable-objects-pricing.mdx",
+      "immutableSource": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/a86e20128f0d8e593e128b242761522af2d34fde/src/content/partials/durable-objects/durable-objects-pricing.mdx",
+      "sha256": "ddd7d4d294d07c1ab0169eab62f33f1d71a1d6bf6baae22e744a1639bb4fe978",
+      "bytes": 8540
+    },
+    {
+      "file": "docs/research/cloudflare/durable-plans-note.mdx",
+      "source": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/production/src/content/partials/durable-objects/do-plans-note.mdx",
+      "immutableSource": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/a86e20128f0d8e593e128b242761522af2d34fde/src/content/partials/durable-objects/do-plans-note.mdx",
+      "sha256": "bfa43e61ab5d654bf56de60dbce0f3c7d6625a28371a76e797e7a0c39d4140c1",
+      "bytes": 754
+    },
+    {
+      "file": "docs/research/cloudflare/durable-faq-pricing.mdx",
+      "source": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/production/src/content/partials/durable-objects/do-faq-pricing.mdx",
+      "immutableSource": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/a86e20128f0d8e593e128b242761522af2d34fde/src/content/partials/durable-objects/do-faq-pricing.mdx",
+      "sha256": "1ae4ab7dbf1920314abd5429eee405c6fb30005a211a906afb427f4b704a3fec",
+      "bytes": 1490
+    }
+  ]
+}

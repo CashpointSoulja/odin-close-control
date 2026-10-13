@@ -2,24 +2,28 @@
 
 I built Close Control as an independent, synthetic operations concept. I use Odin's public closing materials to frame the problem; the proposed queue, readiness rules and review controls are my design assumptions. This application does not connect to Odin, a bank, an identity provider or a document-signing service.
 
-The browser is plain HTML, CSS and JavaScript. A shared domain module calculates reconciliation, fees, blockers and review hashes. The Cloudflare Worker runs that same module for every accepted operation; browser calculations do not authorise server state. Cloudflare D1 stores isolated session records. No business state is stored in browser local storage.
+The browser is plain HTML, CSS and JavaScript. A shared domain module calculates reconciliation, fees, blockers and review hashes. The Cloudflare Worker runs that same module for every accepted operation; browser calculations do not authorise server state. I store each visitor's bounded session in a separate SQLite-backed Durable Object. No business state is stored in browser local storage or eventually consistent KV.
 
 ```mermaid
 flowchart LR
   Visitor[Visitor: synthetic workflow] --> UI[HTML / CSS / JavaScript]
   UI -->|Same-origin JSON + HttpOnly session cookie| API[Cloudflare Worker]
   API --> Domain[Shared reconciliation and validation]
-  API -->|Bound SQL + revision comparison| DB[(Cloudflare D1)]
+  API -->|Hashed visitor secret| Session[OdinSession Durable Object]
+  Session -->|SQL transaction + revision comparison| DB[(Object-local SQLite)]
+  API -->|Hashed ingress IP| Rate[OdinRateLimiter Durable Object]
   API -->|Reviewed current revision| Packet[JSON packet / CSV ledger]
 ```
 
 ## Session and storage boundary
 
-`POST /api/session` creates only the known synthetic seed. Its 32-byte random secret is sent in an HttpOnly, SameSite=Strict cookie with a 24-hour lifetime; the cookie is Secure outside localhost development. D1 stores a SHA-256 digest of the secret, not the usable secret itself. State is selected by that digest, never by a visitor-supplied deal or session identifier. A returning valid cookie reads its existing session rather than resetting it.
+`POST /api/session` creates only the known synthetic seed. Its 32-byte random secret is sent in an HttpOnly, SameSite=Strict cookie with a 24-hour lifetime; the cookie is Secure outside localhost development. The Worker hashes this secret to route to an object in the `ODIN_SESSIONS` namespace. I store neither the usable secret nor a raw ingress IP in SQLite. There is no public object-ID or session-ID selector. A returning valid cookie reads its existing session rather than resetting it.
 
-Expired sessions and rate counters are deleted lazily on API requests. Expired state is inaccessible immediately at its expiry even before physical deletion. This is a demonstration retention policy, not a production retention guarantee or consent system.
+Expiry is fixed at creation plus 24 hours; activity does not extend it. Reads, writes and exports check expiry and reject expired state even if physical cleanup has not run. A missing or expired cookie returns `401` and clears the cookie. A later explicit session creation receives a new secret and object; an expired object cannot silently seed itself. Alarms reclaim only Odin's own expired state and rate counters. Cleanup can be delayed by platform availability or quota errors, so I distinguish immediate access expiry from eventual physical deletion.
 
-Each changing operation requires `expectedRevision`. I validate the operation against the loaded state, then save its result with a bound SQL update constrained by the session identifier, old revision and expiry. Exactly one of two competing writes can win; the other returns `409 STALE_REVISION`. Successful changes advance the global session revision once. Reset also advances it and retains the session's audit history. An import containing only exact canonical duplicates leaves state, revision, audit and review unchanged, with a same-value revision comparison to catch a concurrent write.
+Each changing operation requires `expectedRevision`. I validate against the loaded state, then use the minimal SQL persistence adapter's synchronous transaction to recheck current expiry and revision and save the JSON and revision together. Asynchronous hashing does not grant a stale write permission: the transaction compares again after calculation. Exactly one of two competing writes can win; the other returns `409 STALE_REVISION`. Successful changes advance the global session revision once. Reset also advances it and retains the session's audit history. An import containing only exact canonical duplicates leaves state, revision, audit and review unchanged, while still checking that revision at commit.
+
+Each session object owns one business row and its request/write counters. A separate `OdinRateLimiter` object, selected by a hash of Cloudflare's ingress IP, limits new sessions. Object creation, alarm cleanup and counter rollover must be serialized so an old cleanup cannot erase a new active window. The adapter initializes only `odin_sessions` and `odin_rate_limits` in these new namespaces. It has no D1 binding, D1 API call, cross-project SQL connection, or persistence fallback. A namespace, SQL or alarm error returns an unavailable-service response; it does not acknowledge an operation using temporary memory.
 
 ## Import and review boundary
 
@@ -52,7 +56,7 @@ The session, state and successful mutation responses contain `{state, queue, rec
 | `/api/export` | GET | `dealId`, `revision` |
 | `/api/export/ledger` | GET | `dealId`, `revision` |
 
-The Worker reads actual body bytes up to 70 KiB, irrespective of a claimed content length. Each CSV is at most 32 KiB and 100 data rows. The domain limits stored events to 500, commitments to 30 and audit entries to 1,000. D1 counters limit creation to 10 sessions per IP per hour, session requests to 120 per minute and writes/previews to 40 per minute. The creation limiter trusts Cloudflare's `CF-Connecting-IP` only at Cloudflare ingress. A missing header uses a shared local-development budget; another hosting proxy would need its own trusted address mechanism. Fixed windows may admit a burst across their boundary; these are demonstration resource controls.
+The Worker reads actual body bytes up to 70 KiB, irrespective of a claimed content length. Each CSV is at most 32 KiB and 100 data rows. The domain limits stored events to 500, commitments to 30 and audit entries to 1,000. Durable SQL counters limit creation to 10 sessions per IP per hour, session requests to 120 per minute and writes/previews to 40 per minute. The creation limiter trusts Cloudflare's `CF-Connecting-IP` only at Cloudflare ingress. A missing header uses a shared local-development budget; another hosting proxy would need its own trusted address mechanism. Fixed windows may admit a burst across their boundary; these are demonstration resource controls.
 
 ## Run and deployment
 
@@ -61,8 +65,9 @@ From the repository root:
 ```sh
 npm ci
 npm test
-npx wrangler d1 migrations apply odin-close-control --local
 npx wrangler dev --local --ip 0.0.0.0 --port 8787
 ```
 
-The Worker runs first for every request. It handles `/api/*` and serves other requests through its `ASSETS` binding, adding the same CSP, frame, referrer and permissions headers to static document responses centrally. Local Wrangler uses real SQLite-backed D1 emulation; API tests exercise the Worker and D1 runtime through Miniflare. `wrangler.jsonc` contains an obvious all-zero remote database placeholder. Cloudflare authentication was unavailable during this build, so a live remote D1 deployment could not be verified. A public Cloudflare deployment requires an authorised account, creation of a real D1 database, replacement of that placeholder and application of the migration remotely before deployment. I do not describe local verification as production deployment. No credentials belong in this repository.
+The Worker runs first for every request. It handles `/api/*` and serves other requests through its `ASSETS` binding, adding the same CSP, frame, referrer and permissions headers to static document responses centrally. Local Wrangler and integration tests run real SQLite Durable Objects through Miniflare/workerd. No manual SQL migration or D1 command is required; the exported classes and `new_sqlite_classes` migration in `wrangler.jsonc` create the new Odin namespaces when an authenticated operator deploys.
+
+I checked [current Workers Free support and quotas](research/cloudflare-durable-objects-free.md), including the shared storage allowance and fail-closed over-limit behavior. I keep the account on Free and do not inspect, reuse or delete any existing database. The authenticated deployment is outside this build; [the deployment audit](deployment-audit.md) records exact configuration and checks for its operator. Local tests and a dry run are not evidence of a public deployment. Final walkthrough delivery remains held until the public application is verified and a complete recording is watched and listened to.

@@ -2183,5 +2183,12 @@
     "voiceOverlapCount": 0,
     "maxQuietRangeSeconds": 0.660000000000025,
     "maxScenePixelMAE": 3.9795775034293555
+  },
+  "deliveryStatus": {
+    "held": true,
+    "scope": "Historical local evidence only",
+    "fullyWatched": false,
+    "fullyListened": false,
+    "requirement": "Final recording must show verified public deployment and be watched/listened in full"
   }
 }

@@ -6,6 +6,9 @@ I record the decisions that shape Close Control so a reviewer can challenge the 
 
 | Decision | Why I chose it | When I would revisit it |
 | --- | --- | --- |
+| Separate SQLite Durable Object namespaces on Workers Free. | The supplied account has all ten D1 slots occupied. Current Cloudflare rules support SQLite objects on Free; new Odin classes preserve transactional state without reusing another project. | Available class slots or shared quotas prevent deployment. I would report the limitation rather than upgrade or weaken consistency. |
+| Per-visitor object, SQL revision comparison and fixed 24-hour expiry. | Atomic state/revision writes, isolated objects and commit-time comparison retain the workflow controls after asynchronous hashing. Alarms reclaim only Odin objects. | A production retention and identity policy requires a different, explicitly reviewed design. |
+| Final walkthrough held until public verification and full watching/listening. | The prior local recording was decoded and sampled; that evidence does not meet the requested complete review or live-deployment scope. | Only after those requirements have actually been completed. |
 | One readiness and cash-reconciliation workflow. | Public closing and drafting guides provide enough evidence to define a bounded job. I cannot inspect Odin's internal processes. | Discovery shows a different handoff or a more valuable measured constraint. |
 | Three fictional deals and fixed fictional identities. | A clean case and two distinct exception cases make the workflow inspectable without collecting personal or financial data. | An authorised pilot has an approved data model, access policy and test dataset. |
 | Money as exact integer minor units. | Binary floating point and implicit display rounding are unsuitable for explaining financial balances. | Never for monetary arithmetic; I may expand explicitly supported currency precision. |

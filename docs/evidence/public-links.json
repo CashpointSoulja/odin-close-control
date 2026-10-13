@@ -10,14 +10,18 @@
   },
   "demo": {
     "deployed": false,
-    "blocker": "Cloudflare authentication unavailable"
+    "deploymentOwner": "Authenticated external operator",
+    "status": "Build prepared for new Odin SQLite Durable Object namespaces; public deployment not verified",
+    "credentials": "Not requested or received"
   },
   "video": {
     "repositoryFile": "https://github.com/CashpointSoulja/odin-close-control/blob/main/docs/walkthrough.mp4",
     "publicFileVerified": true,
     "browserPlayerVerified": false,
     "repositoryFileVideoElements": 0,
-    "hostingBlocker": "GitHub Pages creation returned403 Resource not accessible by integration; Cloudflare authentication is also unavailable.",
-    "assetUploadBlocker": "The cloud proxy denied uploads.github.com; the MP4 remains publicly available in the repository."
+    "hostingBlocker": "Historical GitHub Pages integration403; final public deployment recording and complete watch/listen remain required",
+    "assetUploadBlocker": "The cloud proxy denied uploads.github.com; the MP4 remains publicly available in the repository.",
+    "deliveryHeld": true,
+    "reviewStatus": "Historical local recording: decoded and sampled; not continuously watched or listened to"
   }
 }

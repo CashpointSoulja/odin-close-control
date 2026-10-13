@@ -1,0 +1,321 @@
+{
+  "demo": true,
+  "revision": 6,
+  "calculationRuleVersion": "DEMO-CLOSE-CONTROL-RULES-1",
+  "deal": {
+    "id": "DEMO-AURORA",
+    "name": "Aurora Works",
+    "company": "Aurora Works · fictional",
+    "currency": "GBP",
+    "targetCloseDate": "2026-10-14",
+    "feePayer": "lead",
+    "legal": {
+      "status": "final",
+      "filename": "DEMO-AURORA-FINAL.pdf",
+      "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "attestedBy": "DEMO-OPERATOR-01",
+      "uploadedAt": "2026-10-13T00:04:32.088Z"
+    },
+    "attestations": {
+      "kyc": {
+        "attested": true,
+        "actor": "DEMO-OPERATOR-01",
+        "at": "2026-10-12T09:00:00.000Z",
+        "evidence": "Synthetic human attestation only."
+      },
+      "leadRequest": {
+        "attested": true,
+        "actor": "DEMO-OPERATOR-01",
+        "at": "2026-10-12T09:00:00.000Z",
+        "evidence": "Synthetic human attestation only."
+      }
+    },
+    "assignee": "DEMO-OPERATOR-01"
+  },
+  "commitments": [
+    {
+      "id": "DEMO-AURORA-COM-001",
+      "dealId": "DEMO-AURORA",
+      "investorId": "DEMO-INVESTOR-A1",
+      "label": "Maple Grove Capital · fictional",
+      "currency": "GBP",
+      "amountMinor": "3000000"
+    },
+    {
+      "id": "DEMO-AURORA-COM-002",
+      "dealId": "DEMO-AURORA",
+      "investorId": "DEMO-INVESTOR-A2",
+      "label": "Linden Ventures · fictional",
+      "currency": "GBP",
+      "amountMinor": "2000000"
+    }
+  ],
+  "events": [
+    {
+      "id": "DEMO-AURORA-FEE-001",
+      "dealId": "DEMO-AURORA",
+      "commitmentId": "DEMO-AURORA-FEE",
+      "importedCommitmentId": "DEMO-AURORA-FEE",
+      "currency": "GBP",
+      "amountMinor": "50000",
+      "type": "settlement",
+      "parentEventId": null,
+      "bankReference": "DEMO-BANK-AF01",
+      "resolution": null
+    },
+    {
+      "id": "DEMO-AURORA-PAY-001",
+      "dealId": "DEMO-AURORA",
+      "commitmentId": "DEMO-AURORA-COM-001",
+      "importedCommitmentId": "DEMO-AURORA-COM-001",
+      "currency": "GBP",
+      "amountMinor": "3000000",
+      "type": "settlement",
+      "parentEventId": null,
+      "bankReference": "DEMO-BANK-A001",
+      "resolution": null
+    },
+    {
+      "id": "DEMO-AURORA-PAY-002",
+      "dealId": "DEMO-AURORA",
+      "commitmentId": "DEMO-AURORA-COM-002",
+      "importedCommitmentId": "DEMO-AURORA-COM-002",
+      "currency": "GBP",
+      "amountMinor": "1800000",
+      "type": "settlement",
+      "parentEventId": null,
+      "bankReference": "DEMO-BANK-A002",
+      "resolution": null
+    },
+    {
+      "id": "DEMO-AURORA-PAY-003",
+      "dealId": "DEMO-AURORA",
+      "commitmentId": "DEMO-AURORA-COM-002",
+      "importedCommitmentId": null,
+      "currency": "GBP",
+      "amountMinor": "200000",
+      "type": "settlement",
+      "parentEventId": null,
+      "bankReference": "DEMO-BANK-A003",
+      "resolution": null
+    }
+  ],
+  "reconciliation": {
+    "dealId": "DEMO-AURORA",
+    "currency": "GBP",
+    "principalMinor": "5000000",
+    "eligibleMinor": "5000000",
+    "fee": {
+      "totalMinor": "50000",
+      "fixedMinor": "25000",
+      "variableMinor": "25000",
+      "payer": "lead",
+      "basisPoints": 50,
+      "rounding": "Variable fee: half up. Investor allocation: largest remainder; ties by commitment ID.",
+      "allocations": [
+        {
+          "accountId": "DEMO-AURORA-FEE",
+          "amountMinor": "50000"
+        }
+      ]
+    },
+    "accounts": [
+      {
+        "id": "DEMO-AURORA-COM-001",
+        "label": "Maple Grove Capital · fictional",
+        "kind": "investment",
+        "principalMinor": "3000000",
+        "feeMinor": "0",
+        "dueMinor": "3000000",
+        "settledMinor": "3000000",
+        "eventIds": [
+          "DEMO-AURORA-PAY-001"
+        ],
+        "shortfallMinor": "0",
+        "overpaymentMinor": "0"
+      },
+      {
+        "id": "DEMO-AURORA-COM-002",
+        "label": "Linden Ventures · fictional",
+        "kind": "investment",
+        "principalMinor": "2000000",
+        "feeMinor": "0",
+        "dueMinor": "2000000",
+        "settledMinor": "2000000",
+        "eventIds": [
+          "DEMO-AURORA-PAY-002",
+          "DEMO-AURORA-PAY-003"
+        ],
+        "shortfallMinor": "0",
+        "overpaymentMinor": "0"
+      },
+      {
+        "id": "DEMO-AURORA-FEE",
+        "label": "Deal Lead fee cash · fictional",
+        "kind": "fee",
+        "principalMinor": "0",
+        "feeMinor": "50000",
+        "dueMinor": "50000",
+        "settledMinor": "50000",
+        "eventIds": [
+          "DEMO-AURORA-FEE-001"
+        ],
+        "shortfallMinor": "0",
+        "overpaymentMinor": "0"
+      }
+    ],
+    "blockers": [],
+    "events": [
+      {
+        "id": "DEMO-AURORA-FEE-001",
+        "dealId": "DEMO-AURORA",
+        "commitmentId": "DEMO-AURORA-FEE",
+        "importedCommitmentId": "DEMO-AURORA-FEE",
+        "currency": "GBP",
+        "amountMinor": "50000",
+        "type": "settlement",
+        "parentEventId": null,
+        "bankReference": "DEMO-BANK-AF01",
+        "resolution": null
+      },
+      {
+        "id": "DEMO-AURORA-PAY-001",
+        "dealId": "DEMO-AURORA",
+        "commitmentId": "DEMO-AURORA-COM-001",
+        "importedCommitmentId": "DEMO-AURORA-COM-001",
+        "currency": "GBP",
+        "amountMinor": "3000000",
+        "type": "settlement",
+        "parentEventId": null,
+        "bankReference": "DEMO-BANK-A001",
+        "resolution": null
+      },
+      {
+        "id": "DEMO-AURORA-PAY-002",
+        "dealId": "DEMO-AURORA",
+        "commitmentId": "DEMO-AURORA-COM-002",
+        "importedCommitmentId": "DEMO-AURORA-COM-002",
+        "currency": "GBP",
+        "amountMinor": "1800000",
+        "type": "settlement",
+        "parentEventId": null,
+        "bankReference": "DEMO-BANK-A002",
+        "resolution": null
+      },
+      {
+        "id": "DEMO-AURORA-PAY-003",
+        "dealId": "DEMO-AURORA",
+        "commitmentId": "DEMO-AURORA-COM-002",
+        "importedCommitmentId": null,
+        "currency": "GBP",
+        "amountMinor": "200000",
+        "type": "settlement",
+        "parentEventId": null,
+        "bankReference": "DEMO-BANK-A003",
+        "resolution": null
+      }
+    ],
+    "unresolvedEvents": [],
+    "ready": true,
+    "severity": "ready",
+    "severityRank": 0,
+    "evidenceSource": "Synthetic cash ledger and human attestations, with public workflow context.",
+    "evidenceSources": [
+      {
+        "kind": "cash-ledger",
+        "label": "Synthetic settlement events",
+        "eventIds": [
+          "DEMO-AURORA-FEE-001",
+          "DEMO-AURORA-PAY-001",
+          "DEMO-AURORA-PAY-002",
+          "DEMO-AURORA-PAY-003"
+        ]
+      },
+      {
+        "kind": "public-guide",
+        "label": "Odin closing guide",
+        "url": "https://help.joinodin.com/hc/en-gb/articles/25652990575121-What-is-closing-and-when-do-I-know-a-deal-has-closed"
+      },
+      {
+        "kind": "public-guide",
+        "label": "Odin primary-deal drafting guide",
+        "url": "https://help.joinodin.com/hc/en-gb/articles/25326486288273-Drafting-a-primary-deal"
+      }
+    ],
+    "nextAction": "Request human review of this revision."
+  },
+  "snapshotHash": "0941745b60462c38ab65f11e5b6373809a8480d920063d7a4984afb002c6a412",
+  "review": {
+    "status": "approved",
+    "requestedRevision": 5,
+    "requestedHash": "2db5722c572a64489c20d7c0a30658d38d4ebb3d40e28ad6470bfd674c060f8b",
+    "requestedBy": "DEMO-OPERATOR-01",
+    "requestedAt": "2026-10-13T00:04:32.529Z",
+    "approvedRevision": 6,
+    "approvedHash": "0941745b60462c38ab65f11e5b6373809a8480d920063d7a4984afb002c6a412",
+    "reviewer": "DEMO-REVIEWER-01",
+    "approvedAt": "2026-10-13T00:04:33.195Z"
+  },
+  "audit": [
+    {
+      "id": "DEMO-AUDIT-000002",
+      "revision": 2,
+      "at": "2026-10-13T00:04:29.893Z",
+      "actor": "DEMO-OPERATOR-01",
+      "operation": "import",
+      "summary": {
+        "newCommitments": 0,
+        "updatedCommitments": 0,
+        "newEvents": 1,
+        "idempotentEvents": 2
+      }
+    },
+    {
+      "id": "DEMO-AUDIT-000003",
+      "revision": 3,
+      "at": "2026-10-13T00:04:31.493Z",
+      "actor": "DEMO-OPERATOR-01",
+      "operation": "match",
+      "dealId": "DEMO-AURORA",
+      "eventId": "DEMO-AURORA-PAY-003",
+      "commitmentId": "DEMO-AURORA-COM-002"
+    },
+    {
+      "id": "DEMO-AUDIT-000004",
+      "revision": 4,
+      "at": "2026-10-13T00:04:32.088Z",
+      "actor": "DEMO-OPERATOR-01",
+      "operation": "legal",
+      "dealId": "DEMO-AURORA",
+      "metadata": {
+        "demo": true,
+        "deal_id": "DEMO-AURORA",
+        "filename": "DEMO-AURORA-FINAL.pdf",
+        "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "attested_by": "DEMO-OPERATOR-01"
+      }
+    },
+    {
+      "id": "DEMO-AUDIT-000005",
+      "revision": 5,
+      "at": "2026-10-13T00:04:32.529Z",
+      "actor": "DEMO-OPERATOR-01",
+      "operation": "review/request",
+      "dealId": "DEMO-AURORA",
+      "requestedRevision": 5,
+      "snapshotHash": "2db5722c572a64489c20d7c0a30658d38d4ebb3d40e28ad6470bfd674c060f8b"
+    },
+    {
+      "id": "DEMO-AUDIT-000006",
+      "revision": 6,
+      "at": "2026-10-13T00:04:33.195Z",
+      "actor": "DEMO-REVIEWER-01",
+      "operation": "review/approve",
+      "dealId": "DEMO-AURORA",
+      "reviewer": "DEMO-REVIEWER-01",
+      "approvedRevision": 6,
+      "snapshotHash": "0941745b60462c38ab65f11e5b6373809a8480d920063d7a4984afb002c6a412"
+    }
+  ],
+  "notice": "Synthetic human-reviewed readiness packet. No signatures, transfers, regulatory decision or real deal closing were executed."
+}

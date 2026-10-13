@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev --ip 127.0.0.1 --port 8787",
-    "db:migrate": "wrangler d1 migrations apply odin-close-control --local",
+    "dev": "wrangler dev --local --ip 127.0.0.1 --port 8787",
     "test": "node --test tests/*.test.js",
     "test:domain": "node --test tests/domain.test.js",
+    "test:backend": "node --test tests/api.test.js tests/durable.test.js",
+    "deploy:check": "wrangler deploy --dry-run",
     "deploy": "wrangler deploy"
   },
   "devDependencies": {

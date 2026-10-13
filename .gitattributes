@@ -1,1 +1,4 @@
 docs/evidence/*.csv -text whitespace=cr-at-eol
+docs/evidence/durable-browser/*.csv -text whitespace=cr-at-eol
+# Keep official source captures byte-identical, including their final blank lines.
+docs/research/cloudflare/*.mdx -text whitespace=-blank-at-eof

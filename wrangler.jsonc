@@ -9,15 +9,14 @@
     "binding": "ASSETS",
     "run_worker_first": true
   },
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "odin-close-control",
-      // Replace this obvious placeholder after creating a real D1 database.
-      // Local Wrangler development and migrations work without a remote database.
-      "database_id": "00000000-0000-0000-0000-000000000000",
-      "migrations_dir": "migrations"
-    }
+  "durable_objects": {
+    "bindings": [
+      { "name": "ODIN_SESSIONS", "class_name": "OdinSession" },
+      { "name": "ODIN_RATE_LIMITERS", "class_name": "OdinRateLimiter" }
+    ]
+  },
+  "migrations": [
+    { "tag": "odin-sqlite-v1", "new_sqlite_classes": ["OdinSession", "OdinRateLimiter"] }
   ],
   "observability": {
     "enabled": false

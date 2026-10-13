@@ -40,10 +40,14 @@ For net cash I use settled receipts minus linked refunds and reversals. I never 
 
 I would compare like-for-like deals in a shadow trial, retain medians and distributions, and check control quality before claiming a benefit. Odin's typical seven-working-day closing estimate is public context, not a measured baseline or a speed promise for this concept.
 
-## Observed-results register
+## Historical observed-results register
 
-I observed **42 tests passing with zero failures** from `npm test`: 34 [domain tests](../tests/domain.test.js) and eight [Worker/D1 API tests](../tests/api.test.js). The [sanitized test report](evidence/automated-tests.json) records the executed result. The local D1 migration applied successfully. A deployment dry run built the approximately 50 KiB Worker and public assets; it did not deploy a service.
+I observed **42 tests passing with zero failures** from `npm test`: 34 [domain tests](../tests/domain.test.js) and eight [Worker/D1 API tests at that revision](https://github.com/CashpointSoulja/odin-close-control/blob/24eab2e7e9ccd1cc3746cd3d12ed06fa8bf897fd/tests/api.test.js). The [sanitized test report](evidence/automated-tests.json) records the executed result. The local D1 migration applied successfully. A deployment dry run built the approximately 50 KiB Worker and public assets; it did not deploy a service.
 
 The final [browser report](evidence/browser-results.json), captured on 12 October 2026 against local Wrangler and D1, **passed**. The actual two-file flow reached the revision-6 packet, independently checked its SHA-256 snapshot hash and persisted approval across reload. Stale-review and stale-packet regressions returned the expected `409` responses. Keyboard checks and the 1440-pixel desktop and 390-pixel mobile views passed; the core workflow recorded no page exceptions, console errors or failed API responses. Loading and unavailable-service images are labelled induced conditions, not evidence of a deployed service.
 
-Cloudflare authentication was unavailable when rechecked, so **no public backend or production deployment is verified**. Automation timestamps include network, capture and test overhead; they are not measured human operating time or an improvement against a real baseline. Production adoption, user research, economic impact and real financial closing remain unmeasured.
+Authentication was unavailable during that historical run. It has since been resolved privately outside this build, according to the deployment instruction; authenticated deployment will be handled externally. **No public backend or production deployment is verified by this build.** Automation timestamps include network, capture and test overhead; they are not measured human operating time or an improvement against a real baseline. Production adoption, user research, economic impact and real financial closing remain unmeasured.
+
+## SQLite Durable Object observed results
+
+I observed 61 passing checks and zero failures in the [new local verification](test-results.md): 34 unchanged domain checks, eight migrated API checks and 19 additional Durable Object checks. The new browser flow passed and its reviewed packet hash was independently verified. No public deployment, production capacity, continuous final-video review, human operating time, savings or investment closing was measured.
